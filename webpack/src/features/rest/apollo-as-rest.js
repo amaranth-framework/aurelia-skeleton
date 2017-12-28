@@ -1,5 +1,5 @@
 
-class ApolloAsREST {
+export class ApolloAsREST {
     /**
      * @see aurelia-api/Rest::create()
      * @link https://aurelia-api.spoonx.org/api_rest.html

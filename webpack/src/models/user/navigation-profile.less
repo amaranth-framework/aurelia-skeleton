@@ -1,54 +1,62 @@
-@import "../../variables.less";
+@import "../../_variables.less";
 
 .nav-profile {
-    &__image {
-        border-radius: 50%;
-        display: inline-block;
-        margin: 7px 0;
-        overflow: hidden;
-        width: 36px;
-        img {
-            width: 100%;
-        }
+  &__image {
+    border-radius: 50%;
+    display: inline-block;
+    margin: 7px 0;
+    overflow: hidden;
+    width: 36px;
+
+    img {
+      width: 100%;
     }
+  }
 }
 
 .component {
-    &--left-profile {
-        .nav-profile {
-            background: url(/images/bg-50p.jpg) no-repeat center center;
-            display: none;
-            padding: @padding-base-horizontal * 2 @padding-base-horizontal;
-            &__image {
-                border: 3px solid @color-900;
-                width: 48px;
-            }
-            &__item {
-                & > a {
-                    color: @color-900;
-                    padding: 0;
-                }
-            }
-            &__name {
-                display: block;
-                font-weight: bold;
-            }
-            nav-left.is-open & {
-                display: block;
-            }
+  &--left-profile {
+    .nav-profile {
+      background: url(/images/bg-50p.jpg) no-repeat center center;
+      display: none;
+      padding: @padding-base-horizontal * 2 @padding-base-horizontal;
+
+      &__image {
+        border: 3px solid @gray-900;
+        width: 48px;
+      }
+
+      &__item {
+        & > a {
+          color: @gray-900;
+          padding: 0;
         }
+      }
+
+      &__name {
+        display: block;
+        font-weight: bold;
+      }
+
+      nav-left.is-open & {
+        display: block;
+      }
     }
-    &--top-profile {
-        .nav-profile {
-            &__details {
-                display: none;
-            }
-            &__item {
-                display: flex;
-                a {
-                    padding-left: @padding-small-horizontal / 2;
-                }
-            }
+  }
+
+  &--top-profile {
+    .nav-profile {
+      &__details {
+        display: none;
+      }
+
+      &__item {
+        display: flex;
+
+        a {
+          padding-left: @padding-small-horizontal / 2;
         }
+      }
     }
+  }
 }

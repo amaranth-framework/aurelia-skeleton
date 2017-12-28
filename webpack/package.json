@@ -15,8 +15,8 @@
   "scripts": {
     "build": "nps webpack.build",
     "lint": "npm run lint:es && npm run lint:less",
-    "lint:es": "eslint ./*.js src --fix",
-    "lint:less": "",
+    "lint:es": "eslint ./src/**/*.js src --fix",
+    "lint:less": "stylelint src/**/**/**/*.less --fix",
     "postinstall": "rm -rf ./node_modules/aurelia-validation/node_modules",
     "start": "nps",
     "test": "nps test"
@@ -105,6 +105,8 @@
     "postcss-loader": "2.0.6",
     "protractor": "5.1.2",
     "style-loader": "0.18.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
     "traits-decorator": "1.0.1",
     "url-loader": "0.5.9",
     "wait-on": "2.0.2",
@@ -133,7 +135,7 @@
     "aurelia-templating-router": "1.1.0",
     "aurelia-validation": "1.0.0",
     "bluebird": "3.5.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "4.0.0-beta.2",
     "chance": "1.0.11",
     "font-awesome": "4.7.0",
     "i18next-xhr-backend": "1.4.3",
@@ -143,6 +145,7 @@
     "lodash": "4.17.4",
     "messg": "2.2.0",
     "subscriptions-transport-ws": "0.9.1",
+    "tether": "^1.4.3",
     "text": "github:requirejs/text#latest",
     "uuid-js": "^0.7.5"
   }

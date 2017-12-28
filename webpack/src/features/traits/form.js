@@ -31,7 +31,7 @@ export class Form {
         // property -> determine whether input is filled or not
         Object.defineProperty(input, 'isFilled', {
             get: () => {
-                return this[input.name] && (new String(this[input.name])).length > 0;
+                return this[input.name] && this[input.name].length > 0;
             }
         });
         // property -> determine or set the validation errors

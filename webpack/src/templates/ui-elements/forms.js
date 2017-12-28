@@ -1,5 +1,3 @@
-import {validateTrigger, ValidationController, ValidationRules} from 'aurelia-validation';
-
 import messg from 'messg';
 import 'messg/index.css';
 

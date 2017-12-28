@@ -1,5 +1,3 @@
-import {I18N} from 'aurelia-i18n';
-import {ValidationMessageProvider} from 'aurelia-validation';
 import Backend from 'i18next-xhr-backend';
 import environment from './environment';
 

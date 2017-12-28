@@ -1,7 +1,7 @@
 import { inject, NewInstance } from 'aurelia-framework';
-import { validateTrigger, ValidationController, ValidationRules } from 'aurelia-validation';
+import { validateTrigger, ValidationController } from 'aurelia-validation';
 
-import { excludes, traits } from 'traits-decorator';
+import { traits } from 'traits-decorator';
 
 import { Component } from 'features/views/component';
 import { extend } from 'features/utils';

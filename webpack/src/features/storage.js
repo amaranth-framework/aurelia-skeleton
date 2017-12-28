@@ -14,7 +14,7 @@ import { getCookie, setCookie, removeCookie } from 'features/utils';
 /**
  * @type {Object}
  */
-export var StorageOptions = {
+export const StorageOptions = {
     type: 'local'
 };
 

@@ -11,7 +11,7 @@ import { excludes, traits } from 'traits-decorator';
 import {Eventable} from 'features/traits/eventable';
 import {Loggable} from 'features/traits/loggable';
 import {RESTable} from 'features/traits/restable';
-import { waitForVariable, extend, className, parentClassName } from 'features/utils';
+import { className, parentClassName } from 'features/utils';
 
 /**
  * Aurelia class base for almost each functionality we may build.

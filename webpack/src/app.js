@@ -12,7 +12,6 @@ import _ from 'lodash';
 
 import { AuthorizeStepJWT as AuthorizeStep } from 'features/authorize-step/authorize-step';
 import { Base } from 'features/base';
-import { EventsList } from 'features/utils';
 
 /**
  * Application

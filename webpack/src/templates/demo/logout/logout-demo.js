@@ -1,5 +1,4 @@
 import { Template } from 'features/views/template';
-import { extend } from 'features/utils';
 
 /**
  *

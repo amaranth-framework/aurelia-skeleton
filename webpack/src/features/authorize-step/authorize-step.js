@@ -5,8 +5,6 @@ import decode from 'jwt-decode';
 
 import { Base } from 'features/base';
 import { Storage } from 'features/storage';
-import { User } from 'models/user/user';
-import { getCookie, setCookie, removeCookie } from 'features/utils';
 
 /**
  * @type {Object}
