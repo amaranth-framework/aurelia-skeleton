@@ -144,6 +144,7 @@
     "jwt-decode": "2.2.0",
     "lodash": "4.17.4",
     "messg": "2.2.0",
+    "popper.js": "^1.12.9",
     "subscriptions-transport-ws": "0.9.1",
     "tether": "^1.4.3",
     "text": "github:requirejs/text#latest",

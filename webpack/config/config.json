@@ -3,5 +3,18 @@
   "rest": {
     "http-endpoint": "http://domain:8080/graphql",
     "ws-endpoint": "ws://domain:4040/subscriptions"
+  },
+  "components": {
+    "nav-left": {
+      "styles": {
+        "navbar": "navbar-expand-sm navbar-light bg-light"
+      }
+    },
+    "nav-top": {
+      "navbarCollapseTarget": "nav-left",
+      "styles": {
+        "navbar": "navbar-expand-sm navbar-light bg-light"
+      }
+    }
   }
 }

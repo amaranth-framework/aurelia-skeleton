@@ -2,6 +2,8 @@ import Backend from 'i18next-xhr-backend';
 import environment from './environment';
 
 import 'font-awesome/css/font-awesome.css';
+
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import * as Bluebird from 'bluebird';

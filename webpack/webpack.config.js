@@ -9,7 +9,7 @@ const { optimize: { CommonsChunkPlugin, UglifyJsPlugin }, ProvidePlugin } = requ
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
 const when = (condition, config, negativeConfig) =>
-  condition ? ensureArray(config) : ensureArray(negativeConfig);
+    condition ? ensureArray(config) : ensureArray(negativeConfig);
 
 // primary config:
 const title = 'Aurelia Navigation Skeleton';
@@ -30,7 +30,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     },
     entry: {
         app: ['babel-polyfill', 'aurelia-bootstrapper'],
-        vendor: ['bluebird', 'jquery', 'tether', 'bootstrap']
+        vendor: [/*'bluebird'*/]
     },
     output: {
         path: outDir,
@@ -74,7 +74,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
                 use: ['css-loader', 'less-loader'],
                 issuer: /\.html?$/i
             },
-      { test: /\.html$/i, loader: 'html-loader' },
+            { test: /\.html$/i, loader: 'html-loader' },
             { test: /\.js$/i, loader: 'babel-loader', exclude: nodeModulesDir,
                 options: coverage ? { sourceMap: 'inline', plugins: [ 'istanbul' ] } : {}
             },
@@ -96,7 +96,11 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
             'Promise': 'bluebird',
             '$': 'jquery',
             'jQuery': 'jquery',
-            'window.jQuery': 'jquery'
+            'window.jQuery': 'jquery',
+            'Tether': 'tether',
+            'window.Tether': 'tether',
+            'Popper': 'popper.js',
+            'window.Popper': 'popper.js'
         }),
         new CopyWebpackPlugin([
             { from: 'favicon.ico', to: 'favicon.ico' },
@@ -134,7 +138,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
             name: ['common']
         })),
         ...when(production, new CopyWebpackPlugin([
-      { from: 'static/favicon.ico', to: 'favicon.ico' }
+            { from: 'static/favicon.ico', to: 'favicon.ico' }
         ])),
         ...when(production, new UglifyJsPlugin({
             sourceMap: true

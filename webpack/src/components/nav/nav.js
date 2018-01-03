@@ -9,6 +9,27 @@ export class ComponentNav extends Component {
      */
     overrideSettingsKey = 'components.nav';
     /**
+     * @param  {{}}       route [description]
+     * @return {String}         [description]
+     */
+    cssClassesDropdownItem(route) {
+        let classes = [];
+        route.divider && classes.push('dropdown-divider');
+        route.divider || classes.push('dropdown-item');
+        route.active && classes.push('active');
+        return classes.join(' ');
+    }
+    /**
+    * @param  {{}}       route [description]
+    * @return {String}         [description]
+    */
+    cssClassesNavItem(route) {
+        let classes = [];
+        route.active && classes.push('active');
+        route.routes && route.routes.length && classes.push('dropdown');
+        return classes.join(' ');
+    }
+    /**
      * @see View::defaultSettings()
      * @return {Object}
      */

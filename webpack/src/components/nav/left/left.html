@@ -1,10 +1,19 @@
 <template>
-    <require from="./left.less"></require>
-	
-    <h3 t="[html]${settings.title}" if.bind="settings.title" class="component-title"></h3>
-    <div repeat.for="component of settings.components" class="component component--${component.type}"
-            class.bind="settings.styles[component.type]">
-        <compose containerless view.bind="component.view || (component.module + '.html')"
-            view-model.bind="component.module" model.bind="{ settings: component.settings }"></compose>
-    </div>
+  <require from="./left.less"></require>
+  
+  <nav class.bind="settings.styles.navbar" class="navbar">
+    <!-- Application Logo / Brand -->
+    <!-- <a class.bind="settings.styles.brand" class="navbar-brand" href="#">Amaranth</a> -->
+    <compose containerless view-model="components/helper/logo/logo" model.bind="{ settings: settings.componentsStatic.logo }"></compose>
+    <!-- + Mobile Menu Toggle -->
+    <button class.bind="settings.styles.toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#${settings.navbarCollapseTarget}" aria-controls="${settings.navbarCollapseTarget}" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button><!-- - Mobile Menu Toggle -->
+    <!-- + Nav bar -->
+    <div class.bind="settings.styles.content" class="navbar-collapse" id="${settings.navbarCollapseId}">
+      <div repeat.for="component of settings.componentsNavbar" class="component component--${component.type}" class.bind="settings.styles[component.type]">
+        <compose containerless view.bind="component.view || (component.module + '.html')" view-model.bind="component.module" model.bind="{ settings: component.settings }"></compose>
+      </div>
+    </div><!-- - Nav bar -->
+  </nav>
 </template>

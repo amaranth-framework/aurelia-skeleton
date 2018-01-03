@@ -15,12 +15,7 @@ export class ComponentNavLeft extends ComponentHelperContent {
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
-            toggle: true,  // ?
-            components: [  // list of components to render
-                {
-                    type: 'left-logo',
-                    module: PLATFORM.moduleName('components/helper/logo/logo')
-                },
+            componentsNavbar: [  // list of components to render
                 {
                     type: 'left-profile',
                     module: PLATFORM.moduleName('models/user/user'),
@@ -51,7 +46,9 @@ export class ComponentNavLeft extends ComponentHelperContent {
                         style: 'menu'
                     }
                 }
-            ]
+            ],
+            navbarCollapseTarget: 'nav-left',
+            toggle: true
         });
     }
     /**
@@ -59,13 +56,6 @@ export class ComponentNavLeft extends ComponentHelperContent {
      */
     init() {
         super.init();
-
-        if (this.settings.toggle) {
-            this.settings.components.push({
-                type: 'left-toggle',
-                module: PLATFORM.moduleName('components/nav/toggle/toggle')
-            });
-        }
 
         this.logger.debug('left-nav', this.settings);
     }

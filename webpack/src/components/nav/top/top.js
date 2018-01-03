@@ -4,6 +4,11 @@ import { extend } from 'features/utils';
 
 export class ComponentNavTop extends ComponentHelperContent {
     /**
+    * [NAVBAR_COLLAPSE_TARGET_LEFT description]
+    * @type {String}
+    */
+    static NAVBAR_COLLAPSE_TARGET_LEFT = 'nav-left';
+    /**
      * @see ModelView::overrideSettingsKey
      */
     overrideSettingsKey = 'components.nav-top';
@@ -13,14 +18,14 @@ export class ComponentNavTop extends ComponentHelperContent {
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
-            components: [
+            componentsNavbar: [
                 {
                     type: 'navbar-nav-left',
                     module: PLATFORM.moduleName('components/nav/nav'),
                     settings: {
                         style: 'navbar-nav'
                     }
-                },
+                },/*
                 {
                     type: 'top-profile',
                     module: PLATFORM.moduleName('models/user/user'),
@@ -29,17 +34,31 @@ export class ComponentNavTop extends ComponentHelperContent {
                         fromSession: true,
                         style: 'navbar-nav'
                     }
-                },
+                },/**/
                 {
                     type: 'top-inbox',
                     module: PLATFORM.moduleName('components/nav/top/inbox/inbox')
                 }
             ],
-
-            navbar: {
-                style: 'navbar-nav'
-            }
+            componentsStatic: {
+                logo: {
+                    style: 'navbar-brand'
+                }
+            },
+            navbarCollapseId: 'nav-top'
         });
+    }
+    /**
+     * @see View::init()
+     */
+    init() {
+        super.init();
+        // tie collapse id to container
+        this.settings.navbarCollapseId = `${this.settings.navbarCollapseId}-${this.__uuid}`;
+        // initialize dropdown id if not available
+        if (this.settings.navbarCollapseTarget !== ComponentNavTop.NAVBAR_COLLAPSE_TARGET_LEFT) {
+            this.settings.navbarCollapseTarget = this.settings.navbarCollapseId;
+        }
     }
     /**
      * Toggle Visibility of left navigation menu
