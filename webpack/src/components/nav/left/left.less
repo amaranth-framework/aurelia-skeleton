@@ -6,49 +6,95 @@
 //
 
 nav-left {
-  color: @color-900;
-  height: 52px; // height of the navbar
-  left: 0;
-  overflow: visible;
-  position: absolute;
-  top: 0;
-  z-index: 99999;
-
-  &.show {
-    background: @color-900;
     box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.1);
-    bottom: 0;
-    height: auto;
-    width: 80%;
-  }
+    color: @color-900;
+    flex: 0 0 64px;
+    flex-direction: column;
+    height: 100vh;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    z-index: 99999;
 
-  &.nav-left--expand-sm {}
+    &.collapse { }
 
-  &.nav-left--expand-lg {}
+    &.collapsing {
+        position: absolute;
+        width: @sizes-75;
+    }
 
-  &.nav-left--expand-xl {}
-}
-
-@media (min-width: @screen-md-min) {
-    nav-left,
-    nav-left.collapse {
+    &.show {
         background: @color-900;
         box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.1);
+        bottom: 0;
         display: flex;
-        flex: 0 0 64px;
-        flex-direction: column;
-        height: 100vh;
-        position: relative;
+        position: absolute;
+        width: @sizes-75;
+    }
 
-        &.show {
-            width: 220px;
-        }
+    // &.nav-left--expand-sm {
+    //
+    // }
+    //
+    // &.nav-left--expand-md {
+    //
+    // }
+    //
+    // &.nav-left--expand-lg {
+    //
+    // }
+    //
+    // &.nav-left--expand-xl {
+    //
+    // }
+}
+
+nav-left .navbar {
+    &-toggler {
+        align-self: left;
+        border: 0;
+        padding: @navbar-toggler-padding-x @navbar-toggler-padding-y;
     }
 }
 
 @media (min-width: @screen-md-min) {
-    nav-left.show {
-        flex: 0 0 220px;
+    nav-left {
+        position: static;
+        width: @sizes-25;
+
+        &.collapse {
+            display: flex;
+            width: @nav-left-collapse-width;
+        }
+
+        &.collapsing {
+            width: @sizes-25;
+        }
+
+        &.show {
+            width: @sizes-25;
+        }
+
+        & .navbar-toggler {
+            align-self: center;
+        }
+    }
+
+    nav-left .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: @nav-left-navbar-padding-x @nav-left-navbar-padding-y;
+
+        &.navbar-expand-sm .navbar-toggler {
+            display: block;
+        }
+    }
+
+    nav-left.show .navbar {
+        &.navbar-expand-sm .navbar-toggler {
+            align-self: right;
+        }
     }
 }
 

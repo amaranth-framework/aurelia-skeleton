@@ -16,36 +16,36 @@ export class ComponentNavLeft extends ComponentHelperContent {
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
             componentsNavbar: [  // list of components to render
-                {
-                    type: 'left-profile',
-                    module: PLATFORM.moduleName('models/user/user'),
-                    view: PLATFORM.moduleName('models/user/navigation-profile.html'),
-                    settings: {
-                        fromSession: true
-                    }
-                },
-                {
-                    type: 'left-nav',
-                    module: PLATFORM.moduleName('components/nav/nav'),
-                    settings: {
-                        content: {
-                            title: 'Demo Elements'
-                        },
-                        filter: { group: 'left-demo', nav: true },
-                        style: 'menu'
-                    }
-                },
-                {
-                    type: 'left-nav',
-                    module: PLATFORM.moduleName('components/nav/nav'),
-                    settings: {
-                        content: {
-                            title: 'UI/UX Experience'
-                        },
-                        filter: { group: 'left-ui', nav: true },
-                        style: 'menu'
-                    }
-                }
+                // {
+                //     type: 'left-profile',
+                //     module: PLATFORM.moduleName('models/user/user'),
+                //     view: PLATFORM.moduleName('models/user/navigation-profile.html'),
+                //     settings: {
+                //         fromSession: true
+                //     }
+                // },
+                // {
+                //     type: 'left-nav',
+                //     module: PLATFORM.moduleName('components/nav/nav'),
+                //     settings: {
+                //         content: {
+                //             title: 'Demo Elements'
+                //         },
+                //         filter: { group: 'left-demo', nav: true },
+                //         style: 'menu'
+                //     }
+                // },
+                // {
+                //     type: 'left-nav',
+                //     module: PLATFORM.moduleName('components/nav/nav'),
+                //     settings: {
+                //         content: {
+                //             title: 'UI/UX Experience'
+                //         },
+                //         filter: { group: 'left-ui', nav: true },
+                //         style: 'menu'
+                //     }
+                // }
             ],
             navbarCollapseTarget: 'nav-left',
             toggle: true

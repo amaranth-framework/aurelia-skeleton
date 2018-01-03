@@ -25,19 +25,10 @@
 }
 
 @media (min-width: @screen-md-min) {
-  .logo .logo__title {
-    color: @color--50;
+  nav-left .logo {
+      display: none;
   }
-}
-
-nav-left.is-open .logo {
-  // padding: 0 @padding-base-horizontal; @TODO
-
-  &__title {
-    color: @color--50;
-
-    &-text {
-      display: inline-block;
-    }
+  nav-left.show .logo {
+      display: block;
   }
 }
