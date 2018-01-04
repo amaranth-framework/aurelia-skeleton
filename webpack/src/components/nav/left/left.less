@@ -6,22 +6,20 @@
 //
 
 nav-left {
-    box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.1);
-    color: @color-900;
-    flex: 0 0 64px;
-    flex-direction: column;
     height: 100vh;
     left: 0;
-    overflow: visible;
     position: absolute;
     top: 0;
     z-index: 99999;
+}
+
+nav-left {
 
     &.collapse { }
 
     &.collapsing {
         position: absolute;
-        width: @sizes-75;
+        // width: @sizes-75;
     }
 
     &.show {
@@ -30,73 +28,115 @@ nav-left {
         bottom: 0;
         display: flex;
         position: absolute;
-        width: @sizes-75;
+        // width: @sizes-75;
     }
-
-    // &.nav-left--expand-sm {
-    //
-    // }
-    //
-    // &.nav-left--expand-md {
-    //
-    // }
-    //
-    // &.nav-left--expand-lg {
-    //
-    // }
-    //
-    // &.nav-left--expand-xl {
-    //
-    // }
 }
 
 nav-left .navbar {
-    &-toggler {
-        align-self: left;
-        border: 0;
-        padding: @navbar-toggler-padding-x @navbar-toggler-padding-y;
+    // align-items: left;
+    height: 100vh;
+
+    & > * {
+        width: 100%;
+        border: 1px solid black !important;
     }
 }
 
-@media (min-width: @screen-md-min) {
-    nav-left {
-        position: static;
-        width: @sizes-25;
-
-        &.collapse {
-            display: flex;
-            width: @nav-left-collapse-width;
-        }
-
-        &.collapsing {
-            width: @sizes-25;
-        }
-
-        &.show {
-            width: @sizes-25;
-        }
-
-        & .navbar-toggler {
-            align-self: center;
-        }
-    }
-
-    nav-left .navbar {
-        display: flex;
-        flex-direction: column;
-        padding: @nav-left-navbar-padding-x @nav-left-navbar-padding-y;
-
-        &.navbar-expand-sm .navbar-toggler {
-            display: block;
-        }
-    }
-
-    nav-left.show .navbar {
-        &.navbar-expand-sm .navbar-toggler {
-            align-self: right;
-        }
-    }
+nav-left .navbar-collapse {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
 }
+
+nav-left .navbar-toggler {
+    align-self: left;
+    border: 0;
+    padding: @navbar-toggler-padding-x @navbar-toggler-padding-y;
+}
+
+//
+// @media (min-width: @screen-md-min) {
+//     nav-left {
+//         position: static;
+//
+//         &.collapse {
+//             display: flex;
+//             width: @nav-left-collapsed-width-md;
+//         }
+//
+//         &.collapsing {
+//             width: @nav-left-shown-width-md;
+//         }
+//
+//         &.show {
+//             width: @nav-left-shown-width-md;
+//         }
+//
+//         & .navbar-toggler {
+//             align-self: center;
+//         }
+//
+//         & .navbar-collapse {
+//             align-items: left;
+//             flex-direction: column;
+//             justify-content: left;
+//         }
+//     }
+//
+//     nav-left .navbar {
+//         display: flex;
+//         flex-direction: column;
+//         padding: @nav-left-navbar-padding-x @nav-left-navbar-padding-y;
+//
+//         &.navbar-expand-sm .navbar-toggler {
+//             display: block;
+//         }
+//     }
+//
+//     nav-left.show .navbar {
+//         align-items: left;
+//         justify-content: flex-start;
+//
+//         &.navbar-expand-sm .navbar-toggler {
+//             align-self: right;
+//         }
+//     }
+// }
+//
+// @media (min-width: @screen-lg-min) {
+//     nav-left {
+//         position: static;
+//         width: @nav-left-shown-width-lg;
+//
+//         &.collapse {
+//             display: flex;
+//             width: @nav-left-collapsed-width-lg;
+//         }
+//
+//         &.collapsing {
+//             width: @nav-left-shown-width-lg;
+//         }
+//
+//         &.show {
+//             width: @nav-left-shown-width-lg;
+//         }
+//
+//         & .navbar-toggler {
+//             display: none;
+//         }
+//     }
+//
+//     nav-left .navbar {
+//         display: flex;
+//         flex-direction: column;
+//         padding: @nav-left-navbar-padding-x @nav-left-navbar-padding-y;
+//
+//         &.navbar-expand-sm .navbar-toggler {
+//             display: block;
+//         }
+//     }
+// }
 
 //
 // nav-left .menu container
