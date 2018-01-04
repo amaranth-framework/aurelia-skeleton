@@ -1,0 +1,22 @@
+@import '../../_variables.less';
+@import '../../_mixins.less';
+
+nav-left .nav.navbar-nav {
+    flex-direction: column;
+}
+
+@media (min-width: @screen-md-min) {
+    nav-left:not(.show) .nav {
+        span {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    nav-left:not(.show) .nav {
+        span {
+            display: inline-block;
+        }
+    }
+}

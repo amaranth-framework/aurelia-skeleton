@@ -11,42 +11,22 @@ nav-left {
     position: absolute;
     top: 0;
     z-index: 99999;
-}
-
-nav-left {
 
     &.collapse { }
 
-    &.collapsing {
-        position: absolute;
-        // width: @sizes-75;
-    }
-
+    &.collapsing,
     &.show {
-        background: @color-900;
         box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.1);
-        bottom: 0;
-        display: flex;
         position: absolute;
-        // width: @sizes-75;
+        width: @sizes-75;
     }
 }
 
-nav-left .navbar {
-    // align-items: left;
-    height: 100vh;
-
-    & > * {
-        width: 100%;
-        border: 1px solid black !important;
-    }
-}
+nav-left .navbar { }
 
 nav-left .navbar-collapse {
-    align-items: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+    flex: 0 0 100%;
+    width: 100%;
 }
 
 nav-left .navbar-toggler {
@@ -55,35 +35,66 @@ nav-left .navbar-toggler {
     padding: @navbar-toggler-padding-x @navbar-toggler-padding-y;
 }
 
-//
-// @media (min-width: @screen-md-min) {
-//     nav-left {
-//         position: static;
-//
-//         &.collapse {
-//             display: flex;
-//             width: @nav-left-collapsed-width-md;
-//         }
-//
-//         &.collapsing {
-//             width: @nav-left-shown-width-md;
-//         }
-//
-//         &.show {
-//             width: @nav-left-shown-width-md;
-//         }
-//
-//         & .navbar-toggler {
-//             align-self: center;
-//         }
-//
-//         & .navbar-collapse {
-//             align-items: left;
-//             flex-direction: column;
-//             justify-content: left;
-//         }
-//     }
-//
+
+@media (min-width: @screen-md-min) {
+    nav-left {
+        position: static;
+
+        &.collapse {
+            display: block;
+            width: @nav-left-collapsed-width-md;
+        }
+
+        &.collapsing,
+        &.show {
+            width: @nav-left-shown-width-md;
+
+            & .navbar {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        & .navbar {
+            flex-direction: column;
+            & .navbar-toggler {
+                display: block;
+            }
+        }
+
+        & .navbar-expand-sm,
+        & .navbar-expand-md,
+        & .navbar-expand-lg {
+            justify-content: space-between;
+        }
+
+        & .navbar-collapse {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    nav-left {
+        position: static;
+        width: @nav-left-shown-width-lg;
+
+        &.collapse {
+            display: block;
+            width: @nav-left-collapsed-width-lg;
+        }
+
+        &.collapsing,
+        &.show {
+            width: @nav-left-shown-width-lg;
+        }
+
+        & .navbar .navbar-toggler {
+            display: none;
+        }
+    }
+
 //     nav-left .navbar {
 //         display: flex;
 //         flex-direction: column;
@@ -93,50 +104,7 @@ nav-left .navbar-toggler {
 //             display: block;
 //         }
 //     }
-//
-//     nav-left.show .navbar {
-//         align-items: left;
-//         justify-content: flex-start;
-//
-//         &.navbar-expand-sm .navbar-toggler {
-//             align-self: right;
-//         }
-//     }
-// }
-//
-// @media (min-width: @screen-lg-min) {
-//     nav-left {
-//         position: static;
-//         width: @nav-left-shown-width-lg;
-//
-//         &.collapse {
-//             display: flex;
-//             width: @nav-left-collapsed-width-lg;
-//         }
-//
-//         &.collapsing {
-//             width: @nav-left-shown-width-lg;
-//         }
-//
-//         &.show {
-//             width: @nav-left-shown-width-lg;
-//         }
-//
-//         & .navbar-toggler {
-//             display: none;
-//         }
-//     }
-//
-//     nav-left .navbar {
-//         display: flex;
-//         flex-direction: column;
-//         padding: @nav-left-navbar-padding-x @nav-left-navbar-padding-y;
-//
-//         &.navbar-expand-sm .navbar-toggler {
-//             display: block;
-//         }
-//     }
-// }
+}
 
 //
 // nav-left .menu container

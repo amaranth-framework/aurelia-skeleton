@@ -32,7 +32,7 @@ export class ComponentNavLeft extends ComponentHelperContent {
                             title: 'Demo Elements'
                         },
                         filter: { group: 'left-demo', nav: true },
-                        style: 'menu'
+                        style: 'menu navbar-nav'
                     }
                 },
                 {
@@ -43,7 +43,7 @@ export class ComponentNavLeft extends ComponentHelperContent {
                             title: 'UI/UX Experience'
                         },
                         filter: { group: 'left-ui', nav: true },
-                        style: 'menu'
+                        style: 'menu navbar-nav'
                     }
                 }
             ],

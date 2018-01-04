@@ -1,4 +1,5 @@
 <template>
+    <require from="./nav.less"></require>
     <ul if.bind="filteredRoutes.length" class="nav" class.bind="style">
         <li repeat.for="route of filteredRoutes" class.bind="cssClassesNavItem(route)" class="nav-item">
             <a if.bind="!route.routes.length" click.trigger="router.navigateToRoute(route.name, route.params || {})" href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -10,7 +11,7 @@
               <span innerhtml.bind="route.title"></span>
             </a>
             <div if.bind="route.routes && route.routes.length" class="dropdown-menu" aria-labelledby="navbar-dropdown-${$index}-${__uuid}">
-              <a repeat.for="subroute of findRoutes(route.routes || [])" class.bind="cssClassesDropdownItem(subroute)">
+              <a repeat.for="subroute of findRoutes(route.routes || [])" class.bind="cssClassesDropdownItem(subroute)" click.trigger="router.navigateToRoute(subroute.name, subroute.params || {})">
                 <i if.bind="subroute.icon" class="fa ${route.icon}"></i>
                 <span innerhtml.bind="subroute.title"></span>
               </a>
