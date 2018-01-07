@@ -78,7 +78,7 @@
     "copy-webpack-plugin": "4.0.1",
     "cross-env": "5.0.1",
     "css-loader": "0.28.4",
-    "esdoc": "1.0.3",
+    "esdoc": "1.0.4",
     "esdoc-ecmascript-proposal-plugin": "1.0.0",
     "esdoc-standard-plugin": "1.0.0",
     "eslint": "3.19.0",

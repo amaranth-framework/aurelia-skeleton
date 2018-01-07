@@ -28,9 +28,7 @@ export class ComponentNavBreadcrumb extends Component {
     init() {
         super.init();
         // Override routes with list from settings
-        if (this.settings.routes) {
-            this.routes = this.settings.routes;
-        }
+        this.routes = this.settings.routes || [];
         // add title to predefined routes
         this.routes.forEach((route, i) => {
             this.routes[i] = this.discoverRouteByName(route.route);
@@ -48,6 +46,8 @@ export class ComponentNavBreadcrumb extends Component {
                 }));
             }
         }
+
+        this.routes = _.uniqBy(this.routes, obj => obj.route);
 
         this.events.subscribe('components::breacrumbs::routes', (routes = null) => {
             if (routes !== null && Array.isArray(routes)) {

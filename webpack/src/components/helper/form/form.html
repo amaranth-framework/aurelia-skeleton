@@ -12,17 +12,17 @@
             <div class.bind="inputStyle()">
 
                 <!-- Input / text, password, date, file -->
-                <input class.bind="_input(input).isFilled ? 'is-filled' : ''" id.bind="_input(input).id" if.bind="isTextInput(input)" placeholder="${input.placeholder || input.label}" type.bind="input.type" value.bind="$parent[input.name] & validate" class="form-control">
+                <input class.bind="_input(input).isFilled ? 'is-filled' : ''" id.bind="_input(input).id" if.bind="isTextInput(input)" aria-describedby="${_input(input).id}-help" placeholder="${input.placeholder || input.label}" type.bind="input.type" value.bind="$parent[input.name] & validate" class="form-control">
 
                 <!-- Textarea -->
-                <textarea if.bind="isTextarea(input)" id.bind="_input(input).id" class.bind="_input(input).isFilled ? 'is-filled' : ''" placeholder="${input.placeholder || input.label}" value.bind="$parent[input.name] & validate" class="form-control"></textarea>
+                <textarea if.bind="isTextarea(input)" id.bind="_input(input).id" class.bind="_input(input).isFilled ? 'is-filled' : ''" aria-describedby="${_input(input).id}-help" placeholder="${input.placeholder || input.label}" value.bind="$parent[input.name] & validate" class="form-control"></textarea>
 
                 <!-- Select using value.bind -->
-                <select if.bind="isSelect(input) && !input.bindByModel" id.bind="_input(input).id" multiple.bind="input.multiple" value.bind="$parent[input.name] & validate" class="form-control">
+                <select if.bind="isSelect(input) && !input.bindByModel" id.bind="_input(input).id" multiple.bind="input.multiple" value.bind="$parent[input.name] & validate" aria-describedby="${_input(input).id}-help" class="form-control">
                     <option repeat.for="item of input.values" disabled.bind="item.disabled" label.bind="item.label" model.bind="item.value">${item.label}</option>
                 </select>
                 <!-- Select using model.bind -->
-                <select if.bind="isSelect(input) && input.bindByModel" id.bind="_input(input).id" multiple.bind="input.multiple" value.bind="$parent[input.name] & validate" class="form-control">
+                <select if.bind="isSelect(input) && input.bindByModel" id.bind="_input(input).id" multiple.bind="input.multiple" value.bind="$parent[input.name] & validate" aria-describedby="${_input(input).id}-help" class="form-control">
                     <option repeat.for="item of input.values" disabled.bind="item.disabled" label.bind="item.label" model.bind="item">${item.label}</option>
                 </select>
 
@@ -45,9 +45,9 @@
                 <!-- Display label for .form--material -->
                 <label for.bind="_input(input).id" if.bind="isMaterialForm() && input.label && input.type !== 'hidden'">${input.label}</label>
 
-                <span if.bind="input.helpblock" class="help-block">
+                <small if.bind="input.helpblock" class="form-text text-muted" id="${_input(input).id}-help">
                     ${input.helpblock}
-                </span>
+                </small>
                 <span repeat.for="x of _input(input).validationErrors" class="help-block is-error">
                     ${x.error.message}
                 </span>

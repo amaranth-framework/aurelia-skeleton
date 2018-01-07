@@ -4,7 +4,7 @@ import 'messg/index.css';
 import {Template} from 'features/views/template';
 import {extend} from 'features/utils';
 
-export class TemplateForms extends Template {
+export class TemplateDocComponentsForms extends Template {
     /**
      * @see ModelView::overrideSettingsKey
      */

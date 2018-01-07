@@ -40,9 +40,6 @@ export class App extends Base {
         this.subscribeEvent('router:navigation:complete', (result) => {
             this.routerMarkActiveRoute(result.instruction.router, result.instruction.config.name);
         });
-
-        this.subscribeEvent('nav-left:hide', () => this.navLeftStyle = '');
-        this.subscribeEvent('nav-left:open', () => this.navLeftStyle = 'is-open');
     }
     /**
      * @return {Boolean}
@@ -144,49 +141,110 @@ export class App extends Base {
                 title: 'Logout',
                 settings: { auth: false }
             },
-            // Keep this only if you need inspiration
+            //
+            // Documentation
+            //
             {
-                route: 'ui-elements',
-                name: 'ui-elements',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/general'),
+                route: 'doc',
+                name: 'doc',
+                moduleId: PLATFORM.moduleName('templates/doc/general'),
                 nav: true,
-                title: 'UI Elements',
-                group: 'left-ui',
+                title: 'Getting Started',
+                group: 'amaranth-docu',
                 icon: 'fa-window-restore'
             },
             {
-                route: 'forms',
-                name: 'forms',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/forms'),
+                route: 'doc',
+                name: 'doc',
+                moduleId: PLATFORM.moduleName('templates/doc/general'),
                 nav: true,
-                title: 'Forms',
-                group: 'left-ui',
-                routes: ['forms-horizontal', 'forms-grid'],
+                title: 'Components',
+                group: 'amaranth-docu',
+                routes: [
+                    'doc-components-cards',
+                    'doc-components-forms',
+                    'doc-components-listings',
+                    'doc-components-tables'
+                ],
+                icon: 'fa-window-restore'
+            },
+            {
+                route: 'doc/components/cards',
+                name: 'doc-components-cards',
+                moduleId: PLATFORM.moduleName('templates/doc/components/cards'),
+                nav: false,
+                title: 'Cards',
+                group: 'amaranth-docu',
                 icon: 'fa-keyboard-o'
             },
             {
-                route: 'forms-horizontal',
-                name: 'forms-horizontal',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/forms-horizontal'),
+                route: 'doc/components/forms',
+                name: 'doc-components-forms',
+                moduleId: PLATFORM.moduleName('templates/doc/components/forms'),
                 nav: false,
-                title: 'Forms Horizontal',
-                group: 'left-ui'
+                title: 'Forms',
+                group: 'amaranth-docu',
+                icon: 'fa-keyboard-o'
             },
             {
-                route: 'forms-grid',
-                name: 'forms-grid',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/forms-grid'),
+                route: 'doc/components/listings',
+                name: 'doc-components-listings',
+                moduleId: PLATFORM.moduleName('templates/doc/components/forms'),
                 nav: false,
-                title: 'Grid View',
-                group: 'left-ui'
+                title: 'Listings',
+                group: 'amaranth-docu',
+                icon: 'fa-keyboard-o'
             },
+            {
+                route: 'doc/components/tables',
+                name: 'doc-components-tables',
+                moduleId: PLATFORM.moduleName('templates/doc/components/forms'),
+                nav: false,
+                title: 'Tables',
+                group: 'amaranth-docu',
+                icon: 'fa-keyboard-o'
+            },
+            {
+                route: 'doc',
+                name: 'doc',
+                moduleId: PLATFORM.moduleName('templates/doc/general'),
+                nav: true,
+                title: 'Models',
+                group: 'amaranth-docu',
+                icon: 'fa-window-restore'
+            },
+            {
+                route: 'doc',
+                name: 'doc',
+                moduleId: PLATFORM.moduleName('templates/doc/general'),
+                nav: true,
+                title: 'UI Elements',
+                group: 'amaranth-docu',
+                icon: 'fa-window-restore'
+            },
+            // {
+            //     route: 'forms-horizontal',
+            //     name: 'forms-horizontal',
+            //     moduleId: PLATFORM.moduleName('templates/doc/forms-horizontal'),
+            //     nav: false,
+            //     title: 'Forms Horizontal',
+            //     group: 'amaranth-docu'
+            // },
+            // {
+            //     route: 'forms-grid',
+            //     name: 'forms-grid',
+            //     moduleId: PLATFORM.moduleName('templates/doc/forms-grid'),
+            //     nav: false,
+            //     title: 'Grid View',
+            //     group: 'amaranth-docu'
+            // },
             {
                 route: 'listing',
                 name: 'listing',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/listing'),
+                moduleId: PLATFORM.moduleName('templates/doc/listing'),
                 nav: true,
                 title: 'Listing',
-                group: 'left-ui',
+                group: 'amaranth-docu',
                 routes: ['listing-as-table'],
                 icon: 'fa-list'
 
@@ -194,10 +252,10 @@ export class App extends Base {
             {
                 route: 'listing-as-table',
                 name: 'listing-as-table',
-                moduleId: PLATFORM.moduleName('templates/ui-elements/listing-as-table'),
+                moduleId: PLATFORM.moduleName('templates/doc/listing-as-table'),
                 nav: false,
                 title: 'Listing (as table)',
-                group: 'left-ui',
+                group: 'amaranth-docu',
                 icon: 'fa-table'
             },
             {

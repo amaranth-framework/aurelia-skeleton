@@ -1,0 +1,34 @@
+<template>
+    <require from="./card.less"></require>
+    <compose containerless view-model="components/helper/page-title/page-title" model.bind="{ settings: settings.pageTitle }" ></compose>
+
+    <div class="container forms-demo">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4">Forms</h1>
+                <p class="lead">
+                    Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
+                    You can find a full styling guide in the <a href="https://getbootstrap.com/docs/4.0/components/forms/">Forms</a> section from the Boostrap 4.0 documentation.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Form Component</h2>
+                <p class="lead">Individual form controls automatically receive some global styling.</p>
+
+                <p><code>TODO: How component form is used:</code></p>
+
+                <compose containerless view-model="components/helper/form/form" model.bind="{ settings: settings.form }" ></compose>
+
+                <button click.trigger="publishEvent('form:basic-form:validate')" class="btn btn-primary" type="submit">Submit</button>
+                <button click.trigger="publishEvent('form:basic-form:reset')" class="btn btn-default" type="reset">Reset</button>
+            </div>
+            <div class="col-md-12">
+                <h2>Form Element Component</h2>
+
+                <p><code>TODO: How to define custom form element component:</code></p>
+            </div>
+        </div>
+    </div>
+</template>

@@ -42,7 +42,7 @@ export class ComponentNavLeft extends ComponentHelperContent {
                         content: {
                             title: 'UI/UX Experience'
                         },
-                        filter: { group: 'left-ui', nav: true },
+                        filter: { group: 'amaranth-docu', nav: true },
                         style: 'menu navbar-nav'
                     }
                 }
