@@ -1,20 +1,23 @@
-// @import "../../../_variables.less";
-// @import "../../../_mixins.less";
-//
-// .listing {
-//   .list {
-//     list-style: none;
-//     margin: 0;
-//     padding: 0;
-//   }
-//
-//   .table {
-//     margin-left: 15px;
-//     margin-right: 15px;
-//
-//     td,
-//     th {
-//       vertical-align: middle;
-//     }
-//   }
-// }
+@import "../../../_variables.less";
+@import "../../../_mixins.less";
+
+.listing {
+    width: 100%;
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+
+        &__item {
+            padding-bottom: @spacers-4; // @TODO: Must parametrized this element
+        }
+    }
+
+    &-table {
+        td,
+        th {
+            vertical-align: middle;
+        }
+    }
+}

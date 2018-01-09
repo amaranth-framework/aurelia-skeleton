@@ -90,17 +90,20 @@ export class ComponentHelperListing extends Component {
             views: [
                 {
                     view: ComponentHelperListing.VIEW_LIST,
-                    icon: 'fa-list',
+                    icon: 'fa-th-large',
                     label: 'View as List'
                 },
                 {
                     view: ComponentHelperListing.VIEW_TABLE,
-                    icon: 'fa-th-large',
+                    icon: 'fa-align-justify',
                     label: 'View as Tabel'
                 }
             ],
-            view: '',
+            view: 'list',
+            style: '',
             styles: {
+                listingTypeCard: 'row',
+                listingTypeTable: '',
                 card: 'col-md-4'
             }
         });

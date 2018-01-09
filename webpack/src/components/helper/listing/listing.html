@@ -1,17 +1,20 @@
   <template>
     <require from="./listing.less"></require>
 
-    <div class="listing" class.bind="settings.style">
+    <div class="listing" class.bind="style">
         <!-- <div class="listing-options"> -->
         <!-- </div> -->
 
-        <div if.bind="settings.view === 'list'" class.bind="style" id="listing-${__uuid}" class="list">
-            <div repeat.for="model of list" id="listing-${__uuid}-card-${model.id}" class="list__item" class.bind="settings.styles.card">
+        <div if.bind="settings.view === 'list'" class.bind="settings.styles.listingTypeCard" class="listing-list" id="listing-${__uuid}">
+            <div repeat.for="model of list" id="listing-${__uuid}-card-${model.id}" class="listing-list__item" class.bind="settings.styles.card">
                 <compose containerless view.bind="settings.card.view" view-model.bind="settings.card.model" model.bind="{ model: model, settings: settings.card }" ></compose>
             </div>
         </div>
 
-        <table if.bind="settings.view === 'table'" class.bind="style" id="listing-${__uuid}" class="table">
+        <div if.bind="settings.view === 'table'" class.bind="settings.styles.listingTypeCard" class="listing-table" id="listing-${__uuid}">
+            <!-- <compose containerless view.bind="settings.table.view" view-model.bind="settings.table.model" model.bind="{ model: model, settings: settings.table }" ></compose> -->
+        </div>
+        <table if.bind="settings.view === 'table'" class.bind="settings.styles.listingTypeTable" class="listing-table table" id="listing-${__uuid}">
             <caption if.bind="settings.content.caption" >${settings.content.caption}</caption>
             <thead>
                 <tr>

@@ -100,7 +100,7 @@ export class TemplateUsers extends Template {
                     { head: 'Website', map: 'website' },
                     { head: 'Company', map: 'company.name' }
                 ],
-                style: 'listing--3 listing--users'
+                style: 'listing--users'
             }
         });
     }
