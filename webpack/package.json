@@ -141,6 +141,7 @@
     "jquery": "3.2.1",
     "jwt-decode": "2.2.0",
     "lodash": "4.17.4",
+    "materialize-css": "^1.0.0-alpha.3",
     "messg": "2.2.0",
     "subscriptions-transport-ws": "0.9.1",
     "text": "github:requirejs/text#latest",

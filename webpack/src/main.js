@@ -1,10 +1,11 @@
-import {I18N} from 'aurelia-i18n';
-import {ValidationMessageProvider} from 'aurelia-validation';
+// import {I18N} from 'aurelia-i18n';
+// import {ValidationMessageProvider} from 'aurelia-validation';
 import Backend from 'i18next-xhr-backend';
 import environment from './environment';
 
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'materialize-css/dist/css/materialize.min.css';
 
 import * as Bluebird from 'bluebird';
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
@@ -24,7 +25,7 @@ export async function configure(aurelia) {
     }
 
     aurelia.use
-        // .globalResources(['vc/lower', 'vc/upper', 'vc/price'])
+    // .globalResources(['vc/lower', 'vc/upper', 'vc/price'])
         .plugin(PLATFORM.moduleName('aurelia-animator-css'))
         .plugin(PLATFORM.moduleName('aurelia-configuration'))
         .plugin(PLATFORM.moduleName('aurelia-validation'))
@@ -33,17 +34,17 @@ export async function configure(aurelia) {
              * @link https://aurelia-api.spoonx.org/configuration.html
              */
             config
-            .registerEndpoint(
-                'default',
-                'https://jsonplaceholder.typicode.com/',
-                {
-                    credentials: 'same-origin',
-                    headers: {
-                        'Content-Type': 'application/json'
+                .registerEndpoint(
+                    'default',
+                    'https://jsonplaceholder.typicode.com/',
+                    {
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     }
-                }
-            )
-            .setDefaultEndpoint('api');
+                )
+                .setDefaultEndpoint('api');
         })
         .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
             // register backend plugin
