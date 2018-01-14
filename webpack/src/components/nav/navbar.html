@@ -1,8 +1,28 @@
 <template>
-    <ul if.bind="filteredRoutes.length" class="nav" class.bind="style">
+    <!-- nav -->
+    <nav class.bind="style">
+        <div class="nav-wrapper">
+            <!-- logo -->
+            <a href="#" class="brand-logo">Logo</a>
+            <!-- /logo -->
+
+            <!-- link-list -->
+            <ul class.bind="settings.styles.linkList">
+                <li repeat.for="route of routes"><a click.trigger="router.navigateToRoute(route.name, route.params || {})" href="">
+                    <i if.bind="route.icon" class="fa" class.bind="route.icon"></i>
+                    <span innerhtml.bind="route.title"></span>
+                    <i if.bind="false" class="fa fa-angle-down"></i>
+                </a></li>
+            </ul>
+            <!-- /link-list -->
+        </div>
+    </nav>
+    <!-- /nav -->
+
+    <!-- <ul if.bind="filteredRoutes.length" class="nav" class.bind="style">
         <li repeat.for="route of filteredRoutes" class.bind="route.active ? 'active': ''" class="nav__item">
             <a if.bind="!isNavbarNav" click.trigger="router.navigateToRoute(route.name, route.params || {})" href="#">
-                <i if.bind="route.icon" class="fa ${route.icon}"></i>                
+                <i if.bind="route.icon" class="fa ${route.icon}"></i>
                 <span innerhtml.bind="route.title"></span>
                 <span if.bind="route.routes && route.routes.length" class="caret"></span>
             </a>
@@ -31,5 +51,5 @@
                 </li>
             </ul>
         </li>
-    </ul>
+    </ul> -->
 </template>

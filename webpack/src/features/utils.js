@@ -177,8 +177,8 @@ export function deprecate(target, key, descriptor) {
  *
  * @export
  * @param {String} selector
- * @param {number} [count=1]
- * @param {number} [wait=5]
+ * @param {Function|Number} [count=1]
+ * @param {Number} [wait=5]
  * @returns Promise
  */
 export function waitForElements(selector, count = 1, wait = 5) {
@@ -193,7 +193,7 @@ export function waitForElements(selector, count = 1, wait = 5) {
             }
 
             let selected = $(selector);
-            if (selected.length === count) {
+            if ((typeof count !== 'function' && selected.length === count) || count(selected)) {
                 clearInterval(waitInterval);
                 resolve(selected);
             }

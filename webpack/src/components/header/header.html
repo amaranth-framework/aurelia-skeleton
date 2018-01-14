@@ -1,0 +1,11 @@
+<template>
+    <header>
+        <!-- top-nav -->
+        <compose containerless view-model="components/nav/navbar" model.bind="{ settings: settings.nav }"></compose>
+        <!-- /top-nav -->
+
+        <!-- side-nav -->
+        <compose containerless view-model="components/nav/sidenav" model.bind="{ settings: settings.sidenav }"></compose>
+        <!-- /side-nav -->
+    </header>
+</template>

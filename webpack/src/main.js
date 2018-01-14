@@ -6,6 +6,7 @@ import environment from './environment';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
 
 import * as Bluebird from 'bluebird';
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
