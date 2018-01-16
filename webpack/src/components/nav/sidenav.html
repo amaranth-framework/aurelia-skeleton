@@ -1,9 +1,16 @@
 <template>
+    <require from="./sidenav.less"></require>
+    
     <div class="container">
-        <a href="" data-target="nav-mobile-${__uuid}" class="top-nav sidenav-trigger"><i class="fa fa-bars"></i></a>
+        <a class.bind="settings.styles.sidenavTrigger" data-target="nav-mobile-${__uuid}" class="sidenav-trigger" href=""><i class="fa fa-bars"></i></a>
     </div>
 
-    <ul id="nav-mobile-${__uuid}" class="sidenav">
+    <ul class.bind="settings.styles.sidenav" id="nav-mobile-${__uuid}" class="sidenav">
+        <!-- logo -->
+        <li>
+            <compose containerless view-model="components/helper/logo/logo" model.bind="{ settings: settings.logo }"></compose>
+        </li>
+        <!-- /logo -->
         <li repeat.for="route of routes"><a click.trigger="router.navigateToRoute(route.name, route.params || {})" href="">
             <i if.bind="route.icon" class="fa" class.bind="route.icon"></i>
             <span innerhtml.bind="route.title"></span>

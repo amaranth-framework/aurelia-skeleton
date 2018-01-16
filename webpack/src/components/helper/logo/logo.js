@@ -5,5 +5,5 @@ export class ComponentHelperLogo extends Component {
     /**
      * @see ModelView::overrideSettingsKey
      */
-    overrideSettingsKey = 'components.helper-logo';
+    overrideSettingsKey = 'components.helper/logo';
 }

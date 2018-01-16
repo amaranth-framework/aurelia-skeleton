@@ -27,9 +27,9 @@ export class CNavSidenav extends Component {
                 nav: true
             },
             routes: [],
-            style: '',
             styles: {
-                linkList: 'right'
+                sidenav: '',
+                sidenavTrigger: ''
             }
         });
     }

@@ -1,7 +1,12 @@
 {
   "components": {
     "nav/navbar": {
-      "style": "hide"
+      "style": "hide-on-med-and-down"
+    },
+    "nav/sidenav": {
+      "styles": {
+        "sidenavTrigger": "button-collapse top-nav full hide-on-large-only"
+      }
     }
   },
   "rest": {

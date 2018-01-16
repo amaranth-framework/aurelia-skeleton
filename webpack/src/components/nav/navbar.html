@@ -1,13 +1,15 @@
 <template>
+    <require from="./navbar.less"></require>
+
     <!-- nav -->
     <nav class.bind="style">
         <div class="nav-wrapper">
             <!-- logo -->
-            <a href="#" class="brand-logo">Logo</a>
+            <compose containerless view-model="components/helper/logo/logo" model.bind="{ settings: settings.logo }"></compose>
             <!-- /logo -->
 
             <!-- link-list -->
-            <ul class.bind="settings.styles.linkList">
+            <ul class.bind="settings.styles.links">
                 <li repeat.for="route of routes"><a click.trigger="router.navigateToRoute(route.name, route.params || {})" href="">
                     <i if.bind="route.icon" class="fa" class.bind="route.icon"></i>
                     <span innerhtml.bind="route.title"></span>

@@ -23,13 +23,16 @@ export class CNavNavbar extends Component {
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
+            logo: {
+                style: 'left'
+            },
             routeFilter: {
                 nav: true
             },
             routes: [],
             style: '',
             styles: {
-                linkList: 'right'
+                links: 'right'
             }
         });
     }
