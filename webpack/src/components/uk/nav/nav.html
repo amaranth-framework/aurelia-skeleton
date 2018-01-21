@@ -1,0 +1,12 @@
+<template>
+    <require from="./nav.less"></require>
+
+    <ul class.bind="style" uk-nav>
+        <li repeat.for="route of filteredRoutes" class.bind="classForLi(route)">
+            <!-- @TODO: Should use route-href in stead of router.navigate() -->
+            <a if.bind="!route.isDivider" click.trigger="router.navigateToRoute(route.name, route.params || {})" href="#!">
+                <span class.bind="classForA(route)">${route.title}</span>
+            </a>
+        </li>
+    </ul>
+</template>

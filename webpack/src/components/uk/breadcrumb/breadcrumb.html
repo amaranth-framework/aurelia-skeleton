@@ -1,0 +1,10 @@
+<template>
+	<require from="./breadcrumb.less"></require>
+    
+    <ul class="uk-breadcrumb">
+        <li repeat.for="route of routes">
+            <a if.bind="!route.isActive" route-href="route.bind: route.name; params.bind: route.params">${route.title}</a>
+            <span if.bind="route.isActive">${route.title}</span>
+        </li>
+    </ul>
+</template>

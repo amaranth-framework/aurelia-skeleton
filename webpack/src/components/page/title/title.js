@@ -19,7 +19,7 @@ export class ComponentHelperPageTitle extends Component {
             componentsContent: [
                 {
                     type: 'breadcrumb',
-                    module: PLATFORM.moduleName('components/nav/breadcrumb/breadcrumb')
+                    module: PLATFORM.moduleName('components/uk/breadcrumb/breadcrumb')
                 }
             ],
             componentsAdditional: [],
