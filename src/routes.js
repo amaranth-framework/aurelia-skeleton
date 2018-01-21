@@ -12,53 +12,62 @@ export default [
         route: 'dashboard',
         title: 'Dashboard'
     },
-    // components pages
+    // helper components pages
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/components'),
-        name: 'components',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        name: 'helper-components',
         nav: true,
-        route: 'components',
-        title: 'Components'
+        route: 'helper-components',
+        title: 'Helper Components'
+    },
+    // uikit components pages
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/uikit'),
+        name: 'uikit-components',
+        nav: true,
+        route: 'uikit-components',
+        title: 'UiKit Components'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/breadcrumb/breadcrumb'),
-        name: 'components-breadcrumb',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        name: 'uikit-components-breadcrumb',
         nav: false,
-        route: 'components/breadcrumb',
+        route: 'uikit-components/breadcrumb',
         title: 'Breadcrumb'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/breadcrumb/breadcrumb'),
-        name: 'components-dropdown',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        name: 'uikit-components-dropdown',
         nav: false,
-        route: 'components/dropdown',
+        route: 'uikit-components/dropdown',
         title: 'Dropdown'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/breadcrumb/breadcrumb'),
-        name: 'components-messages',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        name: 'uikit-components-messages',
         nav: false,
-        route: 'components/messages',
+        route: 'uikit-components/messages',
         title: 'Messages'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/breadcrumb/breadcrumb'),
-        name: 'components-nav',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        name: 'uikit-components-nav',
         nav: false,
-        route: 'components/nav',
+        route: 'uikit-components/nav',
         title: 'Nav'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/components/breadcrumb/breadcrumb'),
-        name: 'components-navbar',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        name: 'uikit-components-navbar',
         nav: false,
-        route: 'components/navbar',
+        route: 'uikit-components/navbar',
         title: 'Navbar'
     },
     // sample pages
