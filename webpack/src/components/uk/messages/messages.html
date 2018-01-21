@@ -1,0 +1,12 @@
+<template>
+    <require from="./messages.less"></require>
+
+    <div if.bind="messages.list.length" class="messages">
+        <!-- @TODO: Clean CSS styles added on uk-alert -->
+        <div repeat.for="item of messages.list" class.bind="'message--' + item.type" class="message" uk-alert>
+            <!-- @TODO: Apply &:after style on .uk-alert-close -->
+            <a class="uk-alert-close" uk-close></a>
+            <p innerhtml.bind="item.message"></p>
+        </div>
+    </div>
+</template>

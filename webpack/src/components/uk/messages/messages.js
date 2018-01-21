@@ -39,6 +39,13 @@ export class ComponentHelperMessages extends Component {
         // })
     }
     /**
+     *
+     * @param {{}} message
+     */
+    classForMessage(message) {
+        return `uk-alert-${message.type}`;
+    }
+    /**
      * @see View::detached()
      */
     detached() {
