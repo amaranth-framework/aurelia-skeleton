@@ -19,6 +19,7 @@ export default [
         name: 'helper-components',
         nav: true,
         route: 'helper-components',
+        subroutes: [],
         title: 'Helper Components'
     },
     // uikit components pages
@@ -28,6 +29,11 @@ export default [
         name: 'uikit-components',
         nav: true,
         route: 'uikit-components',
+        subroutes: [
+            'uikit-components-breadcrumb',
+            'uikit-components-dropdown',
+            'uikit-components-messages'
+        ],
         title: 'UiKit Components'
     },
     {
@@ -77,6 +83,7 @@ export default [
         name: 'pages',
         nav: true,
         route: 'pages',
+        subroutes: [],
         title: 'Sample Pages'
     }
     // {

@@ -30,6 +30,7 @@ export class ComponentUKNavbar extends Component {
                 {
                     module: PLATFORM.moduleName('components/uk/nav/nav'),
                     settings: {
+                        isPartOfNavbar: true,
                         style: 'uk-navbar-nav'
                     },
                     type: 'nav-left'

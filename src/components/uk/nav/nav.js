@@ -65,14 +65,27 @@ export class ComponentUKNav extends Component {
      * @return {Array}
      */
     get filteredRoutes() {
-        // determine whether to use local routes or the global router
-        let routes = (this.settings.routes && this.settings.routes.length) ? this.settings.routes : this.router.routes;
-        // console.log(routes);
         // filter the routes to display
-        return _.filter(routes, this.settings.filter).map(route => {
+        return _.filter(this.routes, this.settings.filter).map(route => {
             // set default params object if not exists
             route.params = route.params || {};
             return route;
         });
+    }
+    /**
+     * @getter
+     * @return {Array}
+     */
+    get routes() {
+        // determine whether to use local routes or the global router
+        return (this.settings.routes && this.settings.routes.length) ? this.settings.routes : this.router.routes;
+    }
+    /**
+     * Obtain a set of routes based on a list of route names
+     * @param {Array} list
+     * @return {Array}
+     */
+    subroutes(list) {
+        return _.filter(this.routes, (route) => list.includes(route.name));
     }
 }

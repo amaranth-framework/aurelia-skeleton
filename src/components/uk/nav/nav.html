@@ -7,6 +7,16 @@
             <a if.bind="!route.isDivider" click.trigger="router.navigateToRoute(route.name, route.params || {})" href="#!">
                 <span class.bind="classForA(route)">${route.title}</span>
             </a>
+
+            <div if.bind="route.subroutes && settings.isPartOfNavbar" class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li repeat.for="route2 of subroutes(route.subroutes)" class.bind="classForLi(route2)">
+                        <a if.bind="!route2.isDivider" click.trigger="router.navigateToRoute(route2.name, route2.params || {})" href="#!">
+                            <span class.bind="classForA(route)">${route2.title}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
 </template>
