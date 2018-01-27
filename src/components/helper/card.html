@@ -1,0 +1,20 @@
+<template>
+    <div class.bind="style" class="uk-card uk-card-default">
+        <div if.bind="model.image" class="uk-card-media-top">
+            <img src.bind="model.image" alt="model.title">
+        </div>
+        <div id="card-${__uuid}" class="uk-card-body">
+            <h3 class="uk-card-title">${model.title}</h3>
+            <div innerhtml.bind="model.content"></div>
+            <div if.bind="settings.actions.length">
+                <ul class="uk-iconnav am-card-actions">
+                    <li repeat.for="action of settings.actions">
+                        <a click.trigger="publishEvent(action.event, model)" title.bind="action.title" href="#!" uk-icon>
+                            <i if.bind="actionIconIsString(action)" class.bind="action.icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

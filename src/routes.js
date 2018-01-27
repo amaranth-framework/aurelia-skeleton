@@ -19,8 +19,49 @@ export default [
         name: 'helper-components',
         nav: true,
         route: 'helper-components',
-        subroutes: [],
+        subroutes: [
+            'helper-components-card',
+            'helper-components-content',
+            'helper-components-form',
+            'helper-components-table'
+        ],
         title: 'Helper Components'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/card/card'),
+        name: 'helper-components-card',
+        nav: false,
+        route: 'helper-components/card',
+        subroutes: [],
+        title: 'Card'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        name: 'helper-components-content',
+        nav: false,
+        route: 'helper-components/content',
+        subroutes: [],
+        title: 'Content'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        name: 'helper-components-form',
+        nav: false,
+        route: 'helper-components/form',
+        subroutes: [],
+        title: 'Form'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/table/table'),
+        name: 'helper-components-table',
+        nav: false,
+        route: 'helper-components/table',
+        subroutes: [],
+        title: 'Table'
     },
     // uikit components pages
     {
@@ -30,9 +71,15 @@ export default [
         nav: true,
         route: 'uikit-components',
         subroutes: [
-            'uikit-components-breadcrumb',
-            'uikit-components-dropdown',
-            'uikit-components-messages'
+            [
+                'uikit-components-breadcrumb',
+                'uikit-components-dropdown',
+                'uikit-components-messages'
+            ],
+            [
+                'uikit-components-nav',
+                'uikit-components-navbar'
+            ]
         ],
         title: 'UiKit Components'
     },
@@ -46,7 +93,7 @@ export default [
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/dropdown/dropdown'),
         name: 'uikit-components-dropdown',
         nav: false,
         route: 'uikit-components/dropdown',
@@ -54,15 +101,15 @@ export default [
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
-        name: 'uikit-components-messages',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/messages/messages'),
+        name: 'uikit-components-dromessagespdown',
         nav: false,
         route: 'uikit-components/messages',
-        title: 'Messages'
+        title: 'Dropdown'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/nav/nav'),
         name: 'uikit-components-nav',
         nav: false,
         route: 'uikit-components/nav',
@@ -70,7 +117,7 @@ export default [
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/uikit/breadcrumb/breadcrumb'),
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/navbar/navbar'),
         name: 'uikit-components-navbar',
         nav: false,
         route: 'uikit-components/navbar',
@@ -83,100 +130,48 @@ export default [
         name: 'pages',
         nav: true,
         route: 'pages',
-        subroutes: [],
+        subroutes: [
+            'pages-users',
+            'pages-login',
+            'pages-logout'
+        ],
         title: 'Sample Pages'
+    },
+    {
+        icon: 'fa-user',
+        moduleId: PLATFORM.moduleName('templates/demo/pages/users/users'),
+        name: 'pages-users',
+        nav: false,
+        route: 'users',
+        title: 'Users'
+    },
+    {
+        href: '/users/add',
+        moduleId: PLATFORM.moduleName('templates/demo/pages/users/users'),
+        name: 'pages-users-edit',
+        nav: false,
+        route: 'users/:action?/:id?',
+        title: 'Users - Edit'
+    },
+    {
+        moduleId: PLATFORM.moduleName('templates/demo/pages/login/login'),
+        name: 'pages-login',
+        nav: false,
+        route: 'login',
+        title: 'Login'
+    },
+    {
+        moduleId: PLATFORM.moduleName('templates/demo/pages/logout/logout'),
+        name: 'pages-logout',
+        nav: false,
+        route: 'logout',
+        title: 'Logout'
+    },
+    // utility pages
+    {
+        route: '404',
+        name: '404',
+        moduleId: PLATFORM.moduleName('templates/statuses/404'),
+        title: 'Page does not exist.'
     }
-    // {
-    //     route: 'users',
-    //     name: 'users',
-    //     moduleId: PLATFORM.moduleName('templates/demo/users/users-demo'),
-    //     nav: true,
-    //     title: 'Users',
-    //     group: 'left-demo',
-    //     icon: 'fa-user'
-    // },
-    // {
-    //     route: 'users/:action?/:id?',
-    //     href: '/users/add',
-    //     name: 'users-edit',
-    //     moduleId: PLATFORM.moduleName('templates/demo/users/users-demo'),
-    //     nav: false,
-    //     title: 'Users - Edit'
-    // },
-    // {
-    //     route: 'login',
-    //     name: 'login',
-    //     moduleId: PLATFORM.moduleName('templates/demo/login/login-demo'),
-    //     title: 'Login',
-    //     settings: { auth: false }
-    // },
-    // {
-    //     route: 'logout',
-    //     name: 'logout',
-    //     moduleId: PLATFORM.moduleName('templates/demo/logout/logout-demo'),
-    //     title: 'Logout',
-    //     settings: { auth: false }
-    // },
-    // // Keep this only if you need inspiration
-    // {
-    //     route: 'ui-elements',
-    //     name: 'ui-elements',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/general'),
-    //     nav: true,
-    //     title: 'UI Elements',
-    //     group: 'left-ui',
-    //     icon: 'fa-window-restore'
-    // },
-    // {
-    //     route: 'forms',
-    //     name: 'forms',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/forms'),
-    //     nav: true,
-    //     title: 'Forms',
-    //     group: 'left-ui',
-    //     routes: ['forms-horizontal', 'forms-grid'],
-    //     icon: 'fa-keyboard-o'
-    // },
-    // {
-    //     route: 'forms-horizontal',
-    //     name: 'forms-horizontal',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/forms-horizontal'),
-    //     nav: false,
-    //     title: 'Forms Horizontal',
-    //     group: 'left-ui'
-    // },
-    // {
-    //     route: 'forms-grid',
-    //     name: 'forms-grid',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/forms-grid'),
-    //     nav: false,
-    //     title: 'Grid View',
-    //     group: 'left-ui'
-    // },
-    // {
-    //     route: 'listing',
-    //     name: 'listing',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/listing'),
-    //     nav: true,
-    //     title: 'Listing',
-    //     group: 'left-ui',
-    //     routes: ['listing-as-table'],
-    //     icon: 'fa-list'
-
-    // },
-    // {
-    //     route: 'listing-as-table',
-    //     name: 'listing-as-table',
-    //     moduleId: PLATFORM.moduleName('templates/ui-elements/listing-as-table'),
-    //     nav: false,
-    //     title: 'Listing (as table)',
-    //     group: 'left-ui',
-    //     icon: 'fa-table'
-    // },
-    // {
-    //     route: '404',
-    //     name: '404',
-    //     moduleId: PLATFORM.moduleName('templates/statuses/404'),
-    //     title: 'Page does not exist.'
-    // }
 ];

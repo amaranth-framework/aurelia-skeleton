@@ -39,7 +39,7 @@ export class TemplateUsers extends Template {
                     this.messages.info('User has been saved.', 1);
                     $('#modal-user-form').modal('hide');
                 })
-                .catch(error => alert(error.toString()));
+                .catch(error => this.logger.error(error.toString()));
         });
     }
     /**
@@ -89,7 +89,7 @@ export class TemplateUsers extends Template {
             },
             listing: {
                 card: {
-                    view: PLATFORM.moduleName('components/helper/card/card-user.html')
+                    // view: PLATFORM.moduleName('components/helper/card/card-user.html')
                 },
                 name: 'users',
                 rows: [

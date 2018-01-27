@@ -6,37 +6,29 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import _ from 'lodash';
-
-import { Template } from 'features/views/template';
+import { TDemo } from 'templates/demo/demo';
 import { extend } from 'features/utils';
 
 /**
- * Home Template (Demo)
+ * Home Template for helper/card
  */
-export class TPages extends Template {
+export class TCHCard extends TDemo {
     /**
-     * @see View::overrideSettingsKey
+     * See {@link View#overrideSettingsKey}
+     * @type {String}
      */
-    overrideSettingsKey = 'templates.pages';
+    overrideSettingsKey = 'templates.demo/components/helper/card';
     /**
-     * @see View:defaultSettings
+     * See {@link View#defaultSettings}
      * @type {Object}
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
             pageTitle: {
                 content: {
-                    title: 'Pages'
+                    title: 'Table'
                 }
             }
         });
-    }
-    /**
-     * Obtain the list of routes for UIkit
-     * @return {Array}
-     */
-    get pagesRoutes() {
-        return _.filter(this.router.routes, route => (route.name || '').match(/^pages-/));
     }
 }

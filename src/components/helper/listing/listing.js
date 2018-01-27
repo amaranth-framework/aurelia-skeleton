@@ -42,7 +42,7 @@ export class ComponentHelperListing extends Component {
     buildRandom() {
         let chance = new Chance();
         let random = Math.trunc(Math.random() * 1000) % 10 + 1;
-        this.list = Array(random).fill().map((_, i) => ({
+        this.list = Array(random).fill().map((x, i) => ({
             id: i + 1,
             name: chance.name(),
             username: chance.first(),
@@ -76,9 +76,9 @@ export class ComponentHelperListing extends Component {
                 { icon: 'fa fa-pencil', title: 'Edit', event: 'listing:edit' },
                 { icon: 'fa fa-trash', title: 'Remove', event: 'listing:remove' }
             ],
-            card: {
-                model: PLATFORM.moduleName('components/helper/card/card')
-            },
+            // card: {
+            //     model: PLATFORM.moduleName('components/helper/card/card')
+            // },
             name: 'default',
             rows: [
                 { head: 'Name', map: 'name' },

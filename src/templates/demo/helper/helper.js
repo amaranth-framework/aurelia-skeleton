@@ -6,17 +6,19 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import _ from 'lodash';
+
 import { Template } from 'features/views/template';
 import { extend } from 'features/utils';
 
 /**
  * Home Template (Demo)
  */
-export class TComponents extends Template {
+export class THelpers extends Template {
     /**
      * @see View::overrideSettingsKey
      */
-    overrideSettingsKey = 'templates.components';
+    overrideSettingsKey = 'templates.helpers';
     /**
      * @see View:defaultSettings
      * @type {Object}
@@ -25,9 +27,16 @@ export class TComponents extends Template {
         return extend(true, super.defaultSettings, {
             pageTitle: {
                 content: {
-                    title: 'Components'
+                    title: 'Helper Components'
                 }
             }
         });
+    }
+    /**
+     * Obtain the list of routes for UIkit
+     * @return {Array}
+     */
+    get helperRoutes() {
+        return _.filter(this.router.routes, route => (route.name || '').match(/^helper-components-/));
     }
 }

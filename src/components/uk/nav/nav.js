@@ -61,6 +61,26 @@ export class ComponentUKNav extends Component {
         return set.join(' ');
     }
     /**
+     * @param {Array} list
+     * @return {String}
+     */
+    classForSubroutes(list) {
+        let set = [];
+        // @link https://getuikit.com/docs/navbar#multiple-columns
+        if (this.hasMultipleColumns(list)) {
+            set.push(`uk-navbar-dropdown-width-${list.length}`);
+        }
+        return set.join(' ');
+    }
+    /**
+     * Obtain a set of routes based on a list of route names
+     * @param {Array} list
+     * @return {Array}
+     */
+    findSubroutes(list) {
+        return _.filter(this.routes, (route) => (list || []).includes(route.name));
+    }
+    /**
      * Obtain the routes to render, based on a filter given in stetting object
      * @return {Array}
      */
@@ -73,19 +93,18 @@ export class ComponentUKNav extends Component {
         });
     }
     /**
+     * Test wether list of subroutes is set on multiple columns. (Basicly test if array is formed of multiple arrays).
+     * @param {Array} list
+     */
+    hasMultipleColumns(list) {
+        return list.length > 1 && list.map(a => Array.isArray(a)).reduce((a, b) => a && b);
+    }
+    /**
      * @getter
      * @return {Array}
      */
     get routes() {
         // determine whether to use local routes or the global router
         return (this.settings.routes && this.settings.routes.length) ? this.settings.routes : this.router.routes;
-    }
-    /**
-     * Obtain a set of routes based on a list of route names
-     * @param {Array} list
-     * @return {Array}
-     */
-    subroutes(list) {
-        return _.filter(this.routes, (route) => list.includes(route.name));
     }
 }

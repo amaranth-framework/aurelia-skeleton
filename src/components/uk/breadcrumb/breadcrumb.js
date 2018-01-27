@@ -15,11 +15,7 @@ export class ComponentNavBreadcrumb extends Component {
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
-            content: {
-                title: 'Page Title'
-            },
-            routes: [{route: ''}],
-            filter: {}
+            routes: [{route: ''}]
         });
     }
 	/**
@@ -63,7 +59,7 @@ export class ComponentNavBreadcrumb extends Component {
 	 * @return {Object|null}
 	 */
     discoverRouteByName(route) {
-        let r = _.find(this.router.routes, (o) => o.route == route || o.route.includes(route));
+        let r = _.find(this.router.routes, (o) => o.route === route || o.route.includes(route));
         if (r.redirect) {
             r = _.find(this.router.routes, { route: r.redirect });
         }

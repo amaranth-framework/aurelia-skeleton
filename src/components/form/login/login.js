@@ -1,5 +1,4 @@
 import { ComponentHelperForm } from 'components/helper/form/form';
-import { extend } from 'features/utils';
 
 export class ComponentFormLogin extends ComponentHelperForm {
     /**

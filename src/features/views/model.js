@@ -1,8 +1,16 @@
+/**
+ * Aurelia Skeleton (https://github.com/amaranth-framework/aurelia-skeleton/)
+ *
+ * @link      https://github.com/amaranth-framework/aurelia-skeleton/ for the canonical source repository
+ * @copyright Copyright (c) 2007-2017 IT Media Connect (http://itmediaconnect.ro)
+ * @license   https://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
+ */
+
 import { Container, inject, NewInstance } from 'aurelia-dependency-injection';
 import { validateTrigger, ValidationController } from 'aurelia-validation';
 
 import { Component } from 'features/views/component';
-import { className, deprecate, extend, waitForVariable } from 'features/utils';
+import { className, /*deprecate, */extend/*, waitForVariable*/ } from 'features/utils';
 
 /**
  * Abstract Model View (usable with <compose>)
@@ -78,17 +86,18 @@ export class Model extends Component {
     /**
      * Load data for a certain model, by model's id.
      * @param {Number} id?
-     * @returns {Promise<Object>|Promise<Error>}
+     * @returns {Promise} Promise<Object>|Promise<Error>
      */
     async load(id = null) {
-        this[this.__proto__.INDEX_NAME] = this[this.__proto__.INDEX_NAME] || id;
+        let prototype = Object.getPrototypeOf(this);
+        this[prototype.INDEX_NAME] = this[prototype.INDEX_NAME] || id;
 
-        if (!this[this.__proto__.INDEX_NAME]) {
-            throw Error(`Model has no '${this.__proto__.INDEX_NAME}' value. Cannot load an empty model.`);
+        if (!this[prototype.INDEX_NAME]) {
+            throw Error(`Model has no '${prototype.INDEX_NAME}' value. Cannot load an empty model.`);
         }
 
         return await this.getEndpoint(this.settings.endpoint || 'default')
-            .findOne(this.settings.services.load, this[this.__proto__.INDEX_NAME])
+            .findOne(this.settings.services.load, this[prototype.INDEX_NAME])
             .then(result => {
                 // console.log('result', result);
                 this.setData(result);
@@ -101,7 +110,7 @@ export class Model extends Component {
      * @param  {Array|String|null} filter
      * @return {Promise<Array>|Promise<Error>}
      */
-    static async list(properties = null, filter = null) {
+    static async list(_properties = null, filter = null) {
         const model = this.instance;
         if (model.canActivate && !model.canActivate()) {
             throw Error(`'${className(model)}' could not pass by 'canActivate()' method.`);
@@ -122,8 +131,9 @@ export class Model extends Component {
      * @return {Promise<*>|Promise<Error>}
      */
     async remove() {
+        let prototype = Object.getPrototypeOf(this);
         return await this.getEndpoint(this.settings.endpoint || 'default')
-            .destroyOne(this.settings.services.remove, this[this.__proto__.INDEX_NAME]);
+            .destroyOne(this.settings.services.remove, this[prototype.INDEX_NAME]);
     }
     /**
      * Remove the model with id ...
@@ -132,7 +142,8 @@ export class Model extends Component {
      */
     static async remove(id) {
         let model = this.newInstance();
-        model[model.__proto__.INDEX_NAME] = id;
+        let prototype = Object.getPrototypeOf(model);
+        model[prototype.INDEX_NAME] = id;
         return model.remove();
     }
     /**
@@ -151,9 +162,10 @@ export class Model extends Component {
      * @returns {Promise<*>|Promise<Error>}
      */
     async save() {
-        if (this[this.__proto__.INDEX_NAME]) {
+        let prototype = Object.getPrototypeOf(this);
+        if (this[prototype.INDEX_NAME]) {
             return await this.getEndpoint(this.settings.endpoint || 'default')
-                .updateOne(this.settings.services.update, this[this.__proto__.INDEX_NAME], this.toObject());
+                .updateOne(this.settings.services.update, this[prototype.INDEX_NAME], this.toObject());
         }
 
         return await this.getEndpoint(this.settings.endpoint || 'default')
@@ -200,8 +212,9 @@ export class Model extends Component {
 
 /**
  * Experimental decorator for mentioning the model's table properties.
+ * Paramaeter is an array of {String} or {Object} elements.
  * @TODO: Method leaves room for validation & other toys.
- * @param  {Array[String|Object]} list
+ * @param  {Array} list
  */
 export function properties(list) {
     return (target, key) => {
@@ -251,20 +264,20 @@ export function property(...args) {
      * @param {Object}        descriptor
      */
     let decorator = (target, key) => {
-        let props = {};
+        let dprops = {};
         // considering the fact that you can also use the `@property` decorator, we need to determine whether
         // we have a key name defined by `localKey` or we're just using the variable upon the decorator has been placed.
         key = localKey || key;
         // because when using `@properties(...)` we need to remember both property settings and the target, we're forced
         // to send the entire settings object as the key parameter
         if (key.name) {
-            props = key;
+            dprops = key;
             key = key.name;
         }
         // push the key to the list of model properties
         target._properties = (target._properties || []).concat([key]);
         target._propertySettings = target._propertySettings || {};
-        target._propertySettings[key] = props;
+        target._propertySettings[key] = dprops;
         // determine whether it already has a descriptor definition
         let definition = Object.getOwnPropertyDescriptor(target, key);
         // if it has a descriptor definition already, work around the getter and setter that were already defined
@@ -289,8 +302,8 @@ export function property(...args) {
             });
         }
         // set the default value if it exists
-        if (props.default) {
-            target[key] = props.default;
+        if (dprops.default) {
+            target[key] = dprops.default;
         }
     };
     // if calling `@property(...)`

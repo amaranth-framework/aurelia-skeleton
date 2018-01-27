@@ -7,15 +7,13 @@
  */
 
 import { inject } from 'aurelia-framework';
-
 import _ from 'lodash';
 
 import { AuthorizeStepJWT as AuthorizeStep } from 'features/authorize-step/authorize-step';
 import { Base } from 'features/base';
-import { EventsList } from 'features/utils';
 
-import environment from 'environment';
-import routes from 'routes';
+// import environment from 'environment';
+import appRoutes from 'routes';
 
 /**
  * Application
@@ -59,7 +57,7 @@ export class App extends Base {
         // force router to use / not /#
         config.options.pushState = true;
         // uncomment this if you're using authroization
-        config.addAuthorizeStep(this.authStep);
+        // config.addAuthorizeStep(this.authStep);
         // map unknown routes to a certain template
         config.mapUnknownRoutes(PLATFORM.moduleName('templates/statuses/404'));
         // map routes
@@ -86,7 +84,7 @@ export class App extends Base {
      * @param  {RouterConfiguration}  config
      */
     mapRoutes(config) {
-        config.map(routes);
+        config.map(appRoutes);
     }
     /**
      * Map the router with the help of a REST service

@@ -1,0 +1,150 @@
+<template>
+    <require from="../../demo.less"></require>
+
+    <div class="uk-container">
+        <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create layout boxes with different styles.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Please read details about composition of card component on <a href="https://getuikit.com/docs/card#usage">Card section</a> of <b>UIkit</b> documentaton.</p>
+
+        <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: {} }"&gt;&lt;/compose&gt;</code></pre>
+
+        <ul uk-tab="" class="uk-tab">
+            <li aria-expanded="false" class="uk-active">
+                <a href="#">Preview</a>
+            </li>
+            <li aria-expanded="true" class="">
+                <a href="#">Markup</a>
+            </li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <compose containerless view-model="components/helper/table" model.bind="{ settings: { }, table: table }"></compose>
+            </li>
+            <li>
+                <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: { style: 'uk-width-1-3@m' } }"&gt;&lt;/compose&gt;</code></pre>
+            </li>
+        </ul>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Grid</a>
+        </h2>
+
+        <p>The Card component consists of the card itself, the card body and an optional card title. Typically, cards are arranged in grid columns from the <a href="https://getuikit.com/docs/grid">Grid component</a>.</p>
+
+        <ul uk-tab="" class="uk-tab">
+            <li aria-expanded="false" class="uk-active">
+                <a href="#">Preview</a>
+            </li>
+            <li aria-expanded="true" class="">
+                <a href="#">Markup</a>
+            </li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <div class="uk-child-width-1-3@m" uk-grid>
+                    <div repeat.for="card of cards">
+                        <compose containerless view-model="components/helper/table" model.bind="{ model: card }"></compose>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <pre><code class="html">&lt;div class="uk-child-width-1-3@m" uk-grid>
+    &lt;div repeat.for="card of cards">
+        &lt;compose containerless view-model="components/helper/table" model.bind="{ model: card }">&lt;/compose>
+    &lt;/div>
+&lt;/div></code></pre>
+                <pre><code class="javascript">cards = [
+    {
+        image: 'http://lorempixel.com/1800/1200/people/', 
+        title: 'Media Top',
+        content: '&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/p>'
+    },
+    {
+        image: 'http://lorempixel.com/1800/1200/people/', 
+        title: 'Media Top',
+        content: '&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/p>'
+    },
+    {
+        image: 'http://lorempixel.com/1800/1200/people/', 
+        title: 'Media Top',
+        content: '&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/p>'
+    }
+]</code></pre>
+            </li>
+        </ul>        
+
+        <h2 id="settings" class="uk-h3">
+            <a href="#settings">Component Settings</a>
+        </h2>
+
+        <div class="uk-overflow-auto">
+            <table class="uk-table uk-table-divider">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Value</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <code>actions</code>
+                        </td>
+                        <td>Array</td>
+                        <td>
+                            <pre><code>[
+        { icon: { icon: 'file-edit' }, title: 'Edit', event: 'model:edit' },
+        { icon: { icon: 'trash' }, title: 'Remove', event: 'model:remove' }
+    ]</code></pre>
+                        </td>
+                        <td>Actions that can be taken against the binded model.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>model</code>
+                        </td>
+                        <td>Object</td>
+                        <td>
+                            <code>{}</code>
+                        </td>
+                        <td>Model to bind to the card element, in order to make presentable.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>style</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <code></code>
+                        </td>
+                        <td>Additional style classes card.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>styles</code>
+                        </td>
+                        <td>Object</td>
+                        <td>
+                            <code>{}</code>
+                        </td>
+                        <td>Additional style classes for different elements on the card.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</template>

@@ -1,3 +1,55 @@
+/**
+ * Aurelia Skeleton (https://github.com/amaranth-framework/aurelia-skeleton/)
+ *
+ * @link      https://github.com/amaranth-framework/aurelia-skeleton/ for the canonical source repository
+ * @copyright Copyright (c) 2007-2017 IT Media Connect (http://itmediaconnect.ro)
+ * @license   https://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
+ */
+
+/**
+ * @external {Aurelia.ComponentAttached} http://aurelia.io/docs/api/templating/interface/ComponentAttached/
+ */
+/**
+ * @external {Aurelia.ComponentBind} http://aurelia.io/docs/api/templating/interface/ComponentBind/
+ */
+/**
+ * @external {Aurelia.ComponentCreate} http://aurelia.io/docs/api/templating/interface/ComponentCreated/
+ */
+/**
+ * @external {Aurelia.ComponentDetached} http://aurelia.io/docs/api/templating/interface/ComponentDetached/
+ */
+/**
+ * @external {Aurelia.ComponentDetached.detached} http://aurelia.io/docs/api/templating/interface/ComponentDetached/method/detached
+ */
+/**
+ * @external {Aurelia.ComponentUnbind} http://aurelia.io/docs/api/templating/interface/ComponentUnbind/
+ */
+/**
+ * @external {Aurelia.ConfiguresRouter} http://aurelia.io/docs/api/templating/interface/ConfiguresRouter/
+ */
+/**
+ * @external {Aurelia.DynamicComponentGetViewStrategy} http://aurelia.io/docs/api/templating/interface/DynamicComponentGetViewStrategy
+ */
+/**
+ * @external {Aurelia.NavigationInstructions} http://aurelia.io/docs/api/router/interface/NavigationInstructions
+ */
+/**
+ * @external {Aurelia.RoutableComponentActivate} http://aurelia.io/docs/api/router/interface/RoutableComponentActivate
+ */
+/**
+ * @external {Aurelia.RoutableComponentCanActivate} http://aurelia.io/docs/api/router/interface/RoutableComponentCanActivate
+ */
+/**
+ * @external {Aurelia.RoutableComponentCanDeactivate} http://aurelia.io/docs/api/router/interface/RoutableComponentCanDeactivate
+ */
+/**
+ * @external {Aurelia.RoutableComponentDeactivate} http://aurelia.io/docs/api/router/interface/RoutableComponentDeactivate
+ */
+/**
+ * @external {Aurelia.RouteConfig} http://aurelia.io/docs/api/router/interface/RouteConfig
+ */
+
+
 import { inject } from 'aurelia-framework';
 
 import { Base } from 'features/base';
@@ -6,8 +58,19 @@ import { className, extend } from 'features/utils';
 
 /**
  * Abstract Class for all Model Views (Components) used within the project
- *
- * @link https://www.danyow.net/inversion-of-control-with-aurelia-part-1/
+ * @extends {Base}
+ * @extends {Messages}
+ * @implements {Aurelia.ComponentAttached}
+ * @implements {Aurelia.ComponentBind}
+ * @implements {Aurelia.ComponentCreate}
+ * @implements {Aurelia.ComponentDetached}
+ * @implements {Aurelia.ComponentUnbind}
+ * @implements {Aurelia.ConfiguresRouter}
+ * @implements {Aurelia.DynamicComponentGetViewStrategy}
+ * @implements {Aurelia.RoutableComponentActivate}
+ * @implements {Aurelia.RoutableComponentCanActivate}
+ * @implements {Aurelia.RoutableComponentCanDeactivate}
+ * @implements {Aurelia.RoutableComponentDeactivate}
  */
 @inject(Messages)
 export class View extends Base {
@@ -15,20 +78,18 @@ export class View extends Base {
      * Inherited
      *************************************************************************************/
     /**
-     * @see View::constructor()
+     * @see Base#constructor
      * @param {Messages} messages
      */
     constructor(messages, ...args) {
         super(...args);
+        /**
+         * @type {Messages}
+         */
         this.messages = messages;
     }
     /**
-     * Implement this hook if you want to perform custom logic just before your view-model is displayed. You can
-     * optionally return a promise to tell the router to wait to bind and attach the view until after you finish your
-     * work.
-     * Forms to call:
-     * @method activate(model: Object) for components
-     * @method activate(params: Object, routeConfig: Object, navigationInstruction: NavigationInstruction) for page templates
+     * @see http://aurelia.io/docs/api/router/interface/RoutableComponentActivate/method/activate
      */
     activate(...args) {
         // parse module variable
@@ -41,13 +102,21 @@ export class View extends Base {
         }
         // parse template params
         if (args.length > 1) {
-            // Save params
+            /**
+             * @type {Object}
+             */
             this.params = args.shift();
-            // Save routeConfig
+            /**
+             * @type {Aurelia.RouteConfig}
+             */
             this.routeConfig = args.shift();
-            // Save navigationInstruction
+            /**
+             * @type {Aurelia.NavigationInstructions}
+             */
             this.navigationInstruction = args.shift();
-            // obtain settings from routeConfig variable
+            /**
+             * @type {Object}
+             */
             this.settings = this.routeConfig ? this.routeConfig.settings : {};
         }
 
@@ -60,46 +129,20 @@ export class View extends Base {
         }
     }
     /**
-     * Invoked when the view that contains the extension is attached to the DOM.
-     * @method attached
-     */
-    /**
      * Invoked when the databinding engine binds the view. The binding context is the instance that the view is
      * databound to.
-     * @method bind
-     * @param   {Object}  bindingContext
-     * @param   {Object}  overrideContext?
-     * @param   {Boolean} _systemUpdate? default true
-     * @returns {void}
+     * @see http://aurelia.io/docs/api/templating/interface/ComponentBind/method/bind
+     * @param  {Object}  bindingContext
+     * @param  {Object}  overrideContext
+     * @param  {Boolean} _systemUpdate default true
+     * @return {void}
      */
-    bind(bindingContext, overrideContext) {
-        // obtain view parent
+    bind(bindingContext, overrideContext, _systemUpdate = true) {
+        /**
+         * @type {Object}
+         */
         this.parent = overrideContext.parentOverrideContext.bindingContext;
     }
-    /**
-     * Implement this hook if you want to control whether or not your view-model can be navigated to. Return a boolean
-     * value, a promise for a boolean value, or a navigation command.
-     * @method canActivate
-     * @param {Object} params
-     * @param {Object} routeConfig
-     * @param {Object} navigationInstruction
-     */
-    /**
-     * Implement this hook if you want to control whether or not the router can navigate away from your view-model when
-     * moving to a new route. Return a boolean value, a promise for a boolean value, or a navigation command.
-     * @method canDeactivate
-     */
-    /**
-     * Implement this hook if your view-model needs to translating url changes into application state.
-     * @method configureRouter
-     * @param {Object} config
-     * @param {Router} router
-     */
-    /**
-     * Invoked once the component is created...
-     * @method created
-     * @param {View} view
-     */
     /**
      * Default view settings, as follows
      * - style: '',    => css classes for page (each class will be added to body element having page- prefix)
@@ -119,41 +162,26 @@ export class View extends Base {
         };
     }
     /**
-     * Invoked when the view that contains the extension is detached from the DOM.
+     * @see http://aurelia.io/docs/api/templating/interface/ComponentDetached/method/detached
      */
     detached() {
         this.disposeEvents();
     }
     /**
-     * Invoked when the databinding engine unbinds the view.
-     * @method unbind
-     */
-    /*************************************************************************************
-    * Amaranth
-    *************************************************************************************/
-    /**
-     * Default View Settings. Can be null
-     * @type {Object|null}
-     * @var defaultSettings;
-     */
-    /**
-     * Override Settings Key.
-     * If using 'aurelia-configuration', this key will be used to extract over writing settings from application config.
-     * @type {String}
-     * @var overrideSettingsKey;
-     */
-    /**
      * Specific init function for each model view. AbstravView will call it at the end of the activate method.
      * Generaly this method may be async.
-     * @method init
+     * @return {void}
      */
     init() {
         // this.rest = this.gql.getEndpoint(`http://ws-test.${window.location.hostname}:3030/`);
         // this.rest = api.getEndpoint(`ws://${window.location.hostname}:8443/graphql`, {}, api.createSubscriptionClient());;
     }
     /**
-     * Merge settings
-     * @method mergeSettings
+     * Merge settings given for a view from different layers of the application:
+     * - defaultSettings getter
+     * - which can be overwritten by the settings from config.json (defined via) `overrideSettingsKey` key
+     * - which can also be overwritten by the settings which are direclty binded to the view
+     * @return {void}
      */
     async mergeSettings() {
         this.settings = this.settings || {};
@@ -186,7 +214,6 @@ export class View extends Base {
     /**
      * Getter for component override settings. This settings should globaly override settings defined in a component's
      * `defaultSettings` variable. If the override settubgs do not exists, it will return an empty object.
-     * @method overrideSettings
      * @return {Object}
      */
     get overrideSettings() {
@@ -200,11 +227,11 @@ export class View extends Base {
         return this._overrideSettings;
     }
     /**
-     * Getter for concatenating component style/bind
-     * @method style
+     * Getter for concatenating component style/bind. Will concatenate styles found in 'settings.layout'
+     * and 'settings.style' values. Will return empty string if none found.
      * @return {String}
      */
     get style() {
-        return `${this.settings.style || ''} ${this.settings.layout || ''}`;
+        return `${this.settings.style || ''} ${this.settings.layout || ''}`.trim();
     }
 }

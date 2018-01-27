@@ -6,6 +6,8 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import _ from 'lodash';
+
 import { Template } from 'features/views/template';
 import { extend } from 'features/utils';
 
@@ -29,5 +31,12 @@ export class TComponents extends Template {
                 }
             }
         });
+    }
+    /**
+     * Obtain the list of routes for UIkit
+     * @return {Array}
+     */
+    get uikitRoutes() {
+        return _.filter(this.router.routes, route => (route.name || '').match(/^uikit-components-/));
     }
 }

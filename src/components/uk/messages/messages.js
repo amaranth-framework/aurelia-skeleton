@@ -7,7 +7,6 @@
  */
 
 import { Component } from 'features/views/component';
-import { extend } from 'features/utils';
 
 /**
  * Component for displaying messages among the entire application.
