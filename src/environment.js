@@ -1,6 +1,6 @@
 
-const loremImagesSource = 'http://lorempixel.com';
-// const loremImagesSource = 'https://loremflickr.com';
+// const loremImagesSource = 'http://lorempixel.com';
+const loremImagesSource = 'https://loremflickr.com';
 
 export default {
     debug: true,

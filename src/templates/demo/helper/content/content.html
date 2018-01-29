@@ -1,0 +1,49 @@
+<template>
+    <require from="../../demo.less"></require>
+
+    <div class="uk-container">
+        <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Add components based content easily.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Please read details about composition of card component on <a href="https://getuikit.com/docs/card#usage">Card section</a> of <b>UIkit</b> documentaton.</p>
+
+        <pre><code class="js">// within your template / component 
+const list = [
+    {
+        model: 'components/helper/table',
+        view: 'components/helper/table.html',
+        settings: { ... }
+    },
+    {
+        model: 'components/helper/card',
+        view: 'components/helper/card.html',
+        settings: { ... }
+    },
+    ...
+]</code></pre>
+
+        <pre><code class="html">&lt;!-- within your template's/component's view template -->
+&lt;compose containerless view-model="components/helper/card" model.bind="{ settings: list }"&gt;&lt;/compose&gt;</code></pre>
+
+        <h2 id="settings" class="uk-h3">
+            <a href="#settings">Component Bindables</a>
+        </h2>
+
+        <div uk-alert>
+            <h3>Notice</h3>
+            <p>Considering the documentation below, please note the <code>component</code> parameter within any designed component can be overwritten by the <code>content</code> component, thus makig the refered parameter a sensitive one. If you use it, differently than designed here, you will use it on your own risk.</p>
+        </div>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+
+    </div>
+
+</template>

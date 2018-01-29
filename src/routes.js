@@ -23,6 +23,7 @@ export default [
             'helper-components-card',
             'helper-components-content',
             'helper-components-form',
+            'helper-components-listing',
             'helper-components-table'
         ],
         title: 'Helper Components'
@@ -38,7 +39,7 @@ export default [
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        moduleId: PLATFORM.moduleName('templates/demo/helper/content/content'),
         name: 'helper-components-content',
         nav: false,
         route: 'helper-components/content',
@@ -53,6 +54,15 @@ export default [
         route: 'helper-components/form',
         subroutes: [],
         title: 'Form'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/listing/listing'),
+        name: 'helper-components-listing',
+        nav: false,
+        route: 'helper-components/listing',
+        subroutes: [],
+        title: 'Listing'
     },
     {
         icon: 'code',

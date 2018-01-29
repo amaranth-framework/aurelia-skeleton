@@ -9,22 +9,11 @@ import { extend } from 'features/utils';
 @inject(Loader)
 export class ComponentHelperContent extends Component {
     /**
-     * @see ModelView::overrideSettingsKey
+     * @see Component#overrideSettingsKey
      */
-    overrideSettingsKey = 'components.helper-content';
+    overrideSettingsKey = 'components.helper/content';
     /**
-     * @see View::defaultSettings()
-     * @return {Object}
-     */
-    get defaultSettings() {
-        return extend(true, super.defaultSettings, {
-            styles: {
-                inner: ''
-            }
-        });
-    }
-    /**
-     * @see Template::constructor()
+     * Constructor.
      */
     constructor(loader, ...args) {
         super(...args);

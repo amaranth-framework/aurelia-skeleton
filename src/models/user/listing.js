@@ -1,4 +1,4 @@
-import { ComponentHelperListing } from 'components/helper/listing/listing';
+import { ComponentHelperListing } from 'components/helper/listing';
 import { User } from 'models/user/user';
 
 import 'bootstrap';

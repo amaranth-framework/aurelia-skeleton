@@ -7,19 +7,19 @@
 
     <div class="uk-container">
 
-        <p class="uk-text-lead">Easily create nice looking tables.</p>
+        <p class="uk-text-lead">Easily implement listings within project.</p>
 
         <h2 id="usage" class="uk-h3">
             <a href="#usage">Usage</a>
         </h2>
 
-        <p>Please read details about composition of table component on <a href="https://getuikit.com/docs/table#usage">Table section</a> of <b>UIkit</b> documentaton.</p>
+        <p>Implements functionality for both <code>card (grid)</code> and <code>table</code> components.</p>
 
-        <p>Table component functions by either calling the default table component with a different template/view, either by completly extending this component into a new one, depending on your own needs.</p>
+        <pre><code class="html">&lt;compose containerless view-model="components/helper/listing" model.bind="{ models: [ ... ] settings: { ... } }"&gt;&lt;/compose&gt;</code></pre>
 
-        <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: {} }"&gt;&lt;/compose&gt;</code></pre>
+        <h3>As Card List/Grid</h3>
 
-        <ul uk-tab="" class="uk-tab">
+        <ul uk-tab class="uk-tab">
             <li aria-expanded="false" class="uk-active">
                 <a href="#">Preview</a>
             </li>
@@ -30,10 +30,30 @@
 
         <ul class="uk-switcher uk-margin">
             <li>
-                <compose containerless view-model="components/helper/table"></compose>
+                <compose containerless view-model="components/helper/listing"></compose>
             </li>
             <li>
-                <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: { }, thead: thead, tbody: tbody }"&gt;&lt;/compose&gt;</code></pre>
+                <pre><code class="html">&lt;compose containerless view-model="components/helper/listing" model.bind="{ settings: { ... }, models: [ ... ] }"&gt;&lt;/compose&gt;</code></pre>
+            </li>
+        </ul>
+
+        <h3>As Table</h3>
+
+        <ul uk-tab class="uk-tab">
+            <li aria-expanded="false" class="uk-active">
+                <a href="#">Preview</a>
+            </li>
+            <li aria-expanded="true" class="">
+                <a href="#">Markup</a>
+            </li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <compose containerless view-model="components/helper/listing" model.bind="{ settings: { view: 'table' } }"></compose>
+            </li>
+            <li>
+                <pre><code class="html">&lt;compose containerless view-model="components/helper/listing" model.bind="{ settings: { { ... view: CHListing.VIEW_MODEL_TABLE } }, models: [ ... ] }"&gt;&lt;/compose&gt;</code></pre>
             </li>
         </ul>
 

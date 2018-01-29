@@ -6,17 +6,13 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import {
-    TDemo
-} from 'templates/demo/demo';
-import {
-    extend
-} from 'features/utils';
+import { TDemo } from 'templates/demo/demo';
+import { extend } from 'features/utils';
 
 /**
  * Home Template for helper/card
  */
-export class TCHCard extends TDemo {
+export class TCHListing extends TDemo {
     /**
      * Component bindables
      * @type Object
@@ -25,28 +21,10 @@ export class TCHCard extends TDemo {
         thead: [ 'OPTION', 'VALUE', 'DEFAULT', 'DESCRIPTION' ],
         tbody: [
             {
-                option: 'thead',
+                option: 'models',
                 type: 'Array<Object|String>',
                 default: [],
-                description: 'Array presenting the list of columns within the table\'s header. If table column is described by object, find bellow already implemented parameters.'
-            },
-            {
-                option: 'thead[].style',
-                type: 'String',
-                default: '',
-                description: '(optional) Class names to be added for each <code>th</code> cell according to your needs.'
-            },
-            {
-                option: 'thead[].title',
-                type: 'String',
-                default: '',
-                description: 'Title of the column.'
-            },
-            {
-                option: 'tbody',
-                type: 'Array<Model|Object>',
-                default: '',
-                description: 'Array of models presenting the data of the tables. Can contain both extensions of the <code>Model</code> abstract class or other Javascript Objects defined according to your needs. Only restriction should be the structure of the model list which should be identical for all models.'
+                description: 'Array of models presenting the data of the listing. Can contain both extensions of the <code>Model</code> abstract class or other Javascript Objects defined according to your needs. Only restriction should be the structure of the model list which should be identical for all models.'
             },
             {
                 option: 'settings',
@@ -55,40 +33,46 @@ export class TCHCard extends TDemo {
                 description: 'Component settings. Parameters will be described bellow.'
             },
             {
-                option: 'settings.actions',
-                type: 'Array<Object>|Boolean',
-                default: 'See code',
-                description: 'Actions that can be taken against the each table row/model. To deactivate, set to <code>false</code>.'
-            },
-            {
-                option: 'settings.actions.event',
+                option: 'settings.card',
                 type: 'String',
                 default: '',
-                description: 'Action\'s event string.'
+                description: 'Setting for the card component used within the listing. Additional to default <code>card</code> component, two more settings can be used as presented bellow:'
             },
             {
-                option: 'settings.actions.icon',
-                type: 'Object',
-                default: '{}',
-                description: 'Action\'s <a href="https://getuikit.com/docs/icon">UIkit</a> icon.'
+                option: 'settings.card.model',
+                type: 'String',
+                default: 'components/helper/card',
+                description: 'Path to the card class.'
             },
             {
-                option: 'settings.actions.faIcon',
+                option: 'settings.table',
+                type: 'String',
+                default: 'components/helper/card.html',
+                description: 'Path to the card template.'
+            },
+            {
+                option: 'settings.name',
+                type: 'String',
+                default: 'default',
+                description: 'Name for the listing component, used especially in event names.'
+            },
+            {
+                option: 'settings.table.view',
                 type: 'String',
                 default: '',
-                description: 'Action\'s <a href="http://fontawesome.io/icons/">Font Awesome</a> icon.'
+                description: 'Setting for the table component used within the listing. Additional to default <code>table</code> component, two more settings can be used as presented bellow:'
             },
             {
-                option: 'settings.actions.title',
+                option: 'settings.table.model',
                 type: 'String',
-                default: '{}',
-                description: 'Action\'s title.'
+                default: 'components/helper/table',
+                description: 'Path to the table class.'
             },
             {
-                option: 'settings.isSelectable',
-                type: 'Boolean',
-                default: 'true',
-                description: 'Enable table\'s ability to have selectable rows.'
+                option: 'settings.table.view',
+                type: 'String',
+                default: 'components/helper/table.html',
+                description: 'Path to the table template.'
             },
             {
                 option: 'settings.style',
@@ -101,8 +85,19 @@ export class TCHCard extends TDemo {
                 type: 'Object',
                 default: '{}',
                 description: 'Additional style classes for different elements on the card. Extend according to your own needs.'
+            },
+            {
+                option: 'settings.styles.cardList',
+                type: 'String',
+                default: 'uk-child-width-1-3@m',
+                description: 'Class used to describe additional classes added to the card grid.'
+            },
+            {
+                option: 'settings.view',
+                type: 'Object',
+                default: 'card',
+                description: 'View mode defined for listing. Can be switched between <code>VIEW_MODE_CARDS</code> (<code>card</code>) and <code>VIEW_MODE_TABLE</code> (<code>table</code>).'
             }
-            
         ],
         settings: {
             actions: false,
@@ -114,7 +109,7 @@ export class TCHCard extends TDemo {
      * See {@link View#overrideSettingsKey}
      * @type {String}
      */
-    overrideSettingsKey = 'templates.demo/components/helper/card';
+    overrideSettingsKey = 'templates.demo/components/helper/listing';
     /**
      * See {@link View#defaultSettings}
      * @type {Object}
@@ -123,7 +118,7 @@ export class TCHCard extends TDemo {
         return extend(true, super.defaultSettings, {
             pageTitle: {
                 content: {
-                    title: 'Table'
+                    title: 'Listing'
                 }
             }
         });
