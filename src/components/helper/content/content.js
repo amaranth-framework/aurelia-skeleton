@@ -7,7 +7,7 @@ import { extend } from 'features/utils';
  * Content Page template
  */
 @inject(Loader)
-export class ComponentHelperContent extends Component {
+export class CHContent extends Component {
     /**
      * @see Component#overrideSettingsKey
      */
