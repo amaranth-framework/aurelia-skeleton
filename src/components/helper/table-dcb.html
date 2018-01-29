@@ -1,4 +1,5 @@
 <template>
+    <!-- Documentation table for Component Bindables -->
     <div class="uk-overflow-auto">
         <table class.bind="style" id="table-${__uuid}" class="uk-table">
             <thead if.bind="thead.length" class.bind="styles.thead">
@@ -19,11 +20,10 @@
                         <input model.bind="model" checked.bind="$parent.selection" change.trigger="publishSelection()" class="uk-checkbox" type="checkbox">
                     </td>
                     <!-- Model Table Content -->
-                    <td class="uk-table-shrink uk-text-middle">
-                        <img class="uk-preserve-width uk-border-circle" src.bind="model.image" width="40" alt="">
-                    </td>
-                    <td innerhtml.bind="model.title" class="uk-text-middle"></td>
-                    <td innerhtml.bind="model.content" class="uk-table-expand uk-text-middle"></td>
+                    <td><code>${model.option}</code></td>
+                    <td>${model.type}</td>
+                    <td><code>${model.default}</code></td>
+                    <td innerhtml.bind="model.description"></td>
                     <!-- Actions -->
                     <td if.bind="settings.actions.length" class="uk-table-shrink uk-text-center@s uk-text-middle am-table-actions">
                         <a repeat.for="action of settings.actions" click.trigger="event.publish(action.event)" title.bind="action.title" href="#!">

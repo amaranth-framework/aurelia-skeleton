@@ -28,7 +28,7 @@
 
         <ul class="uk-switcher uk-margin">
             <li>
-                <compose containerless view-model="components/helper/card" model.bind="{ settings: { style: 'uk-width-1-3@m' }, model: cards[0] }"></compose>
+                <compose containerless view-model="components/helper/card" model.bind="{ settings: { style: 'uk-width-1-3@m' } }"></compose>
             </li>
             <li>
                 <pre><code class="html">&lt;compose containerless view-model="components/helper/card" model.bind="{ settings: { style: 'uk-width-1-3@m' } }"&gt;&lt;/compose&gt;</code></pre>
@@ -85,66 +85,11 @@
         </ul>        
 
         <h2 id="settings" class="uk-h3">
-            <a href="#settings">Component Settings</a>
+            <a href="#settings">Component Bindables</a>
         </h2>
 
-        <div class="uk-overflow-auto">
-            <table class="uk-table uk-table-divider">
-                <thead>
-                    <tr>
-                        <th>Option</th>
-                        <th>Value</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <code>actions</code>
-                        </td>
-                        <td>Array</td>
-                        <td>
-                            <pre><code>[
-        { icon: { icon: 'file-edit' }, title: 'Edit', event: 'model:edit' },
-        { icon: { icon: 'trash' }, title: 'Remove', event: 'model:remove' }
-    ]</code></pre>
-                        </td>
-                        <td>Actions that can be taken against the binded model.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>model</code>
-                        </td>
-                        <td>Object</td>
-                        <td>
-                            <code>{}</code>
-                        </td>
-                        <td>Model to bind to the card element, in order to make presentable.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>style</code>
-                        </td>
-                        <td>String</td>
-                        <td>
-                            <code></code>
-                        </td>
-                        <td>Additional style classes card.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <code>styles</code>
-                        </td>
-                        <td>Object</td>
-                        <td>
-                            <code>{}</code>
-                        </td>
-                        <td>Additional style classes for different elements on the card.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+
     </div>
 
 </template>
