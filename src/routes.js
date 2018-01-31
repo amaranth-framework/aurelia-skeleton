@@ -112,10 +112,10 @@ export default [
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/uikit/messages/messages'),
-        name: 'uikit-components-dromessagespdown',
+        name: 'uikit-components-messages',
         nav: false,
         route: 'uikit-components/messages',
-        title: 'Dropdown'
+        title: 'Messages'
     },
     {
         icon: 'code',
@@ -124,14 +124,6 @@ export default [
         nav: false,
         route: 'uikit-components/nav',
         title: 'Nav'
-    },
-    {
-        icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/uikit/navbar/navbar'),
-        name: 'uikit-components-navbar',
-        nav: false,
-        route: 'uikit-components/navbar',
-        title: 'Navbar'
     },
     // sample pages
     {
