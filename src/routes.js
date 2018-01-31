@@ -125,6 +125,14 @@ export default [
         route: 'uikit-components/nav',
         title: 'Nav'
     },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/navbar/navbar'),
+        name: 'uikit-components-navbar',
+        nav: false,
+        route: 'uikit-components/navbar',
+        title: 'Navbar'
+    },
     // sample pages
     {
         icon: 'code',
