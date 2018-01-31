@@ -9,6 +9,7 @@
 <!-- [Coverage Status Widget]: https://coveralls.io/repos/github/amaranth-framework/aurelia-skeleton/badge.svg?branch=master -->
 
 > Skeleton for Single Page Application using [Aurelia Framework](https://aurelia.io) and [webpack](https://webpack.js.org/)
+
 > Based on [Aurelia Skeleton Navigation for webpack](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-esnext-webpack)
 
 ## Getting started
