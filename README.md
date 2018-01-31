@@ -3,10 +3,10 @@
 [![TravisCI Status Widget]][TravisCI Status]
 <!-- [![Coverage Status Widget]][Coverage Status] -->
 
-[TravisCI Status]: https://travis-ci.org/amaranth-framework/feathersjs-skeleton
-[TravisCI Status Widget]: https://travis-ci.org/amaranth-framework/feathersjs-skeleton.svg?branch=master
-<!-- [Coverage Status]: https://coveralls.io/r/amaranth-framework/feathersjs-skeleton -->
-<!-- [Coverage Status Widget]: https://coveralls.io/repos/github/amaranth-framework/feathersjs-skeleton/badge.svg?branch=master -->
+[TravisCI Status]: https://travis-ci.org/amaranth-framework/aurelia-skeleton
+[TravisCI Status Widget]: https://travis-ci.org/amaranth-framework/aurelia-skeleton.svg?branch=master
+<!-- [Coverage Status]: https://coveralls.io/r/amaranth-framework/aurelia-skeleton -->
+<!-- [Coverage Status Widget]: https://coveralls.io/repos/github/amaranth-framework/aurelia-skeleton/badge.svg?branch=master -->
 
 > Skeleton for Single Page Application using [Aurelia Framework](https://aurelia.io) and [webpack](https://webpack.js.org/)
 > Based on [Aurelia Skeleton Navigation for webpack](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-esnext-webpack)
