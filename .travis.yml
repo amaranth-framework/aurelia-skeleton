@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  # - "iojs"
+  - "7"
+  - "8"
+  - "lts/*"
+  - "node"
+
+before_script:
+  - npm i
+
+scripts:
+  - npm run lint
+  - npm run esdoc
+  - npm run build
