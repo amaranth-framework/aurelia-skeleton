@@ -112,10 +112,10 @@ export default [
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/uikit/messages/messages'),
-        name: 'uikit-components-dromessagespdown',
+        name: 'uikit-components-messages',
         nav: false,
         route: 'uikit-components/messages',
-        title: 'Dropdown'
+        title: 'Messages'
     },
     {
         icon: 'code',
