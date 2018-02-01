@@ -18,8 +18,7 @@ import { extend, waitForVariable } from 'features/utils';
  */
 @customElement('am-a')
 @inlineView(`<template>
-    <a if.bind="!settings.route" am-uuid.bind="__uuid" href.bind="settings.href || '#!'"><slot></slot></a>
-    <a if.bind="settings.route" am-uuid.bind="__uuid" route-href="route.bind: settings.route.name || ''"><slot></slot></a>
+    <a am-uuid.bind="__uuid" href.bind="settings.href || routeHref || '#!'"><slot></slot></a>
 </template>`)
 @viewResources(PLATFORM.moduleName('resources/html-attributes/am-uuid'))
 export class CUKA extends Component {
@@ -51,8 +50,16 @@ export class CUKA extends Component {
     async renderIcon() {
         await waitForVariable(this, obj => obj.settings);
         // console.log('renderIcon', this.htmlElement, this.settings);
-        // if (this.settings && this.settings.ukIcon) {
-        //     UIkit.icon(this.htmlElement, this.settings.ukIcon);
-        // }
+        if (this.settings && this.settings.ukIcon) {
+            UIkit.icon(this.htmlElement, this.settings.ukIcon);
+        }
+    }
+    /**
+     * Obtain the href based on the route settings
+     * @return {String|null}
+     */
+    get routeHref() {
+        const route = this.settings.route;
+        return route ? this.router._recognizer.generate(route.name, route.params || {}) : null;
     }
 }
