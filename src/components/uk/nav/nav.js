@@ -78,6 +78,7 @@ export class ComponentUKNav extends Component {
      * @return {Array}
      */
     findSubroutes(list) {
+        console.log('findSubroutes', list, _.filter(this.routes, (route) => (list || []).includes(route.name)));
         return _.filter(this.routes, (route) => (list || []).includes(route.name));
     }
     /**
@@ -98,6 +99,19 @@ export class ComponentUKNav extends Component {
      */
     hasMultipleColumns(list) {
         return list.length > 1 && list.map(a => Array.isArray(a)).reduce((a, b) => a && b);
+    }
+    /**
+     * @getter
+     * @return {Object}
+     */
+    get routesByName() {
+        if (!this._routesByName) {
+            this._routesByName = {};
+            _.each(this.routes, (route) => {
+                this._routesByName[route.name] = route;
+            });
+        }
+        return this._routesByName;
     }
     /**
      * @getter

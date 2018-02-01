@@ -23,11 +23,11 @@
             <div if.bind="route.subroutes && settings.isPartOfNavbar && hasMultipleColumns(route.subroutes)" class="uk-navbar-dropdown uk-navbar-dropdown-width-${route.subroutes.length}">
                 <div if.bind="hasMultipleColumns(route.subroutes)" class="uk-navbar-dropdown-grid uk-child-width-1-${route.subroutes.length}" uk-grid>
                     <div repeat.for="subroutesList of route.subroutes">
-                        ${subroutesList.join(', ')}
-                        <li repeat.for="route2 of findSubroutes(subroutesList)" class.bind="classForLi(route2)">
-                            <a if.bind="!route2.isDivider" click.trigger="router.navigateToRoute(route2.name, route2.params || {})" href="#!">
-                                <span class.bind="classForA(route)">${route2.title}</span>
-                            </a>
+                        <li repeat.for="subroute of subroutesList">
+                            ${subroute}
+                            <!-- <a if.bind="!route2.isDivider" click.trigger="router.navigateToRoute(routesByName[route2].name, routesByName[route2].params || {})" href="#!">
+                                <span class.bind="classForA(routesByName[route2])">${routesByName[route2].title}</span>
+                            </a> -->
                         </li>
                     </div>
                 </div>

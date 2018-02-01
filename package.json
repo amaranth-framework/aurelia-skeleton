@@ -7,10 +7,10 @@
     "url": "git+ssh://git@github.com/aurelia/skeleton-navigation.git",
     "type": "git"
   },
-  "author": "Bazyli Brzóska <bazyli.brzoska@gmail.com> (https://invent.life/)",
-  "license": "CC0-1.0",
+  "author": "Dragos Cirjan <dragos.cirjan@gmail.com> (https://dragosc.itmcd.ro/)",
+  "license": "MIT",
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 7.0.0"
   },
   "scripts": {
     "build": "nps webpack.build",
