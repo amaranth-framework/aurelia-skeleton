@@ -42,7 +42,9 @@ export class TemplatesHome extends Template {
                 content: {
                     title: 'Dashboard'
                 }
-            }
+            },
+            icon: { ukIcon: { icon: 'heart' }, style: 'test' },
+            icona: { style: 'test', route: { name: 'dashboard' } }
         });
     }
 }

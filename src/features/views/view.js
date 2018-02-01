@@ -49,7 +49,6 @@
  * @external {Aurelia.RouteConfig} http://aurelia.io/docs/api/router/interface/RouteConfig
  */
 
-
 import { inject } from 'aurelia-framework';
 
 import { Base } from 'features/base';
@@ -166,6 +165,13 @@ export class View extends Base {
      */
     detached() {
         this.disposeEvents();
+    }
+    /**
+     * Obtain the generated html element
+     * @return {HTMLElement}
+     */
+    get htmlElement() {
+        return document.querySelector(`[am-uuid="${this.__uuid}"]`);
     }
     /**
      * Specific init function for each model view. AbstravView will call it at the end of the activate method.
