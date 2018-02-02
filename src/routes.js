@@ -82,6 +82,7 @@ export default [
         route: 'uikit-components',
         subroutes: [
             [
+                'uikit-components-a',
                 'uikit-components-breadcrumb',
                 'uikit-components-dropdown',
                 'uikit-components-messages'
@@ -92,6 +93,14 @@ export default [
             ]
         ],
         title: 'UiKit Components'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/uikit/a/a'),
+        name: 'uikit-components-a',
+        nav: false,
+        route: 'uikit-components/a',
+        title: 'Anchor'
     },
     {
         icon: 'code',

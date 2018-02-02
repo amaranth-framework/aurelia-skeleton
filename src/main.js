@@ -4,7 +4,6 @@ import Backend from 'i18next-xhr-backend';
 import environment from './environment';
 
 import 'font-awesome/css/font-awesome.css';
-
 import 'uikit/dist/css/uikit.min.css';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
@@ -16,6 +15,10 @@ import * as Bluebird from 'bluebird';
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
+/**
+ * @param  {[type]}  aurelia [description]
+ * @return {[type]}          [description]
+ */
 export async function configure(aurelia) {
     aurelia.use
         .standardConfiguration();
@@ -36,7 +39,7 @@ export async function configure(aurelia) {
         .plugin(PLATFORM.moduleName('aurelia-validation'))
         .plugin(PLATFORM.moduleName('aurelia-api'), config => {
             /**
-             * @link https://aurelia-api.spoonx.org/configuration.html
+             * See {@link https://aurelia-api.spoonx.org/configuration.html}
              */
             config
             .registerEndpoint(
