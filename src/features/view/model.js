@@ -9,8 +9,8 @@
 import { Container, inject, NewInstance } from 'aurelia-dependency-injection';
 import { validateTrigger, ValidationController } from 'aurelia-validation';
 
-import { Component } from 'features/views/component';
-import { className, /*deprecate, */extend/*, waitForVariable*/ } from 'features/utils';
+import { Component } from 'features/view/component';
+import { className, extend } from 'features/utils/object';
 
 /**
  * Abstract Model View (usable with <compose>)
@@ -99,7 +99,6 @@ export class Model extends Component {
         return await this.getEndpoint(this.settings.endpoint || 'default')
             .findOne(this.settings.services.load, this[prototype.INDEX_NAME])
             .then(result => {
-                // console.log('result', result);
                 this.setData(result);
                 return this.toObject();
             });

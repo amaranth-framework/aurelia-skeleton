@@ -31,13 +31,13 @@ import { AureliaConfiguration } from 'aurelia-configuration';
 import { inject } from 'aurelia-framework';
 import { I18N } from 'aurelia-i18n';
 import { Router } from 'aurelia-router';
-import { excludes, traits } from 'traits-decorator';
+// import { excludes, traits } from 'traits-decorator';
 import UUID from 'uuid-js';
 
+import { Logable } from 'features/traits/logable';
 import { Eventable } from 'features/traits/eventable';
-import { Loggable } from 'features/traits/loggable';
 import { RESTable } from 'features/traits/restable';
-import { className, parentClassName } from 'features/utils';
+import { className, parentClassName, traits, traitsExclude } from 'features/utils/object';
 
 /**
  * Aurelia class base for almost each functionality we may build.
@@ -46,14 +46,14 @@ import { className, parentClassName } from 'features/utils';
  * @extends {Loggable}
  * @extends {RESTable}
  */
-@traits(Eventable, Loggable::excludes('toString'), RESTable)
+// @traits(Eventable/*, Loggable::excludes('toString'), RESTable*/)
 @inject(AureliaConfiguration, EventAggregator, I18N, Router)
-export class Base {
+class ModelViewPartial {
     /**
      * Constructor
      * @param {AureliaConfiguration} config Aurelia configuration plugin
      * @param {EventAggregator}      events Aurelia EventAggregator module
-     * @param {I18N}                 i18n   Aaurelia i18n plugin
+     * @param {I18N}                 i18n   Aurelia i18n plugin
      * @param {Router}               router Aurelia Router module
      */
     constructor(config, events, i18n, router) {
@@ -90,3 +90,10 @@ export class Base {
         return `${parentClassName(this) || 'Object'}/${className(this)}/${this.__uuid.toString()}`;
     }
 }
+
+export const ModelView = traits(
+    ModelViewPartial,
+    traitsExclude(Logable, 'toString'),
+    Eventable,
+    RESTable
+);

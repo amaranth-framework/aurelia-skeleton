@@ -6,7 +6,7 @@
  * @license   https://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import { View } from 'features/views/view';
+import { View } from 'features/view/view';
 
 /**
  * Abstract Component View (usable with <compose>)

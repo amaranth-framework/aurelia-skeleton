@@ -51,9 +51,9 @@
 
 import { inject } from 'aurelia-framework';
 
-import { Base } from 'features/base';
-import { Messages } from 'features/messages';
-import { className, extend } from 'features/utils';
+import { ModelView } from 'features/model-view';
+import { Messages } from 'features/utils/messages';
+import { className, extend } from 'features/utils/object';
 
 /**
  * Abstract Class for all Model Views (Components) used within the project
@@ -72,7 +72,7 @@ import { className, extend } from 'features/utils';
  * @implements {Aurelia.RoutableComponentDeactivate}
  */
 @inject(Messages)
-export class View extends Base {
+export class View extends ModelView {
     /*************************************************************************************
      * Inherited
      *************************************************************************************/

@@ -8,6 +8,8 @@
 
 import { LogManager } from 'aurelia-framework';
 
+import { className } from './object';
+
 const _logger = LogManager.getLogger('features/utils');
 
  /**
@@ -20,3 +22,4 @@ const _logger = LogManager.getLogger('features/utils');
 export function deprecate(target, key, descriptor) {
     _logger.warn(`Usage of ${className(target)}.${key} is deprecated. Please see documentation.`);
 }
+

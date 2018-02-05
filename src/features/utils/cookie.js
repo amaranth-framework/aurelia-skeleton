@@ -6,10 +6,6 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
- /**********************************************************************************************
-  * Cookie
-  **********************************************************************************************/
-
  /**
   * Obtain a Cookie value
   * @param  {String} name Name of the cookie

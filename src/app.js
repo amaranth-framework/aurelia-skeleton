@@ -6,11 +6,11 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import { inject } from 'aurelia-framework';
+// import { inject } from 'aurelia-framework';
 import _ from 'lodash';
 
-import { AuthorizeStepJWT as AuthorizeStep } from 'features/authorize-step/authorize-step';
-import { Base } from 'features/base';
+// import { AuthorizeStepJWT as AuthorizeStep } from 'features/authorize-step/authorize-step';
+import { ModelView } from 'features/model-view';
 
 // import environment from 'environment';
 import appRoutes from 'routes';
@@ -18,34 +18,23 @@ import appRoutes from 'routes';
 /**
  * Application
  */
-@inject(AuthorizeStep)
-export class App extends Base {
-    /**
-     * Constructor
-     * @see Base::constructor() for the rest of the arguments
-     * @param {AuthorizeStep}        authStep Authorization step
-     */
-    constructor(authStep, ...args) {
-        super(...args);
-        this.authStep = authStep;
-        this.config.set('auth-step', this.authStep);
+// @inject(AuthorizeStep)
+export class App extends ModelView {
+    // /**
+    //  * Constructor
+    //  * @see Base::constructor() for the rest of the arguments
+    //  * @param {AuthorizeStep}        authStep Authorization step
+    //  */
+    // // constructor(authStep, ...args) {
+    // constructor(...args) {
+    //     super(...args);
+    //     // this.authStep = authStep;
+    //     // this.config.set('auth-step', this.authStep);
 
-        this.config.set('application.layout', '');
-        // Uncomment for material style
-        // this.config.set('application.layout', 'material');
-        // Uncomment for ux
-        // this.config.set('application.layout', 'ux');
-        // Set correct style
-        let BODY = document.querySelector('body');
-        BODY.className = this.config.get('application.layout') + ' ' + BODY.className.replace(/^(material|ux)\s+/ig, '');
-
-        this.subscribeEvent('router:navigation:complete', (result) => {
-            this.routerMarkActiveRoute(result.instruction.router, result.instruction.config.name);
-        });
-
-        this.subscribeEvent('nav-left:hide', () => this.navLeftStyle = '');
-        this.subscribeEvent('nav-left:open', () => this.navLeftStyle = 'is-open');
-    }
+    //     this.subscribeEvent('router:navigation:complete', (result) => {
+    //         this.routerMarkActiveRoute(result.instruction.router, result.instruction.config.name);
+    //     });
+    // }
     /**
      * Configure Application router
      * @method configureRouter
@@ -162,8 +151,10 @@ export class App extends Base {
     }
     /**
      * Search and mark active route when navigation completed.
-     * @param  {{}}      result
-     * @param  {String}  eventName
+     * @param  {NavRouter}  router
+     * @param  {String}  name
+     * @param  {Boolean} wipe   Default true.
+     * @return {void}
      */
     routerMarkActiveRoute(router, name, wipe = true) {
         if (wipe) {
@@ -176,29 +167,6 @@ export class App extends Base {
             route.active = true;
             this.routerMarkActiveRoute(router, route.name, false);
         });
-        // console.log('nav done', result);
-        // // determine router
-        // let router = result.instruction.router;
-        // // mark all routes as non active
-        // router.routes.forEach((route) => route.active = false);
-        // // mark current route as active
-        // let route = _.find(router.routes, { name: result.instruction.config.name });
-        // if (route) {
-        //     // mark route as active, if found
-        //     route.active = true;
-        //     // determine 1st level of parent routes
-        //     let parentRoute = _.find(router.routes, (route) => route.routes.includes(route.name));
-        //     if (parentRoute) {
-        //         // and mark as active if found
-        //         parentRoute.active = true;
-        //         // determine 2nd level of parent routes
-        //         let superparents = router.routes.find((route) => route.routes.includes(parent.name));
-        //         if (superparents.length) {
-        //             superparents.pop().active = true;
-        //         }
-        //     }
-        // }
-        // console.log('nav done', router);
     }
     /**
      * @param  {String} sw

@@ -6,6 +6,8 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import { bindingMode } from 'aurelia-framework';
+
 /**
  * Constant for Helping with Bindable settings.
  * @type {Object}

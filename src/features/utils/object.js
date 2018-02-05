@@ -59,3 +59,29 @@ export function parentClassName(obj) {
     }
     return className(parentClass, true);
 }
+
+const excludeDetaults = [ 'constructor', '__proto__' ];
+
+/**
+ * Attempt to implement the traits idea from php. Method will copy functionalitied from other classes to target class.
+ * @param {Function} target
+ * @param {Function} ...args
+ */
+export function traits(target, ...args) {
+    args.forEach(source => {
+        Object.keys(source.prototype)
+            .filter(key => !excludeDetaults.includes(key))
+            .forEach(key => {
+                target.prototype[key] = source.prototype[key];
+            });
+    });
+    return target;
+}
+
+export function traitsExclude(target, ...args) {
+    let Copy = function() {};
+    Object.keys(target.prototype)
+        .filter(key => !args.includes(key))
+        .forEach(key => Copy.prototype[key] = target.prototype[key]);
+    return Copy;
+}
