@@ -26,8 +26,7 @@ export class Model extends Component {
      */
     static INDEX_NAME = 'id';
     /**
-     * @see Base::constructor()
-     * @see View::constructor()
+     * @see View#constructor
      * @param {ValidationController} validationController
      */
     constructor(validationController, ...args) {
@@ -85,8 +84,8 @@ export class Model extends Component {
     }
     /**
      * Load data for a certain model, by model's id.
-     * @param {Number} id?
-     * @returns {Promise} Promise<Object>|Promise<Error>
+     * @param  {Number} id Default null.
+     * @return {Promise} Promise<Object>|Promise<Error>
      */
     async load(id = null) {
         let prototype = Object.getPrototypeOf(this);
@@ -105,11 +104,11 @@ export class Model extends Component {
     }
     /**
      * List the entire set of entities from the table.
-     * @param  {Array|String|null} properties
+     * @param  {Array|String|null} props
      * @param  {Array|String|null} filter
      * @return {Promise<Array>|Promise<Error>}
      */
-    static async list(_properties = null, filter = null) {
+    static async list(props = null, filter = null) {
         const model = this.instance;
         if (model.canActivate && !model.canActivate()) {
             throw Error(`'${className(model)}' could not pass by 'canActivate()' method.`);
@@ -158,7 +157,7 @@ export class Model extends Component {
     }
     /**
      * Save model.
-     * @returns {Promise<*>|Promise<Error>}
+     * @return {Promise<*>|Promise<Error>}
      */
     async save() {
         let prototype = Object.getPrototypeOf(this);
@@ -224,10 +223,12 @@ export function properties(list) {
 /**
  * Experimental decorator for mentioning the model's variable is actualy a table property.
  * @TODO: Method leaves room for validation & other toys.
- * @link https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841
- * @param  {String} target
- * @param  {String} key
- * @param  {Object} descriptor
+ * Params description:
+ * - {String} target
+ * - {String} key
+ * - {Object} descriptor
+ * @see {@link https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841}
+ * @param  {any} args
  * @return {Object}
  */
 export function property(...args) {

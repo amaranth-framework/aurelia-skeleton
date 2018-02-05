@@ -135,8 +135,9 @@ export class Form {
         return this.isHorizontalForm() ? this.settings.styles.labelAsCol : '';
     }
     /**
-     * @param {String} input
-     * @param {Number} index
+     * Will generate validaton style for a certain input.
+     * @param  {String} input
+     * @return {String}
      */
     validationStyle(input) {
         // test whether there are rules to validate the field

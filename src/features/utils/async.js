@@ -8,7 +8,7 @@
 
 /**
  * Obtain a list of HTML Elements based on their selector.
- * @param  {String} elector String defining the selector for the HTML Element.
+ * @param  {String} selector String defining the selector for the HTML Element.
  * @return {Array}
  */
 function selectMethod(selector) {

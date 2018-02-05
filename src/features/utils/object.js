@@ -9,10 +9,10 @@
 /**
  * Extend the `target` object with all the objects behind him (in the list of params).
  * As a note, this will not 'extend' arrays. If you need that, please use $.extend from jQuery.
- * @param  {Boolean}   deep   Whether to do a deep extend or not.
- * @param  {Object}    target Object to extend
- * @param  {...Object} args   Object(s) to extend with
- * @return {Object}           Extended object
+ * @param  {Boolean} deep   Whether to do a deep extend or not.
+ * @param  {Object}  target Object to extend
+ * @param  {Object}  args   Object(s) to extend with
+ * @return {Object}  Extended object
  */
 export function extend(deep, target, ...args) {
     const NULL = [null, 'null'];
@@ -35,8 +35,8 @@ export function extend(deep, target, ...args) {
 /**
  * Obtain the name of a class
  * @param  {Object}  obj           Object to obtain the class name
- * @param  {Boolean} isContructor Wheter object is the constructor already or not
- * @return {String}               String name of the class
+ * @param  {Boolean} isConstructor Default 'false'. Wheter object is the constructor already or not
+ * @return {String}  String name of the class
  */
 export function className(obj, isConstructor = false) {
     let _className = isConstructor ? obj.name : obj.constructor.name;
@@ -49,8 +49,8 @@ export function className(obj, isConstructor = false) {
 
 /**
  * Obtain the name of a class's parent (the name of the class which is extended by the current one)
- * @param  {Object}  obj Object to obtain the parent class name
- * @return {String}      String name of the class
+ * @param  {Object} obj Object to obtain the parent class name
+ * @return {String} String name of the class
  */
 export function parentClassName(obj) {
     let parentClass = Object.getPrototypeOf(obj.constructor);
@@ -64,8 +64,9 @@ const excludeDetaults = [ 'constructor', '__proto__' ];
 
 /**
  * Attempt to implement the traits idea from php. Method will copy functionalitied from other classes to target class.
- * @param {Function} target
- * @param {Function} ...args
+ * @param  {Function} target
+ * @param  {Function} args
+ * @return {Function}
  */
 export function traits(target, ...args) {
     args.forEach(source => {
@@ -78,6 +79,12 @@ export function traits(target, ...args) {
     return target;
 }
 
+/**
+ * Strip a class's prototype of the function given as arguments.
+ * @param  {Function} target
+ * @param  {String}   args
+ * @return {Function}
+ */
 export function traitsExclude(target, ...args) {
     let Copy = function() {};
     Object.keys(target.prototype)

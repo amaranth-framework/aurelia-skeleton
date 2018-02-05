@@ -29,9 +29,9 @@ export class Eventable {
         }
     }
     /**
-     * See {@link EventAggregator#subscribe}
-     * @param  {String}   eventName
-     * @param  {Function} eventMethod
+     * See {@link http://aurelia.io/docs/api/event-aggregator/class/EventAggregator/method/publish}
+     * @param  {any} args
+     * @return {void}
      */
     subscribeEvent(...args) {
         this.__testEvents();
@@ -40,9 +40,9 @@ export class Eventable {
         this.logger && this.logger instanceof Logger && this.logger.debug('Event subscribed: ', ...args);
     }
     /**
-     * See {@link EventAggregator#subscribeOnce}
-     * @param  {String}   eventName
-     * @param  {Function} eventMethod
+     * See {@link http://aurelia.io/docs/api/event-aggregator/class/EventAggregator/method/subscribeOnce}
+     * @param  {any} args
+     * @return {void}
      */
     subscribeEventOnce(...args) {
         this.__testEvents();
@@ -51,7 +51,9 @@ export class Eventable {
         this.logger && this.logger instanceof Logger && this.logger.debug('Event subscribed (once): ', ...args);
     }
     /**
-     * See {@link EventAggregator#publish}
+     * See {@link http://aurelia.io/docs/api/event-aggregator/class/EventAggregator/method/subscribe}
+     * @param  {any} args
+     * @return {void}
      */
     publishEvent(...args) {
         this.__testEvents();
@@ -59,7 +61,9 @@ export class Eventable {
         this.logger && this.logger instanceof Logger && this.logger.debug('Event published: ', ...args);
     }
     /**
-     * See {@link EventAggregator#subscribe#dispose}
+     * Will dispose all active events
+     * See {@link http://aurelia.io/docs/api/event-aggregator/interface/Subscription/method/dispose}
+     * @return {void}
      */
     disposeEvents() {
         this.__testEvents();
