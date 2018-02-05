@@ -1,0 +1,83 @@
+<template>
+    <require from="../../demo.less"></require>
+    <require from="../../../../components/helper/a"></require>
+
+    <div class="uk-container">
+        <!-- <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose> -->
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create navigation anchors.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <!-- <p>Please read details about composition of breadcrumb component on
+            <a href="https://getuikit.com/docs/breadcrumb#usage">Breadcrumb section</a> of
+            <b>UIkit</b> documentaton.</p>
+
+        <p>The active route is determined by the component mechanism.</p> -->
+
+        <pre><code class="html">&lt;am-a settings.bind="{ settings }"&gt;content&lt;/am-a&gt;</code></pre>
+
+        <p>or</p>
+
+        <pre><code class="html">&lt;compose view-model="components/helper/a" model.bind="{ settings }"&gt;&lt;/compose&gt;</code></pre>
+
+        <h2 id="example" class="uk-h3">
+            <a href="#example">Example</a>
+        </h2>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <am-a>Link Content</am-a>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;require from="relative/path/to/components/helper/a"></require>
+&lt;am-a&gt;Link Content&lt;/am-a&gt;</code></pre>
+                </li>
+            </ul>
+        </code>
+
+        <p>or</p>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content' }"></compose>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content' }">&lt;/compose></code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Component Bindables -->
+
+        <h2 id="bindablles" class="uk-h3">
+            <a href="#bindablles">Component Bindables</a>
+        </h2>
+
+        <!-- <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose> -->
+    </div>
+
+</template>

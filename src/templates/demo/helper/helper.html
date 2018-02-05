@@ -1,0 +1,16 @@
+<template>
+        <div class="uk-container">
+            <!-- <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }" ></compose> -->
+        </div>
+        <div class="uk-container">
+            <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                <div repeat.for="route of helperRoutes">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h3 class="uk-card-title">${route.title}</h3>
+                        <p>Documentation for <a route-href="route.bind: route.name">${route.title}</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    

@@ -10,5 +10,6 @@ import { View } from 'features/view/view';
 
 /**
  * Abstract Component View (usable with <compose>)
+ * @extends {View}
  */
 export class Component extends View {}

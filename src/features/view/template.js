@@ -10,6 +10,7 @@ import { View } from 'features/view/view';
 
 /**
  * Abstract Template View (usable in `src/templates`)
+ * @extends {View}
  */
 export class Template extends View {
     /**

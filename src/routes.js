@@ -12,22 +12,32 @@ export default [
         route: 'dashboard',
         title: 'Dashboard'
     },
-    // // helper components pages
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
-    //     name: 'helper-components',
-    //     nav: true,
-    //     route: 'helper-components',
-    //     subroutes: [
-    //         'helper-components-card',
-    //         'helper-components-content',
-    //         'helper-components-form',
-    //         'helper-components-listing',
-    //         'helper-components-table'
-    //     ],
-    //     title: 'Helper Components'
-    // },
+    // helper components pages
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        name: 'helper-components',
+        nav: true,
+        route: 'helper-components',
+        subroutes: [
+            'helper-components-a'
+            // 'helper-components-card',
+            // 'helper-components-content',
+            // 'helper-components-form',
+            // 'helper-components-listing',
+            // 'helper-components-table'
+        ],
+        title: 'Helper Components'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/a/a'),
+        name: 'helper-components-a',
+        nav: false,
+        route: 'helper-components/a',
+        subroutes: [],
+        title: 'Anchor'
+    },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/card/card'),

@@ -17,6 +17,7 @@ import { className, extend } from 'features/utils/object';
  * @note Please keep in mind that Component and Model are almost the same thing, however Model is oriented to the idea
  * of a model-view having all it's functionality within a Model class, while the notion of a component can be extended
  * to any piece of replicable code or functionality within the website.
+ * @extends {Component}
  */
 @inject(NewInstance.of(ValidationController))
 export class Model extends Component {

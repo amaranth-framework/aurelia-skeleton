@@ -6,32 +6,19 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import _ from 'lodash';
+
 import { Template } from 'features/view/template';
 import { extend } from 'features/utils/object';
 
 /**
  * Home Template (Demo)
  */
-export class THome extends Template {
+export class TDHelper extends Template {
     /**
      * @see View::overrideSettingsKey
      */
-    overrideSettingsKey = 'templates.home';
-    /**
-     * @see View::constructor()
-     * @param {Storage} storage
-     */
-    constructor(...args) {
-        super(...args);
-
-        // if (!this.messages.list.length) {
-        //     this.messages.debug('This is a debug message, to remain for 5 times under your eyes.', 5);
-        //     this.messages.debug('This is another debug message, to dissapear after 1st display', 0);
-        //     this.messages.info('This is a info message', 0);
-        //     this.messages.warn('This is a warning message', 0);
-        //     this.messages.error('This is a error message, to remain for 2 times under your eyes.', 1);
-        // }
-    }
+    overrideSettingsKey = 'templates.helpers';
     /**
      * @see View:defaultSettings
      * @type {Object}
@@ -40,9 +27,16 @@ export class THome extends Template {
         return extend(true, super.defaultSettings, {
             pageTitle: {
                 content: {
-                    title: 'Dashboard'
+                    title: 'Helper Components'
                 }
             }
         });
+    }
+    /**
+     * Obtain the list of routes for UIkit
+     * @return {Array}
+     */
+    get helperRoutes() {
+        return _.filter(this.router.routes, route => (route.name || '').match(/^helper-components-/));
     }
 }

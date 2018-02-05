@@ -57,8 +57,7 @@ import { className, extend } from 'features/utils/object';
 
 /**
  * Abstract Class for all Model Views (Components) used within the project
- * @extends {Base}
- * @extends {Messages}
+ * @extends {ModelView}
  * @implements {Aurelia.ComponentAttached}
  * @implements {Aurelia.ComponentBind}
  * @implements {Aurelia.ComponentCreate}
