@@ -1,0 +1,47 @@
+<template>
+    <require from="../../demo.less"></require>
+
+    <div class="uk-container">
+        <!-- <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose> -->
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Easily create nice looking tables.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Please read details about composition of table component on <a href="https://getuikit.com/docs/table#usage">Table section</a> of <b>UIkit</b> documentaton.</p>
+
+        <p>Table component functions by either calling the default table component with a different template/view, either by completly extending this component into a new one, depending on your own needs.</p>
+
+        <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: {} }"&gt;&lt;/compose&gt;</code></pre>
+
+        <ul uk-tab="" class="uk-tab">
+            <li aria-expanded="false" class="uk-active">
+                <a href="#">Preview</a>
+            </li>
+            <li aria-expanded="true" class="">
+                <a href="#">Markup</a>
+            </li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <compose containerless view-model="components/helper/table"></compose>
+            </li>
+            <li>
+                <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: { }, thead: thead, tbody: tbody }"&gt;&lt;/compose&gt;</code></pre>
+            </li>
+        </ul>
+
+        <h2 id="settings" class="uk-h3">
+            <a href="#settings">Component Bindables</a>
+        </h2>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+    </div>
+
+</template>

@@ -3,7 +3,7 @@
     <require from="../../../../components/helper/a"></require>
 
     <div class="uk-container">
-        <!-- <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose> -->
+        <compose containerless view-model="components/page/title" model.bind="{ settings: settings.pageTitle }"></compose>
     </div>
 
     <div class="uk-container">
@@ -14,11 +14,7 @@
             <a href="#usage">Usage</a>
         </h2>
 
-        <!-- <p>Please read details about composition of breadcrumb component on
-            <a href="https://getuikit.com/docs/breadcrumb#usage">Breadcrumb section</a> of
-            <b>UIkit</b> documentaton.</p>
-
-        <p>The active route is determined by the component mechanism.</p> -->
+        <p>Can be used both as a <code>&lt;component></code> and as a <a href="http://aurelia.io/docs/templating/custom-elements#introduction">custom element</a> with <code>&lt;am-a></code> tag.</p>
 
         <pre><code class="html">&lt;am-a settings.bind="{ settings }"&gt;content&lt;/am-a&gt;</code></pre>
 
@@ -77,7 +73,7 @@
             <a href="#bindablles">Component Bindables</a>
         </h2>
 
-        <!-- <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose> -->
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
     </div>
 
 </template>

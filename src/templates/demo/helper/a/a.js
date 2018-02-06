@@ -26,10 +26,10 @@ export class TDHAnchor extends TDemo {
         thead: [ 'OPTION', 'VALUE', 'DEFAULT', 'DESCRIPTION' ],
         tbody: [
             {
-                option: 'model',
-                type: 'Model|Object',
+                option: 'content',
+                type: 'String',
                 default: '',
-                description: 'Object presenting the data of the card. Can be either extension of the <code>Model</code> abstract class or other Javascript Object defined according to your needs.'
+                description: 'Content to display, usable only with <code>&lt;component></code> call of the component.'
             },
             {
                 option: 'settings',
@@ -38,46 +38,46 @@ export class TDHAnchor extends TDemo {
                 description: 'Component settings. Parameters will be described bellow.'
             },
             {
-                option: 'settings.actions',
-                type: 'Array<Object>|Boolean',
-                default: 'See code',
-                description: 'Actions that can be taken against the each table row/model. To deactivate, set to <code>false</code>.'
+                option: 'settings.faIcon',
+                type: 'Object|null',
+                default: '',
+                description: '<a href="https://fontawesome.io">Font Awesome</a> Icon to display, usable only with <code>&lt;component></code> call of the component.'
             },
             {
-                option: 'settings.actions.event',
+                option: 'settings.href',
                 type: 'String',
                 default: '',
-                description: 'Action\'s event string.'
+                description: 'Url for the anchor by using a standard string.'
             },
             {
-                option: 'settings.actions.icon',
+                option: 'settings.route',
                 type: 'Object',
-                default: '{}',
-                description: 'Action\'s <a href="https://getuikit.com/docs/icon">UIkit</a> icon.'
+                default: '',
+                description: 'Url for the anchor, by using the Aurelia router.'
             },
             {
-                option: 'settings.actions.faIcon',
+                option: 'settings.target',
+                type: 'String',
+                default: '_self',
+                description: 'Anchor Target'
+            },
+            {
+                option: 'settings.title',
                 type: 'String',
                 default: '',
-                description: 'Action\'s <a href="http://fontawesome.io/icons/">Font Awesome</a> icon.'
+                description: 'Anchor Title'
             },
             {
-                option: 'settings.actions.title',
-                type: 'String',
-                default: '{}',
-                description: 'Action\'s title.'
+                option: 'settings.ukIcon',
+                type: 'Object|null',
+                default: '',
+                description: 'Setting for rendering an icon within the url, by implementing <a href="https://getuikit.com/docs/icon">UIKIt Icon<a>.'
             },
             {
                 option: 'settings.style',
                 type: 'String',
                 default: '',
                 description: 'Additional style classes for table.'
-            },
-            {
-                option: 'settings.styles',
-                type: 'Object',
-                default: '{}',
-                description: 'Additional style classes for different elements on the card. Extend according to your own needs.'
             }
         ],
         settings: {

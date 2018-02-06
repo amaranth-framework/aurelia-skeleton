@@ -134,7 +134,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
             name: ['common']
         })),
         ...when(production, new CopyWebpackPlugin([
-      { from: 'static/favicon.ico', to: 'favicon.ico' }
+            { from: 'favicon.ico', to: 'favicon.ico' }
         ])),
         ...when(production, new UglifyJsPlugin({
             sourceMap: true

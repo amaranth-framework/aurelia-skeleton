@@ -7,6 +7,7 @@
  */
 
 import { EventAggregator } from 'aurelia-event-aggregator';
+import { Logger } from 'aurelia-logging';
 
 /**
  * Trait for handling events within a class.

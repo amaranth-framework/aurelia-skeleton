@@ -6,13 +6,13 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import { bindable, customElement, inlineView, viewResources } from 'aurelia-framework';
+import { bindable, customElement, viewResources } from 'aurelia-framework';
 import UIkit from 'uikit';
 
 import { Component } from 'features/view/component';
 import { waitForVariable } from 'features/utils/async';
-import { extend } from 'features/utils/object';
 import { bindableHelper } from 'features/utils/constants';
+import { extend } from 'features/utils/object';
 
 /**
  * Anchor component (also Custom Element).
@@ -24,7 +24,6 @@ import { bindableHelper } from 'features/utils/constants';
  * @see http://aurelia.io/docs/templating/custom-elements#introduction
  */
 @customElement('am-a')
-@inlineView('<template><a am-uuid.bind="__uuid" href.bind="href"><slot>\${content}</slot></a></template>')
 @viewResources(PLATFORM.moduleName('resources/html-attributes/am-uuid'))
 export class CHAnchor extends Component {
     @bindable(bindableHelper.twoWay) settings = {};
@@ -39,6 +38,8 @@ export class CHAnchor extends Component {
         return extend(true, super.defaultSettings, {
             href: '#!',
             route: null,
+            target: '_self',
+            title: '',
             ukIcon: null
         });
     }
@@ -48,6 +49,7 @@ export class CHAnchor extends Component {
      * @return {void}
      */
     attached() {
+        // rendering UIKit
         this.renderUIKit();
     }
     /**
@@ -64,12 +66,22 @@ export class CHAnchor extends Component {
         }
     }
     /**
-     * Obtain anchor's href bases on its settings.
+     * Obtain anchor's href based on its settings.
      * @return {String} URL to which anchor will point to.
      */
     get href() {
         const route = this.settings.route;
         const routeHref = route ? this.router._recognizer.generate(route.name, route.params || {}) : null;
         return this.settings.href || routeHref || '#!';
+    }
+    /**
+     * Obtain anchor's title based on its settings.
+     * @return {String}
+     */
+    get title() {
+        return this.settings.title
+            // content varialbe only works with <component>
+            || ((typeof this.content === 'string') ? this.content : (this.content || {}).innerText)
+            || (this.htmlElement || {}).innerText;
     }
 }

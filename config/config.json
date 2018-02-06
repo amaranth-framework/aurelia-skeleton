@@ -3,5 +3,13 @@
   "rest": {
     "http-endpoint": "http://domain:8080/graphql",
     "ws-endpoint": "ws://domain:4040/subscriptions"
+  },
+  "components": {
+    "helper/table": {
+      "style": "uk-table-hover uk-table-divider",
+      "styles": {
+        "wrapper": "uk-overflow-auto"
+      }
+    }
   }
 }

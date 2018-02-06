@@ -12,7 +12,7 @@ import { extend } from 'features/utils/object';
 /**
  * Home Template for helper/card
  */
-export class TDHTable extends TDemo {
+export class TCHCard extends TDemo {
     /**
      * Component bindables
      * @type Object
@@ -63,7 +63,7 @@ export class TDHTable extends TDemo {
                 description: 'Action\'s event string.'
             },
             {
-                option: 'settings.actions.icon',
+                option: 'settings.actions.ukIcon',
                 type: 'Object',
                 default: '{}',
                 description: 'Action\'s <a href="https://getuikit.com/docs/icon">UIkit</a> icon.'
@@ -97,6 +97,12 @@ export class TDHTable extends TDemo {
                 type: 'Object',
                 default: '{}',
                 description: 'Additional style classes for different elements on the card. Extend according to your own needs.'
+            },
+            {
+                option: 'settings.styles.wrapper',
+                type: 'Object',
+                default: '{}',
+                description: 'Styles used for table div wrapper.'
             }
 
         ],
@@ -110,7 +116,7 @@ export class TDHTable extends TDemo {
      * See {@link View#overrideSettingsKey}
      * @type {String}
      */
-    overrideSettingsKey = 'templates.demo/components/helper/table';
+    overrideSettingsKey = 'templates.demo/components/helper/card';
     /**
      * See {@link View#defaultSettings}
      * @type {Object}

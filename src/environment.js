@@ -7,6 +7,20 @@ export default {
     testing: true,
 
 
+    thead: [
+        {
+            title: 'Preserve',
+            style: 'uk-table-shrink'
+        },
+        {
+            title: 'Preserve',
+            style: 'uk-table-expand'
+        },
+        {
+            title: 'Expand + Link',
+            style: 'uk-table-expand'
+        }
+    ],
     modelList: [
         {
             image: `${loremImagesSource}/1800/1200/people/`,

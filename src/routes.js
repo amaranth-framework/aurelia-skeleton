@@ -20,12 +20,12 @@ export default [
         nav: true,
         route: 'helper-components',
         subroutes: [
-            'helper-components-a'
+            'helper-components-a',
             // 'helper-components-card',
             // 'helper-components-content',
             // 'helper-components-form',
             // 'helper-components-listing',
-            // 'helper-components-table'
+            'helper-components-table'
         ],
         title: 'Helper Components'
     },
@@ -74,15 +74,15 @@ export default [
     //     subroutes: [],
     //     title: 'Listing'
     // },
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/table/table'),
-    //     name: 'helper-components-table',
-    //     nav: false,
-    //     route: 'helper-components/table',
-    //     subroutes: [],
-    //     title: 'Table'
-    // },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/table/table'),
+        name: 'helper-components-table',
+        nav: false,
+        route: 'helper-components/table',
+        subroutes: [],
+        title: 'Table'
+    },
     // // uikit components pages
     // {
     //     icon: 'code',

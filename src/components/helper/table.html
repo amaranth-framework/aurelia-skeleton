@@ -1,0 +1,38 @@
+<template>
+    <require from="components/helper/a"></require>
+    <div class.bind="settings.styles.wrapper">
+        <table class.bind="style" id="table-${__uuid}" class="uk-table">
+            <thead if.bind="thead.length" class.bind="styles.thead">
+                <tr class.bind="styles.th">
+                    <th if.bind="settings.isSelectable" class="uk-table-shrink">
+                        <input class="uk-checkbox" type="checkbox" change.trigger="selectAllVisible()">
+                    </th>
+                    <th repeat.for="th of thead" innerhtml.bind="th.title || th"></th>
+                    <th if.bind="settings.actions.length" class="uk-table-shrink">
+                        Options
+                    </th>
+                </tr>
+            </thead>
+            <tbody if.bind="tbody.length" class.bind="styles.tbody">
+                <tr repeat.for="model of tbody" class.bind="styles.td">
+                    <!-- Selectable Checkbox -->
+                    <td if.bind="settings.isSelectable" class="uk-text-middle">
+                        <input model.bind="model" checked.bind="$parent.selection" change.trigger="publishSelection()" class="uk-checkbox" type="checkbox">
+                    </td>
+                    <!-- Model Table Content -->
+                    <td class="uk-table-shrink uk-text-middle">
+                        <img class="uk-preserve-width uk-border-circle" src.bind="model.image" width="40" alt="">
+                    </td>
+                    <td innerhtml.bind="model.title" class="uk-text-middle"></td>
+                    <td innerhtml.bind="model.content" class="uk-table-expand uk-text-middle"></td>
+                    <!-- Actions -->
+                    <td if.bind="settings.actions.length" class="uk-table-shrink uk-text-center@s uk-text-middle am-table-actions">
+                        <am-a repeat.for="action of settings.actions" click.trigger="publishEvent(action.event)" settings.bind="action">
+                            <i if.bind="action.faIcon" class.bind="action.faIcon"></i>
+                        </am-a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
