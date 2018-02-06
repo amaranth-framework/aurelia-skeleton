@@ -120,8 +120,6 @@ export class View extends ModelView {
 
         this.mergeSettings();
 
-        this.events.subscribeOnce('session:ready', result => !this.initialized ? this.init() : false);
-
         if (!this.initialized) {
             this.init();
         }

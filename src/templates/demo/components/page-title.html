@@ -1,0 +1,78 @@
+<template>
+    <require from="../demo.less"></require>
+    <require from="../../../components/page/title"></require>
+
+    <div class="uk-container">
+        <am-title><h2>Page Title</h2></am-title>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create navigation anchors.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Can be used both as a <code>&lt;component></code> and as a <a href="http://aurelia.io/docs/templating/custom-elements#introduction">custom element</a> with <code>&lt;am-title></code> tag.</p>
+
+        <pre><code class="html">&lt;am-title settings.bind="{ settings }">&lt;h2>Page Title&lt;/h2>&lt;/am-title&gt;</code></pre>
+
+        <p>or</p>
+
+        <pre><code class="html">&lt;compose view-model="components/page/title" model.bind="{ settings }"&gt;&lt;/compose&gt;</code></pre>
+
+        <h2 id="example" class="uk-h3">
+            <a href="#example">Example</a>
+        </h2>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <am-title><h3>My Page Title</h3></am-title>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;am-title>&lt;h3>My Page Title&lt;/h3>&lt;/am-title></code></pre>
+                </li>
+            </ul>
+        </code>
+
+        <p>or</p>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <compose containerless view-model="components/page/title" model.bind="{ title: 'My Page Title' }"></compose>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;compose containerless view-model="components/page/title"  model.bind="{ title: 'My Page Title' }">&lt;/compose></code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Component Bindables -->
+
+        <h2 id="bindablles" class="uk-h3">
+            <a href="#bindablles">Component Bindables</a>
+        </h2>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+    </div>
+
+</template>

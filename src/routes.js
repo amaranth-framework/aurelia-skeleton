@@ -15,71 +15,99 @@ export default [
     // helper components pages
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
-        name: 'helper-components',
+        moduleId: PLATFORM.moduleName('templates/demo/components'),
+        name: 'components',
         nav: true,
-        route: 'helper-components',
+        route: 'components',
         subroutes: [
-            'helper-components-a',
-            // 'helper-components-card',
-            // 'helper-components-content',
-            // 'helper-components-form',
-            // 'helper-components-listing',
-            'helper-components-table'
+            'components-page-breadcrumb',
+            'components-page-title'
+        ],
+        title: 'Components'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/page-breadcrumb'),
+        name: 'components-page-breadcrumb',
+        nav: true,
+        route: 'components/page-breadcrumb',
+        title: 'Page Breadcrumb'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/page-title'),
+        name: 'components-page-title',
+        nav: true,
+        route: 'components/page-title',
+        title: 'Page Title'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
+        name: 'components/helpers',
+        nav: true,
+        route: 'components/helpers',
+        subroutes: [
+            'components-helpers-a',
+            // 'components-helpers-card',
+            // 'components-helpers-content',
+            // 'components-helpers-form',
+            // 'components-helpers-listing',
+            'components-helpers-table'
         ],
         title: 'Helper Components'
     },
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/helper/a/a'),
-        name: 'helper-components-a',
+        name: 'components-helpers-a',
         nav: false,
-        route: 'helper-components/a',
+        route: 'components/helpers/a',
         subroutes: [],
         title: 'Anchor'
     },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/card/card'),
-    //     name: 'helper-components-card',
+    //     name: 'components-helpers-card',
     //     nav: false,
-    //     route: 'helper-components/card',
+    //     route: 'components/helpers/card',
     //     subroutes: [],
     //     title: 'Card'
     // },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/content/content'),
-    //     name: 'helper-components-content',
+    //     name: 'components-helpers-content',
     //     nav: false,
-    //     route: 'helper-components/content',
+    //     route: 'components/helpers/content',
     //     subroutes: [],
     //     title: 'Content'
     // },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
-    //     name: 'helper-components-form',
+    //     name: 'components-helpers-form',
     //     nav: false,
-    //     route: 'helper-components/form',
+    //     route: 'components/helpers/form',
     //     subroutes: [],
     //     title: 'Form'
     // },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/listing/listing'),
-    //     name: 'helper-components-listing',
+    //     name: 'components-helpers-listing',
     //     nav: false,
-    //     route: 'helper-components/listing',
+    //     route: 'components/helpers/listing',
     //     subroutes: [],
     //     title: 'Listing'
     // },
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/helper/table/table'),
-        name: 'helper-components-table',
+        name: 'components-helpers-table',
         nav: false,
-        route: 'helper-components/table',
+        route: 'components/helpers/table',
         subroutes: [],
         title: 'Table'
     },

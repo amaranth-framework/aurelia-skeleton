@@ -22,7 +22,7 @@ import { extend } from 'features/utils/object';
  * @see http://aurelia.io/docs/templating/custom-elements#introduction
  */
 @customElement('am-title')
-export class CHPageTitle extends Component {
+export class CPTitle extends Component {
     @bindable(bindableHelper.twoWay) settings = {};
     /**
      * @type {String}

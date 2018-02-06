@@ -1,17 +1,13 @@
 <template>
 	<require from="./title.less"></require>
 
-	<div class="page-title">
-		<div class="page-title__content">
-			<h2>${settings.content.title}</h2>
-            <div repeat.for="component of settings.componentsContent" class="component component--${component.type}" class.bind="settings.styles[component.type]">
-                <compose containerless view.bind="component.view || (component.module + '.html')" view-model.bind="component.module" model.bind="{ settings: component.settings }"></compose>
-            </div>
+	<div class.bind="style" class="page-title">
+		<div class.bind="settings.styles.content" class="page-title__content">
+            <slot><h2>${title}</h2></slot>
+            <compose containerless view-model="components/helper/content" model.bind="{ components: settings.componentsContent }"></compose>
 		</div>
-		<div class="page-title__additional">
-            <div repeat.for="component of settings.componentsAdditional" class="component component--${component.type}" class.bind="settings.styles[component.type]">
-                <compose containerless view.bind="component.view || (component.module + '.html')" view-model.bind="component.module" model.bind="{ settings: component.settings }"></compose>
-            </div>
+		<div class.bind="settings.styles.additional" class="page-title__additional">
+            <compose containerless view-model="components/helper/content" model.bind="{ components: settings.componentsAdditional }"></compose>
 		</div>
 	</div>
     <!-- <compose containerless view-model="components/uk/messages/messages"></compose> -->

@@ -1,0 +1,5 @@
+<template>
+    <div class.bind="style">
+        <compose repeat.for="component of components" containerless view.bind="component.component.view || component.component.model + '.html'" view-model.bind="component.component.model" model.bind="component"></compose>
+    </div>
+</template>
