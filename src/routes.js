@@ -43,26 +43,26 @@ export default [
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
-        name: 'components/helpers',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper'),
+        name: 'components-helpers',
         nav: true,
         route: 'components/helpers',
         subroutes: [
-            'components-helpers-a',
+            'components-helper-a',
             // 'components-helpers-card',
-            // 'components-helpers-content',
+            'components-helper-content',
             // 'components-helpers-form',
             // 'components-helpers-listing',
-            'components-helpers-table'
+            'components-helper-table'
         ],
         title: 'Helper Components'
     },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/helper/a/a'),
-        name: 'components-helpers-a',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/a'),
+        name: 'components-helper-a',
         nav: false,
-        route: 'components/helpers/a',
+        route: 'components/helper/a',
         subroutes: [],
         title: 'Anchor'
     },
@@ -75,15 +75,15 @@ export default [
     //     subroutes: [],
     //     title: 'Card'
     // },
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/content/content'),
-    //     name: 'components-helpers-content',
-    //     nav: false,
-    //     route: 'components/helpers/content',
-    //     subroutes: [],
-    //     title: 'Content'
-    // },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/content'),
+        name: 'components-helper-content',
+        nav: false,
+        route: 'components/helper/content',
+        subroutes: [],
+        title: 'Content'
+    },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
@@ -104,10 +104,10 @@ export default [
     // },
     {
         icon: 'code',
-        moduleId: PLATFORM.moduleName('templates/demo/helper/table/table'),
-        name: 'components-helpers-table',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/table'),
+        name: 'components-helper-table',
         nav: false,
-        route: 'components/helpers/table',
+        route: 'components/helper/table',
         subroutes: [],
         title: 'Table'
     },

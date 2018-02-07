@@ -37,6 +37,6 @@ export class TDHelper extends Template {
      * @return {Array}
      */
     get helperRoutes() {
-        return _.filter(this.router.routes, route => (route.name || '').match(/^helper-components-/));
+        return _.filter(this.router.routes, route => (route.name || '').match(/^components-helper-/));
     }
 }
