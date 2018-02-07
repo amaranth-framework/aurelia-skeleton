@@ -26,6 +26,12 @@ export class TDHAnchor extends TDemo {
         thead: [ 'OPTION', 'VALUE', 'DEFAULT', 'DESCRIPTION' ],
         tbody: [
             {
+                option: 'routes',
+                type: 'Array',
+                default: '[{route: \'\'}]',
+                description: 'Starting point for the breadcrumbs.'
+            },
+            {
                 option: 'settings',
                 type: 'Object',
                 default: '{}',
@@ -36,6 +42,18 @@ export class TDHAnchor extends TDemo {
                 type: 'String',
                 default: '',
                 description: 'Additional style classes for table.'
+            },
+            {
+                option: 'settings.styles',
+                type: 'Object',
+                default: '{}',
+                description: 'Additional style classes for different elements on the page title. Extend according to your own needs.'
+            },
+            {
+                option: 'settings.styles.breadcrumb',
+                type: 'String',
+                default: '',
+                description: 'Style for the breadcrumb items.'
             }
         ],
         settings: {
@@ -48,18 +66,5 @@ export class TDHAnchor extends TDemo {
      * See {@link View#overrideSettingsKey}
      * @type {String}
      */
-    overrideSettingsKey = 'templates.demo/components/helper/card';
-    /**
-     * See {@link View#defaultSettings}
-     * @type {Object}
-     */
-    get defaultSettings() {
-        return extend(true, super.defaultSettings, {
-            pageTitle: {
-                content: {
-                    title: 'Card'
-                }
-            }
-        });
-    }
+    overrideSettingsKey = 'templates.demo/components/page/breadcrumb';
 }

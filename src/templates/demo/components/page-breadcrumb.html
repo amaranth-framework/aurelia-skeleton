@@ -14,6 +14,10 @@
             <a href="#usage">Usage</a>
         </h2>
 
+        <pre><code class="html">&lt;am-breadcrumb settings.bind="settings"&gt;&lt;/am-breadcrumb&gt;</code></pre>
+
+        <p>or</p>
+
         <pre><code class="html">&lt;compose view-model="components/page/breadcrumb" model.bind="{ settings }"&gt;&lt;/compose&gt;</code></pre>
 
         <h2 id="example" class="uk-h3">
@@ -31,7 +35,30 @@
             </ul>
             <ul class="uk-switcher uk-margin">
                 <li>
-                    <!-- <compose containerless view-model="components/page/breadcrumb"></compose> -->
+                    <require from="components/page/breadcrumb"></require>
+                    <am-breadcrumb></am-breadcrumb>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;require from="components/page/breadcrumb">&lt;/require>
+&lt;am-breadcrumb>&lt;/am-breadcrumb></code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <p>or</p>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <compose containerless view-model="components/page/breadcrumb"></compose>
                 </li>
                 <li>
                     <pre><code class="html">&lt;compose containerless view-model="components/page/breadcrumb">&lt;/compose></code></pre>

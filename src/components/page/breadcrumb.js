@@ -8,20 +8,19 @@
 
 import _ from 'lodash';
 
-import { Component } from 'features/view/component';
+import { bindable, customElement } from 'aurelia-framework';
+
+import {Component} from 'features/view/component';
+import { bindableHelper } from 'features/utils/constants';
 import { extend } from 'features/utils/object';
 
 /**
  * Page title component (also Custom Element).
  * @example
- * <am-breadcrumb settings.bind="{ settings }">Page Title</am-breadcrumb>
  * <compose view-model="components/page/title" model.bind="{ settings }"></compose>
  * @extends {Component}
- * @see https://amaranth-framework.github.com/aurelia-skeleton/components/breadcrumb
- * @see http://aurelia.io/docs/templating/custom-elements#introduction
  */
 export class CPBreadcrumb extends Component {
-    @bindable(bindableHelper.twoWay) settings = {};
     /**
      * @type {String}
      */
@@ -71,7 +70,7 @@ export class CPBreadcrumb extends Component {
     }
 	/**
 	 * Discover route by it's name (route key)
-	 * @param  {String} route  The name of the route you're searching for.
+	 * @param  {String}      route The name of the route you're searching for.
 	 * @return {Object|null}
 	 */
     discoverRouteByName(route) {
@@ -82,11 +81,9 @@ export class CPBreadcrumb extends Component {
         return r;
     }
 	/**
-	 * [filterParams description]
-	 * @method filterParams
-	 * @param  {[type]}     params [description]
-	 * @param  {[type]}     route  [description]
-	 * @return {[type]}            [description]
+	 * @param  {Array}  params
+	 * @param  {Object} route
+	 * @return {Array}
 	 */
     filterParams(params, route) {
         let newParams = {};
@@ -102,5 +99,23 @@ export class CPBreadcrumb extends Component {
 	 */
     attached() {
         this.publishEvent('components::breadcrumbs::attached', this.routes);
+    }
+}
+
+/**
+ * Page title component.
+ * @example
+ * <am-breadcrumb settings.bind="{ settings }">Page Title</am-breadcrumb>
+ * @extends {CPBreadcrumb}
+ * @see https://amaranth-framework.github.com/aurelia-skeleton/components/page-title
+ * @see http://aurelia.io/docs/templating/custom-elements#introduction
+ */
+@customElement('am-breadcrumb')
+export class CPBreadcrumbElement extends CPBreadcrumb {
+    @bindable(bindableHelper.twoWay) settings = {};
+    created() {
+        if (!this.inititalized) {
+            this.init();
+        }
     }
 }

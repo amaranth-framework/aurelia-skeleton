@@ -1,5 +1,5 @@
 <template>
-    <ul class.bind="style" class="uk-breadcrumb">
+    <ul class.bind="style">
         <li repeat.for="route of routes" class.bind="settings.styles.breadcrumb">
             <a if.bind="!route.isActive" route-href="route.bind: route.name; params.bind: route.params">${route.title}</a>
             <span if.bind="route.isActive">${route.title}</span>

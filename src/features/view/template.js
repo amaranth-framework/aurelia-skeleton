@@ -14,22 +14,10 @@ import { View } from 'features/view/view';
  */
 export class Template extends View {
     /**
-     * Runs at module activation
-     *
-     * @param {Object} params Route params for module
-     * @param {Object} routeConfig Route configuration
-     * @param {Object} navigationInstruction Route navigation instruction
-     *
-     * @memberof Template
+     * @return {void}
      */
-    activate(params, routeConfig, navigationInstruction) {
-        super.activate(params, routeConfig, navigationInstruction);
-
-        // obtain page title
-        // this.routeConfig.navModel.setTitle(this.i18n.tr(this.routeConfig.title));
-
-        // used in self::getViewStrategy() for determining ModelView template
-        this.routeModuleId = this.routeConfig.moduleId;
+    init() {
+        super.init();
 
         // setting up a style class on the <body> element to be able to style page dependent elements
         const BODY = document.querySelector('body');
@@ -59,8 +47,8 @@ export class Template extends View {
      * @return {String}
      */
     getViewStrategy() {
-        this.logger.debug('getViewStrategy', this.routeModuleId, this.settings.template);
-        return ((!this.settings || !this.settings.template || typeof this.settings.template !== 'string') ?
-            this.routeModuleId : this.settings.template) + '.html';
+        const template = (this.settings || {}).template || undefined;
+        // this.logger.debug('getViewStrategy', this.activeRoute.config.moduleId, template);
+        return ((typeof template !== 'string') ? this.activeRoute.config.moduleId : template) + '.html';
     }
 }

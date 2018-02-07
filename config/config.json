@@ -10,6 +10,12 @@
       "styles": {
         "wrapper": "uk-overflow-auto"
       }
+    },
+    "page/breadcrumb": {
+      "style": "uk-breadcrumb",
+      "styles": {
+        "wrapper": "uk-overflow-auto"
+      }
     }
   }
 }

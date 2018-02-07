@@ -85,41 +85,14 @@ export class View extends ModelView {
          * @type {Messages}
          */
         this.messages = messages;
+
+        // this.logger.debug('test-life constructor', ...args);
     }
     /**
      * @see http://aurelia.io/docs/api/router/interface/RoutableComponentActivate/method/activate
      */
     activate(...args) {
-        // parse module variable
-        if (args.length === 1) {
-            let model = args.shift();
-
-            for (let p in model) {
-                this[p] = model[p];
-            }
-        }
-        // parse template params
-        if (args.length > 1) {
-            /**
-             * @type {Object}
-             */
-            this.params = args.shift();
-            /**
-             * @type {Aurelia.RouteConfig}
-             */
-            this.routeConfig = args.shift();
-            /**
-             * @type {Aurelia.NavigationInstructions}
-             */
-            this.navigationInstruction = args.shift();
-            /**
-             * @type {Object}
-             */
-            this.settings = this.routeConfig ? this.routeConfig.settings : {};
-        }
-
-        this.mergeSettings();
-
+        // this.logger.debug('test-life activate', ...args);
         if (!this.initialized) {
             this.init();
         }
@@ -134,6 +107,7 @@ export class View extends ModelView {
      * @return {void}
      */
     bind(bindingContext, overrideContext, _systemUpdate = true) {
+        // this.logger.debug('test-life bind', bindingContext, overrideContext, _systemUpdate);
         /**
          * @type {Object}
          */
@@ -160,7 +134,8 @@ export class View extends ModelView {
     /**
      * @see http://aurelia.io/docs/api/templating/interface/ComponentDetached/method/detached
      */
-    detached() {
+    detached(...args) {
+        // this.logger.debug('test-life detached', ...args);
         this.disposeEvents();
     }
     /**
@@ -176,8 +151,7 @@ export class View extends ModelView {
      * @return {void}
      */
     init() {
-        // this.rest = this.gql.getEndpoint(`http://ws-test.${window.location.hostname}:3030/`);
-        // this.rest = api.getEndpoint(`ws://${window.location.hostname}:8443/graphql`, {}, api.createSubscriptionClient());;
+        this.mergeSettings();
     }
     /**
      * Merge settings given for a view from different layers of the application:
@@ -212,7 +186,7 @@ export class View extends ModelView {
      * @return {String}
      */
     toString() {
-        return `view@${this.__uuid}`;
+        return `${className(this)}@${this.__uuid}`;
     }
     /**
      * Getter for component override settings. This settings should globaly override settings defined in a component's
@@ -237,4 +211,32 @@ export class View extends ModelView {
     get style() {
         return `${this.settings.style || ''} ${this.settings.layout || ''}`.trim();
     }
+
+    // attached(...args) {
+    //     this.logger.debug('test-life attached', ...args);
+    // }
+
+    // canActivate(...args) {
+    //     this.logger.debug('test-life canActivate', ...args);
+    // }
+
+    // canDeactivate(...args) {
+    //     this.logger.debug('test-life canDeactivate', ...args);
+    // }
+
+    // created(...args) {
+    //     this.logger.debug('test-life created', ...args);
+    // }
+
+    // deactivate(...args) {
+    //     this.logger.debug('test-life deactivate', ...args);
+    // }
+
+    // deactivated(...args) {
+    //     this.logger.debug('test-life deactivated', ...args);
+    // }
+
+    // unbind(...args) {
+    //     this.logger.debug('test-life unbind', ...args);
+    // }
 }

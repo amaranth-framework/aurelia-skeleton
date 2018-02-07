@@ -10,6 +10,9 @@
  * @external {AureliaConfiguration} https://github.com/Vheissu/aurelia-configuration
  */
 /**
+ * @external {Aurelia.NavigationInstructions} http://aurelia.io/docs/api/router/interface/NavigationInstructions
+ */
+/**
  * @external {EventAggregator} http://aurelia.io/docs/api/event-aggregator
  */
 /**
@@ -46,9 +49,8 @@ import { className, parentClassName, traits, traitsExclude } from 'features/util
  * @extends {Loggable}
  * @extends {RESTable}
  */
-// @traits(Eventable/*, Loggable::excludes('toString'), RESTable*/)
 @inject(AureliaConfiguration, EventAggregator, I18N, Router)
-class ModelViewPartial {
+export class ModelViewTrait {
     /**
      * Constructor
      * @param {AureliaConfiguration} config Aurelia configuration plugin
@@ -81,6 +83,17 @@ class ModelViewPartial {
          * @type {Logger}
          */
         this.logger = this.getLogger();
+        /**
+         * @type {Object}
+         */
+        this.settings = (this.activeRoute || {}).settings | {};
+    }
+    /**
+     * Obtain current navigation instruction for the application.
+     * @return {Aurelia.NavigationInstructions|null}
+     */
+    get activeRoute() {
+        return (this.router || {}).currentInstruction;
     }
     /**
      * Reduce class to a string identifier
@@ -91,8 +104,13 @@ class ModelViewPartial {
     }
 }
 
+/**
+ * Aurelia class base for almost each functionality we may build.
+ * @abstract
+ * @extends {ModelViewTrait}
+ */
 export const ModelView = traits(
-    ModelViewPartial,
+    ModelViewTrait,
     traitsExclude(Logable, 'toString'),
     Eventable,
     RESTable

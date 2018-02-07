@@ -1,11 +1,18 @@
-import { Loader, inject } from 'aurelia-framework';
-
+/**
+ * Amaranth Skeleton (http://github.com/amaranth-framework/aurelia-skeleton/)
+ *
+ * @link      http://github.com/amaranth-framework/aurelia-skeleton/ for the canonical source repository
+ * @copyright Copyright (c) 2007-2016 IT Media Connect (http://itmediaconnect.ro)
+ * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
+ */
 import { Component } from 'features/view/component';
 
 /**
- * Content Page template
+ * Content (component list) component.
+ * @example
+ * <compose view-model="components/helper/content" model.bind="{ settings, components }"></compose>
+ * @extends {Component}
  */
-@inject(Loader)
 export class CHContent extends Component {
     /**
      * @see Component#overrideSettingsKey
@@ -14,9 +21,13 @@ export class CHContent extends Component {
     /**
      * Constructor.
      */
-    constructor(loader, ...args) {
+    constructor(...args) {
         super(...args);
 
-        this.loader = loader;
+        this.components = [];
+    }
+
+    attached() {
+        this.logger.debug('components', this.components, this.settings);
     }
 }

@@ -13,17 +13,12 @@ import { bindableHelper } from 'features/utils/constants';
 import { extend } from 'features/utils/object';
 
 /**
- * Page title component (also Custom Element).
+ * Page title component.
  * @example
- * <am-title settings.bind="{ settings }">Page Title</am-title>
  * <compose view-model="components/page/title" model.bind="{ settings }"></compose>
  * @extends {Component}
- * @see https://amaranth-framework.github.com/aurelia-skeleton/components/page-title
- * @see http://aurelia.io/docs/templating/custom-elements#introduction
  */
-@customElement('am-title')
 export class CPTitle extends Component {
-    @bindable(bindableHelper.twoWay) settings = {};
     /**
      * @type {String}
      */
@@ -33,16 +28,36 @@ export class CPTitle extends Component {
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
-            // componentsContent: [
-            //     {
-            //         type: 'breadcrumb',
-            //         module: PLATFORM.moduleName('components/uk/breadcrumb/breadcrumb')
-            //     }
-            // ],
+            componentsContent: [
+                {
+                    component: {
+                        type: 'breadcrumb',
+                        model: PLATFORM.moduleName('components/page/breadcrumb')
+                    }
+                }
+            ],
             componentsAdditional: [],
             content: {
                 title: 'Page Title'
             }
         });
+    }
+}
+
+/**
+ * Page title component.
+ * @example
+ * <am-title settings.bind="{ settings }">Page Title</am-title>
+ * @extends {CPTitle}
+ * @see https://amaranth-framework.github.com/aurelia-skeleton/components/page-title
+ * @see http://aurelia.io/docs/templating/custom-elements#introduction
+ */
+@customElement('am-title')
+export class CPTitleElement extends CPTitle {
+    @bindable(bindableHelper.twoWay) settings = {};
+    created() {
+        if (!this.inititalized) {
+            this.init();
+        }
     }
 }
