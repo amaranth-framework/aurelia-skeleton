@@ -88,6 +88,6 @@ export class CHSelectElement extends CHInputElement {
         });
     }
     attached() {
-        console.log(this.bindBy)
+        console.log(this.bindBy);
     }
 }

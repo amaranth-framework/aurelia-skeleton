@@ -7,8 +7,6 @@
  */
 
 import { TDemo } from 'templates/demo/demo';
-import { extend } from 'features/utils/object';
-import environment from 'environment';
 
 /**
  * Home Template for helper/card
