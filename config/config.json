@@ -5,9 +5,27 @@
     "ws-endpoint": "ws://domain:4040/subscriptions"
   },
   "components": {
+    "helper/form-input": {
+      "style": "uk-margin",
+      "styles": {
+        "label": "uk-form-label",
+        "controls": "uk-form-controls",
+        "input": "uk-input"
+      }
+    },
+    "helper/form-select": {
+      "style": "uk-margin",
+      "styles": {
+        "label": "uk-form-label",
+        "controls": "uk-form-controls",
+        "input": "uk-select"
+      }
+    },
     "helper/table": {
       "style": "uk-table-hover uk-table-divider",
       "styles": {
+        "selectable": "uk-table-shrink",
+        "selectableInput": "uk-checkbox",
         "wrapper": "uk-overflow-auto"
       }
     },

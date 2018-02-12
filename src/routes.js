@@ -84,6 +84,24 @@ export default [
         subroutes: [],
         title: 'Content'
     },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/form-input'),
+        name: 'components-helper-form-input',
+        nav: false,
+        route: 'components/helper/form-input',
+        subroutes: [],
+        title: 'Form Input'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/form-select'),
+        name: 'components-helper-form-select',
+        nav: false,
+        route: 'components/helper/form-select',
+        subroutes: [],
+        title: 'Form Select'
+    },
     // {
     //     icon: 'code',
     //     moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),

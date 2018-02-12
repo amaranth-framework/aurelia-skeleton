@@ -1,0 +1,58 @@
+<template>
+    <require from="../../demo.less"></require>
+    <require from="../../../../components/helper/form/input"></require>
+
+    <div class="uk-container">
+            <require from="components/page/title"></require>
+            <am-title><h2>Form Input</h2></am-title>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create form inputs.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Can be used both as <a href="http://aurelia.io/docs/templating/custom-elements#introduction">custom element</a> with <code>&lt;am-input></code> tag.</p>
+
+        <pre><code class="html">&lt;require from="relative/path/to/components/helper/form/input"></require>
+&lt;am-input settings.bind="settings" value.bind="value"&gt;content&lt;/am-input&gt;</code></pre>
+
+        <h2 id="example" class="uk-h3">
+            <a href="#example">Example</a>
+        </h2>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <am-input settings.bind="formInputSettings" value.bind="formInputAsTagValue"></am-input>
+                    <p>Input's value: ${formInputAsTagValue}</p>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;require from="relative/path/to/components/helper/form/input"></require>
+&lt;am-input settings.bind="settings" value.bind="formInputValue"&gt;&lt;/am-input&gt;
+&lt;p>Input's value: \${formInputValue}&lt;/p></code></pre>
+                </li>
+            </ul>
+        </code>
+
+        <!-- Component Bindables -->
+
+        <h2 id="bindablles" class="uk-h3">
+            <a href="#bindablles">Component Bindables</a>
+        </h2>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+    </div>
+
+</template>

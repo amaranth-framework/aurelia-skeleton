@@ -1,0 +1,88 @@
+<template>
+    <require from="../../demo.less"></require>
+    <require from="../../../../components/helper/form/select"></require>
+
+    <div class="uk-container">
+            <require from="components/page/title"></require>
+            <am-title><h2>Form Select</h2></am-title>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create form select elements.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <p>Can be usedas as <a href="http://aurelia.io/docs/templating/custom-elements#introduction">custom element</a> with <code>&lt;am-select></code> tag.</p>
+
+        <pre><code class="html">&lt;require from="relative/path/to/components/helper/form/select"></require>
+&lt;am-select settings.bind="settings" value.bind="value" values.bind="values"&gt;content&lt;/am-select&gt;</code></pre>
+
+        <h2 id="example" class="uk-h3">
+            <a href="#example">Example</a>
+        </h2>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <am-select settings.bind="selectSettings" value.bind="selectValue" values.bind="selectValues"></am-select>
+                    <p>Input's value: ${selectValue}</p>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;require from="relative/path/to/components/helper/form/select"></require>
+&lt;am-select settings.bind="settings" value.bind="value" values.bind="values"&gt;&lt;/am-select&gt;
+&lt;p>Input's value: \${value}&lt;/p></code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <p>or</p>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="true" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="false" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <am-select settings.bind="selectSettings" value.bind="selectValueM" values.bind="selectValues" bind-by.bind="selectBindByModel"></am-select>
+                    <p>Input's value: ${selectValueM.value}</p>
+                </li>
+                <li>
+                        <pre><code class="html">&lt;require from="relative/path/to/components/helper/form/select"></require>
+&lt;am-select settings.bind="settings" value.bind="model" values.bind="values" bind-by.bind="BIND_BY_MODEL"&gt;&lt;/am-select&gt;
+&lt;p>Input's value: \${model.value}&lt;/p></code></pre>
+                        <pre><code class="javascript">import { SELECT_BIND_BY_MODEL } from 'components/helper/form/select';
+export class Template {
+    // ...
+    BIND_BY_MODEL = SELECT_BIND_BY_MODEL;
+    // ...
+}</code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Component Bindables -->
+
+        <h2 id="bindablles" class="uk-h3">
+            <a href="#bindablles">Component Bindables</a>
+        </h2>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+    </div>
+
+</template>

@@ -16,17 +16,15 @@ export class Component extends View {
     /**
      * @return {void}
      */
-    activate(...args) {
-        super.activate(...args);
+    activate(model) {
+        super.activate(model);
 
         // copy component's bindables which are passed via model.bind
         // <compose view-model="components/page/title" model.bind="{ settings, }"></compose>
-        if (args.length === 1) {
-            let model = args.shift();
+        this.__model = model;
 
-            for (let p in model) {
-                this[p] = model[p];
-            }
+        for (let p in model) {
+            this[p] = this.__model[p];
         }
     }
 }

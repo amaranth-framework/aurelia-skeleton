@@ -6,13 +6,17 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import { bindable, customElement, viewResources } from 'aurelia-framework';
+import { bindable, customElement, inlineView, viewResources } from 'aurelia-framework';
 import UIkit from 'uikit';
 
 import { Component } from 'features/view/component';
 import { waitForVariable } from 'features/utils/async';
 import { bindableHelper } from 'features/utils/constants';
 import { extend } from 'features/utils/object';
+
+const template = `<template>
+    <a am-uuid.bind="__uuid" href.bind="href" target="settings.target" title.bind="title"><slot><i if.bind="settings.faIcon" class="fa fa-\${settings.faIcon}"></i>\${content}</slot></a>
+</template>`;
 
 /**
  * Anchor component (also Custom Element).
@@ -23,6 +27,7 @@ import { extend } from 'features/utils/object';
  * @see https://amaranth-framework.github.com/aurelia-skeleton/helper-components/a
  * @see http://aurelia.io/docs/templating/custom-elements#introduction
  */
+@inlineView(template)
 @customElement('am-a')
 @viewResources(PLATFORM.moduleName('resources/html-attributes/am-uuid'))
 export class CHAnchor extends Component {
