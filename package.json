@@ -21,7 +21,9 @@
     "lint:less": "echo test",
     "postinstall": "rm -rf ./node_modules/aurelia-validation/node_modules",
     "start": "nps",
-    "test": "nps test"
+    "test": "nps test",
+    "docker:build": "docker run --name aurelia-skeleton-builder -v ../aurelia-skeleton:/aurelia node sh -c 'cd /aurelia && npm i && npm run esdoc && npm run lint && npm run build'",
+    "docker:nginx": "docker run --name aurelia-skeleton-nginx -p 8080:80 -v ../aurelia-skeleton/dist:/usr/share/nginx/html:ro nginx:latest"
   },
   "jest": {
     "modulePaths": [
