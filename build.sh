@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -xe
+
 which docker \
 && ( docker rm -f aurelia-skeleton-builder || true ) \
 && docker run \
