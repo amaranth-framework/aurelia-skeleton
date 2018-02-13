@@ -6,4 +6,5 @@ which docker \
     --name aurelia-skeleton-builder \
     -v $(pwd):/aurelia \
     node \
-    sh -c 'cd /aurelia && npm run build'
+    sh -c 'cd /aurelia && npm run build' \
+&& docker rm -f aurelia-skeleton-builder 
