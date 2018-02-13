@@ -1,0 +1,135 @@
+<template>
+    <require from="../../demo.less"></require>
+    <require from="components/helper/card"></require>
+
+    <div class="uk-container">
+        <require from="components/page/title"></require>
+        <am-title><h2>Card</h2></am-title>
+    </div>
+
+    <div class="uk-container">
+
+        <p class="uk-text-lead">Create layout boxes with different styles.</p>
+
+        <p>The following component is designed as an abstract element usable to define other cards that are to be used in the application. To create new cards, simply extend `CHCard` class, present within `components/helper/card.js`.</p>
+
+        <pre><code class="javascript">import { bindable, customElement } from 'aurelia-framework';
+
+import { CHCard } from 'components/helper/card';
+
+@customElement('am-card-custom')
+export class CHCardCustomElement extends CHCard {
+    @bindable(bindableHelper.twoWay) settings = {};
+    @bindable(bindableHelper.twoWay) text = '';
+    @bindable(bindableHelper.twoWay) title = '';
+    created() {
+        this.logger.debug('test')
+        if (!this.inititalized) {
+            this.init();
+        }
+    }
+}</code></pre>
+
+        <p>Please read details about composition of card html component on <a href="https://getuikit.com/docs/card#usage">Card section</a> of <b>UIkit</b> documentaton.</p>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Usage</a>
+        </h2>
+
+        <pre><code class="html">&lt;am-card-text&gt;&lt;/am-card-text&gt;</code></pre>
+
+        <p>or</p>
+
+        <pre><code class="html">&lt;compose containerless view-model="components/helper/card" model.bind="{ settings: {} }"&gt;&lt;/compose&gt;</code></pre>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="false" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="true" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <div class="uk-child-width-1-3@s" uk-grid>
+                        <div>
+                            <compose containerless view-model="components/helper/card" model.bind="{ settings: { text: 'Card Content', title: 'Card Title' } }"></compose>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;compose containerless view-model="components/helper/card" model.bind="{ settings: { text: 'Card Content', title: 'Card Title' } }"&gt;&lt;/compose&gt;</code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <p>or</p>
+
+        <div class="am-code-example">
+            <ul uk-tab="" class="uk-tab">
+                <li aria-expanded="false" class="uk-active">
+                    <a href="#">Preview</a>
+                </li>
+                <li aria-expanded="true" class="">
+                    <a href="#">Markup</a>
+                </li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    <div class="uk-child-width-1-3@s" uk-grid>
+                        <div>
+                            <am-card-text title="Card Title" text="Card Content"></am-card-text>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <pre><code class="html">&lt;am-card-text text="Card Content" title="Card Title"&gt;&lt;/am-card-text&gt;</code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="usage" class="uk-h3">
+            <a href="#usage">Grid</a>
+        </h2>
+
+        <p>The Card component consists of the card itself, the card body and an optional card title. Typically, cards are arranged in grid columns from the <a href="https://getuikit.com/docs/grid">Grid component</a>.</p>
+
+        <ul uk-tab="" class="uk-tab">
+            <li aria-expanded="false" class="uk-active">
+                <a href="#">Preview</a>
+            </li>
+            <li aria-expanded="true" class="">
+                <a href="#">Markup</a>
+            </li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <div class="uk-child-width-1-3@m" uk-grid>
+                    <div repeat.for="card of cards">
+                        <compose containerless view-model="components/helper/card"></compose>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <pre><code class="html">&lt;div class="uk-child-width-1-3@m" uk-grid>
+    &lt;div repeat.for="card of cards">
+        &lt;compose containerless view-model="components/helper/card">&lt;/compose>
+    &lt;/div>
+&lt;/div></code></pre>
+            </li>
+        </ul>        
+
+        <h2 id="settings" class="uk-h3">
+            <a href="#settings">Component Bindables</a>
+        </h2>
+
+        <compose containerless view="components/helper/table-dcb.html" view-model="components/helper/table" model.bind="cb"></compose>
+
+    </div>
+
+</template>

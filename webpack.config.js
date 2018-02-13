@@ -137,7 +137,10 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
             { from: 'favicon.ico', to: 'favicon.ico' }
         ])),
         ...when(production, new UglifyJsPlugin({
-            sourceMap: true
+            sourceMap: true,
+            output: {
+                comments: false
+            }
         }))
     ]
 });

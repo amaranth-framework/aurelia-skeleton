@@ -5,6 +5,12 @@
     "ws-endpoint": "ws://domain:4040/subscriptions"
   },
   "components": {
+    "helper/card": {
+      "style": "uk-card uk-card-default uk-card-body",
+      "styles": {
+        "title": "uk-card-title"
+      }
+    },
     "helper/form-input": {
       "style": "uk-margin",
       "styles": {
