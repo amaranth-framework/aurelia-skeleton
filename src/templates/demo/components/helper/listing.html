@@ -2,7 +2,6 @@
     <require from="../../demo.less"></require>
 
     <div class="uk-container">
-        <compose containerless view-model="components/page/title/title" model.bind="{ settings: settings.pageTitle }"></compose>
     </div>
 
     <div class="uk-container">
@@ -30,7 +29,6 @@
 
         <ul class="uk-switcher uk-margin">
             <li>
-                <compose containerless view-model="components/helper/listing"></compose>
             </li>
             <li>
                 <pre><code class="html">&lt;compose containerless view-model="components/helper/listing" model.bind="{ settings: { ... }, models: [ ... ] }"&gt;&lt;/compose&gt;</code></pre>
@@ -50,7 +48,6 @@
 
         <ul class="uk-switcher uk-margin">
             <li>
-                <compose containerless view-model="components/helper/listing" model.bind="{ settings: { view: 'table' } }"></compose>
             </li>
             <li>
                 <pre><code class="html">&lt;compose containerless view-model="components/helper/listing" model.bind="{ settings: { { ... view: CHListing.VIEW_MODEL_TABLE } }, models: [ ... ] }"&gt;&lt;/compose&gt;</code></pre>

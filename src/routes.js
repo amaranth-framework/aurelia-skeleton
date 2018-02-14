@@ -66,15 +66,15 @@ export default [
         subroutes: [],
         title: 'Anchor'
     },
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/card/card'),
-    //     name: 'components-helpers-card',
-    //     nav: false,
-    //     route: 'components/helpers/card',
-    //     subroutes: [],
-    //     title: 'Card'
-    // },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/card'),
+        name: 'components-helper-card',
+        nav: false,
+        route: 'components/components/helpers/card',
+        subroutes: [],
+        title: 'Card'
+    },
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/components/helper/content'),
@@ -102,24 +102,15 @@ export default [
         subroutes: [],
         title: 'Form Select'
     },
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/helper'),
-    //     name: 'components-helpers-form',
-    //     nav: false,
-    //     route: 'components/helpers/form',
-    //     subroutes: [],
-    //     title: 'Form'
-    // },
-    // {
-    //     icon: 'code',
-    //     moduleId: PLATFORM.moduleName('templates/demo/helper/listing/listing'),
-    //     name: 'components-helpers-listing',
-    //     nav: false,
-    //     route: 'components/helpers/listing',
-    //     subroutes: [],
-    //     title: 'Listing'
-    // },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/helper/listing'),
+        name: 'components-helper-listing',
+        nav: false,
+        route: 'components/components/helper/listing',
+        subroutes: [],
+        title: 'Listing'
+    },
     {
         icon: 'code',
         moduleId: PLATFORM.moduleName('templates/demo/components/helper/table'),

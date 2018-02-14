@@ -1,0 +1,15 @@
+  <template>
+    <div class="am-listing" class.bind="settings.style">
+        <!-- <div class="listing-options"> -->
+        <!-- </div> -->
+
+        <div if.bind="settings.view === VIEW_MODE_CARD" class.bind="settings.styles.cardList" id="listing-${__uuid}" uk-grid>
+            <compose repeat.for="model of models" containerless view.bind="settings.card.view" view-model.bind="settings.card.model" model.bind="{ model: model, settings: settings.card }" ></compose>
+        </div>
+
+        <compose if.bind="settings.view === VIEW_MODE_TABLE" containerless view.bind="settings.table.view" view-model.bind="settings.table.model" model.bind="{ tbody: models, settings: settings.table }" ></compose>
+
+        <!-- <div if.bind="settings.pagination" class="table-options"> -->
+		<!-- </div> -->
+    </div>
+</template>

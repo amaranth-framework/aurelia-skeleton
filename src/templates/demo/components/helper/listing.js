@@ -7,7 +7,7 @@
  */
 
 import { TDemo } from 'templates/demo/demo';
-import { extend } from 'features/utils';
+import { extend } from 'features/utils/object';
 
 /**
  * Home Template for helper/card

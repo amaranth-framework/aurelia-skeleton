@@ -152,6 +152,7 @@ export class View extends ModelView {
      */
     init() {
         this.mergeSettings();
+        // this.logger.debug('View Initialized', this.settings);
     }
     /**
      * Merge settings given for a view from different layers of the application:
