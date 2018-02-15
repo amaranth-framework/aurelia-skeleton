@@ -25,16 +25,6 @@ export class CHTable extends Component {
      */
     overrideSettingsKey = 'components.helper/table';
     /**
-     * Defines the array of headdings for a specific table
-     * @type {Array<Object|String>}
-     */
-    thead = environment.thead || [];
-    /**
-     * Defines the array of models that are binded to the table
-     * @type {Array<Model|Object>}
-     */
-    tbody = environment.modelList || [];
-    /**
      * Defines the array of selected models
      * @type {Array}
      */
@@ -46,7 +36,11 @@ export class CHTable extends Component {
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
             actions: [],
+            columns: environment.defaults.table.columns,
+            headers: environment.defaults.table.headers,
             isSelectable: true,
+            isActionable: false,
+            models: environment.defaults.models,
             name: 'default',
             style: '',
             styles: {}
@@ -88,10 +82,28 @@ export class CHTable extends Component {
          */
         this.isSelectAllVisible = !(this.isSelectAllVisible || false);
         if (this.isSelectAllVisible) {
-            this.selection = this.tbody;
+            this.selection = this.tableModels;
         } else {
             this.selection = [];
         }
         this.publishSelection();
+    }
+    /**
+     * @return {Array}
+     */
+    get tableColumns() {
+        return this.columns || this.settings.columns;
+    }
+    /**
+     * @return {Object}
+     */
+    get tableHead() {
+        return this.headers || this.settings.headers;
+    }
+    /**
+     * @return {Array<Model|Object>}
+     */
+    get tableModels() {
+        return this.models || this.settings.models;
     }
 }

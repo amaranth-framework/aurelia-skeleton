@@ -30,6 +30,11 @@
     "helper/table": {
       "style": "uk-table-hover uk-table-divider",
       "styles": {
+        "headers": {
+          "image": "uk-table-shrink",
+          "title": "uk-table-expand",
+          "content": "uk-table-expand"
+        },
         "selectable": "uk-table-shrink",
         "selectableInput": "uk-checkbox",
         "wrapper": "uk-overflow-auto"
