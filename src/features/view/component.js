@@ -27,4 +27,10 @@ export class Component extends View {
             this[p] = this.__model[p];
         }
     }
+
+    created() {
+        if (!this.__initialized) {
+            this.init();
+        }
+    }
 }
