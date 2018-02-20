@@ -6,6 +6,9 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import { bindable, customElement } from 'aurelia-framework';
+
+import { bindableHelper } from 'features/utils/constants';
 import environment from 'environment';
 import { Component } from 'features/view/component';
 import { extend } from 'features/utils/object';
@@ -105,5 +108,27 @@ export class CHTable extends Component {
      */
     get tableModels() {
         return this.models || this.settings.models;
+    }
+}
+
+
+/**
+ * Table Custom Element
+ * @example
+ * <am-table settings.bind="{ settings }"></am-table>
+ * @extends {CHTable}
+ * @see https://amaranth-framework.github.com/aurelia-skeleton/helper-components/a
+ * @see http://aurelia.io/docs/templating/custom-elements#introduction
+ */
+@customElement('am-table')
+export class CHTableElement extends CHTable {
+    @bindable(bindableHelper.twoWay) settings = {};
+    @bindable(bindableHelper.twoWay) text = '';
+    @bindable(bindableHelper.twoWay) title = '';
+    created() {
+        this.logger.debug('test');
+        if (!this.inititalized) {
+            this.init();
+        }
     }
 }
