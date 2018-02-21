@@ -40,6 +40,9 @@
         "wrapper": "uk-overflow-auto"
       }
     },
+    "nav/iconnav": {
+      "style": "uk-iconnav"
+    },
     "page/breadcrumb": {
       "style": "uk-breadcrumb",
       "styles": {

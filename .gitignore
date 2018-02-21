@@ -1,6 +1,8 @@
 .DS_STORE
 .chrome
 .idea
+.tags
+.tags.swp
 dist
 docs
 node_modules

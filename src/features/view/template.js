@@ -14,6 +14,15 @@ import { View } from 'features/view/view';
  */
 export class Template extends View {
     /**
+     * @see http://aurelia.io/docs/api/router/interface/RoutableComponentActivate/method/activate
+     * @return {void}
+     */
+    activate(...args) {
+        if (!this.__initialized) {
+            this.init();
+        }
+    }
+    /**
      * @return {void}
      */
     init() {

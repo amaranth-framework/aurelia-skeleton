@@ -38,11 +38,11 @@
             </ul>
             <ul class="uk-switcher uk-margin">
                 <li>
-                    <am-a>Link Content</am-a>
+                    <am-a title="A Custom Title (Custom Element)">Link Content (Custom Element)</am-a>
                 </li>
                 <li>
                     <pre><code class="html">&lt;require from="relative/path/to/components/helper/a"></require>
-&lt;am-a&gt;Link Content&lt;/am-a&gt;</code></pre>
+&lt;am-a title="A Custom Title (Custom Element)"&gt;Link Content (Custom Element)&lt;/am-a&gt;</code></pre>
                 </li>
             </ul>
         </code>
@@ -60,10 +60,10 @@
             </ul>
             <ul class="uk-switcher uk-margin">
                 <li>
-                    <compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content' }"></compose>
+                    <compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content (Component)', settings: { title: 'A custom Title (Component)' } }"></compose>
                 </li>
                 <li>
-                    <pre><code class="html">&lt;compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content' }">&lt;/compose></code></pre>
+                    <pre><code class="html">&lt;compose containerless view-model="components/helper/a" model.bind="{ content: 'Link Content (Component)', settings: { title: 'A custom Title (Component)' } }">&lt;/compose></code></pre>
                 </li>
             </ul>
         </div>

@@ -20,10 +20,19 @@ export default [
         nav: true,
         route: 'components',
         subroutes: [
+            'components-nav-iconnav',
             'components-page-breadcrumb',
             'components-page-title'
         ],
         title: 'Components'
+    },
+    {
+        icon: 'code',
+        moduleId: PLATFORM.moduleName('templates/demo/components/nav-iconnav'),
+        name: 'components-nav-iconnav',
+        nav: true,
+        route: 'components/nav-iconnav',
+        title: 'IconNav'
     },
     {
         icon: 'code',

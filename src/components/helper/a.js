@@ -15,7 +15,10 @@ import { bindableHelper } from 'features/utils/constants';
 import { extend } from 'features/utils/object';
 
 const template = `<template>
-    <a am-uuid.bind="__uuid" href.bind="aHref" target.bind="aTarget" title.bind="aTitle"><i if.bind="aFaIcon" class="fa fa-\${aFaIcon}"></i><slot>\${aContent}</slot></a>
+    <a am-uuid.bind="__uuid" href.bind="aHref" title.bind="aTitle" click.delegate="doClick()">
+        <i if.bind="aFaIcon" class="fa fa-\${aFaIcon}"></i>
+        <slot>\${aContent}</slot>
+    </a>
 </template>`;
 
 /**
@@ -40,14 +43,14 @@ export class CHAnchor extends Component {
     /**
      * @see ModelView::overrideSettingsKey
      */
-    overrideSettingsKey = 'components.uk/a';
+    overrideSettingsKey = 'components.helper/a';
     /**
      *
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
-            dispatchEvents: [ 'click' ],
             href: '#!',
+            publish: null,
             route: null,
             target: '_self',
             title: '',
@@ -88,19 +91,31 @@ export class CHAnchor extends Component {
         // return aurelia route obtained href, element binded href or settings href
         return routeHref || this.href || this.settings.href;
     }
-    /**
-     * Obtain anchor's title based on its bindings & settings.
-     * @return {String}
-     */
-    get aTarget() {
-        return this.target || this.settings.target; // || (this.htmlElement || {}).innerText;
-    }
+    // /**
+    //  * Obtain anchor's title based on its bindings & settings.
+    //  * @return {String}
+    //  */
+    // get aTarget() {
+    //     return this.target || this.settings.target; // || (this.htmlElement || {}).innerText;
+    // }
     /**
      * Obtain anchor's title based on its bindings & settings.
      * @return {String}
      */
     get aTitle() {
         return this.title || this.settings.title; // || (this.htmlElement || {}).innerText;
+    }
+    /**
+     * @return {void}
+     */
+    doClick() {
+        const publish = this.publish || this.settings.publish || [];
+        if (!publish.length) {
+            return this.router.navigate(this.aHref);
+        }
+        publish.forEach(args => {
+            this.publishEvent.apply(this, Array.isArray(args) ? args : [args]);
+        });
     }
     /**
      * Render UIKit options.
