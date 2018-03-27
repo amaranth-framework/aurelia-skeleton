@@ -1,4 +1,5 @@
 {
+  "extends": "./node_modules/aurelia-tools/.eslintrc.json",
   "parser": "babel-eslint",
   "plugins": [
     "prefer-class-properties"
