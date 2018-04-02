@@ -11,8 +11,8 @@ before_script:
 
 scripts:
   - npm run lint
-  - npm run esdoc
-  - npm run build
+  # - npm run esdoc
+  # - npm run build
 
 notifications:
   slack:
