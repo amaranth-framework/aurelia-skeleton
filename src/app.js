@@ -6,9 +6,10 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import appRoutes from 'routes';
 import { Base, Routable } from 'static/amaranth-aurelia-utils';
-import { traits } from 'static/amaranth-utils';
+import { config, traits } from 'static/amaranth-utils';
+
+import appRoutes from 'routes';
 
 export class App extends Base {
   constructor(...args) {

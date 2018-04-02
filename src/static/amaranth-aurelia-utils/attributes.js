@@ -1,9 +1,9 @@
 /**
- * Aurelia Skeleton (https://github.com/amaranth-framework/aurelia-skeleton/)
+ * Amaranth Aurelia Utils Library (https://github.com/amaranth-framework/aurelia-utils/)
  *
- * @link      https://github.com/amaranth-framework/aurelia-skeleton/ for the canonical source repository
+ * @link      https://github.com/amaranth-framework/aurelia-utils/ for the canonical source repository
  * @copyright Copyright (c) 2007-2017 IT Media Connect (http://itmediaconnect.ro)
- * @license   https://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
+ * @license   https://github.com/amaranth-framework/aurelia-utils/LICENSE MIT License
  */
 
 import {inject} from 'aurelia-dependency-injection';

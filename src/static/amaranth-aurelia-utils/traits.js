@@ -1,9 +1,9 @@
 /**
- * Aurelia Skeleton (https://github.com/amaranth-framework/aurelia-skeleton/)
+ * Amaranth Aurelia Utils Library (https://github.com/amaranth-framework/aurelia-utils/)
  *
- * @link      https://github.com/amaranth-framework/aurelia-skeleton/ for the canonical source repository
+ * @link      https://github.com/amaranth-framework/aurelia-utils/ for the canonical source repository
  * @copyright Copyright (c) 2007-2017 IT Media Connect (http://itmediaconnect.ro)
- * @license   https://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
+ * @license   https://github.com/amaranth-framework/aurelia-utils/LICENSE MIT License
  */
 
 import { Config } from 'aurelia-api';
@@ -11,11 +11,11 @@ import { Container } from 'aurelia-dependency-injection';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { LogManager } from 'aurelia-framework';
 import { Logger } from 'aurelia-logging';
-import { className, parentClassName } from 'amaranth-utils';
-import { traits } from '../amaranth-utils/index';
+import { className, parentClassName,traits } from '../amaranth-utils';
+import { UTILS } from './index';
 
 function __AMARANTH_MODULE_NAME__(path) {
-    return PLATFORM ? PLATFORM.moduleName(path) : path
+    return UTILS.PLATFORM ? UTILS.PLATFORM.moduleName(path) : path
 }
 
 /**
