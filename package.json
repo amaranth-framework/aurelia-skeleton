@@ -1,7 +1,7 @@
 {
   "name": "cli-webpack-skeleton",
   "description": "An Aurelia client application.",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "repository": {
     "type": "???",
     "url": "???"
@@ -68,7 +68,7 @@
     "webpack-dev-server": "^3.1.1"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.0.0"
   },
   "scripts": {
     "esdoc": "esdoc",
@@ -77,7 +77,7 @@
     "lint:esdoc": "esdoc -c .esdoc-lint.json",
     "lint:less": "echo test",
     "start": "nps",
-    "test": "echo test"
+    "test": "npm run lint"
   },
   "main": "dist/app.bundle.js"
 }
