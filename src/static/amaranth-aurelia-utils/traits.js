@@ -11,11 +11,11 @@ import { Container } from 'aurelia-dependency-injection';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { LogManager } from 'aurelia-framework';
 import { Logger } from 'aurelia-logging';
-import { className, parentClassName,traits } from '../amaranth-utils';
+import { className, parentClassName, traits } from '../amaranth-utils';
 import { UTILS } from './index';
 
 function __AMARANTH_MODULE_NAME__(path) {
-    return UTILS.PLATFORM ? UTILS.PLATFORM.moduleName(path) : path
+    return UTILS.PLATFORM ? UTILS.PLATFORM.moduleName(path) : path;
 }
 
 /**
@@ -164,7 +164,7 @@ export class RouteActive {
 /**
  * Routable trait, using an object to add route to the application.
  * Requires the definition of `appRoutes` Array within the component/template class.
- * 
+ *
  * @example
  * class App {
  *   appRoutes = []
@@ -187,23 +187,23 @@ export class Routable {
         config.map(this.appRoutes);
         // assing router
         this.router = router;
-    }   
+    }
 }
 traits(Routable, RouteActive);
 
 /**
  * Routable trait, using REST for importing the routes to the application.
- * Requires the use of `aurelia-api` plugin,the addition of RESTable class and the definition of a `router` endpoint within the 
+ * Requires the use of `aurelia-api` plugin,the addition of RESTable class and the definition of a `router` endpoint within the
  * addition of `aurelia-api` plugin in `main.js`.
- * 
+ *
  * @experimental USE ON YOUR OWN RISK
- * 
+ *
  * @example
  * class App {}
  * traits(App, RESTable, RoutableREST)
  */
 export class RoutableREST {
-     /**
+    /**
      * Configure Application router
      * @method configureRouter
      * @param  {RouterConfiguration}  config
@@ -233,7 +233,7 @@ export class RoutableREST {
      */
     mapRoutesFromREST(config) {
         if (!this.getEndpoint) {
-            throw 'Cannot use mapRoutesFromREST. `RESTable` trait was not added to class.';
+            throw Error('Cannot use mapRoutesFromREST. `RESTable` trait was not added to class.');
         }
         this.getEndpoint('router').find(this.routesPath).then(response => {
             response.forEach(route => {

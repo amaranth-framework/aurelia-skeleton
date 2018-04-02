@@ -18,11 +18,11 @@ export let UTILS = {
      * // in main.js
      * import { PLATFORM } from 'aurelia-pal';
      * import { UTILS } from 'static/amaranth-aurelia-utils';
-     * 
+     *
      * UTILS.PLATFORM = PLATFORM;
      */
     PLATFORM: undefined
-}
+};
 
 export { UuidAttribute } from './attributes';
 

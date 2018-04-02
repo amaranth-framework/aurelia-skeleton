@@ -6,7 +6,7 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
- /**
+/**
   * Routes Object
   */
 export default [
@@ -22,5 +22,5 @@ export default [
         nav: true,
         route: 'dashboard',
         title: 'Dashboard'
-    },
+    }
 ];

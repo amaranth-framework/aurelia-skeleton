@@ -7,16 +7,16 @@
  */
 
 import { Base, Routable } from 'static/amaranth-aurelia-utils';
-import { config, traits } from 'static/amaranth-utils';
+import { traits } from 'static/amaranth-utils';
 
 import appRoutes from 'routes';
 
 export class App extends Base {
-  constructor(...args) {
-    super(...args)
-    this.message = 'Hello World!';
-    this.appRoutes = appRoutes;
-  }
+    constructor(...args) {
+        super(...args);
+        this.message = 'Hello World!';
+        this.appRoutes = appRoutes;
+    }
 }
 
 traits(App, Routable);
