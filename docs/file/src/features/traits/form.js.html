@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/features/traits/form.js | aurelia-skeleton</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A starter kit for building a standard navigation-style app with Aurelia and Webpack."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="aurelia-skeleton"><meta property="twitter:description" content="A starter kit for building a standard navigation-style app with Aurelia and Webpack."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/app.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configure">configure</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-helper">components/helper</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/helper/a.js~CHAnchor.html">CHAnchor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/helper/content.js~CHContent.html">CHContent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/helper/table.js~CHTable.html">CHTable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-helper-form">components/helper/form</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/helper/form/input.js~CHInputElement.html">CHInputElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/helper/form/select.js~CHSelectElement.html">CHSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SELECT_BIND_BY_MODEL">SELECT_BIND_BY_MODEL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SELECT_BIND_BY_VALUE">SELECT_BIND_BY_VALUE</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-page">components/page</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/page/breadcrumb.js~CPBreadcrumb.html">CPBreadcrumb</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/page/breadcrumb.js~CPBreadcrumbElement.html">CPBreadcrumbElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/page/title.js~CPTitle.html">CPTitle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/page/title.js~CPTitleElement.html">CPTitleElement</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#features">features</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/model-view.js~ModelViewTrait.html">ModelViewTrait</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ModelView">ModelView</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/NavigationInstructions">Aurelia.NavigationInstructions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/Vheissu/aurelia-configuration">AureliaConfiguration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/event-aggregator">EventAggregator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/i18n">I18N</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/logging">Logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router">Router</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/pnegri/uuid-js">UUID</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#features-traits">features/traits</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/traits/eventable.js~Eventable.html">Eventable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/traits/form.js~Form.html">Form</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/traits/logable.js~Logable.html">Logable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/traits/restable.js~RESTable.html">RESTable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#features-utils">features/utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/utils/messages.js~Messages.html">Messages</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-waitForElements">waitForElements</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-waitForVariable">waitForVariable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCookie">getCookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeCookie">removeCookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCookie">setCookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deprecate">deprecate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-className">className</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-extend">extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parentClassName">parentClassName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-traits">traits</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-traitsExclude">traitsExclude</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-bindableHelper">bindableHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Storage">Storage</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#features-view">features/view</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/view/component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/view/model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/view/template.js~Template.html">Template</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/features/view/view.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-properties">properties</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-property">property</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentAttached/">Aurelia.ComponentAttached</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentBind/">Aurelia.ComponentBind</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentCreated/">Aurelia.ComponentCreate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentDetached/">Aurelia.ComponentDetached</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentDetached/method/detached">Aurelia.ComponentDetached.detached</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ComponentUnbind/">Aurelia.ComponentUnbind</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/ConfiguresRouter/">Aurelia.ConfiguresRouter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/templating/interface/DynamicComponentGetViewStrategy">Aurelia.DynamicComponentGetViewStrategy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/NavigationInstructions">Aurelia.NavigationInstructions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/RoutableComponentActivate">Aurelia.RoutableComponentActivate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/RoutableComponentCanActivate">Aurelia.RoutableComponentCanActivate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/RoutableComponentCanDeactivate">Aurelia.RoutableComponentCanDeactivate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/RoutableComponentDeactivate">Aurelia.RoutableComponentDeactivate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://aurelia.io/docs/api/router/interface/RouteConfig">Aurelia.RouteConfig</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#resources">resources</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configure">configure</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#resources-html-attributes">resources/html-attributes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/resources/html-attributes/am-uuid.js~AmUuid.html">AmUuid</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo">templates/demo</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components.js~TDComponents.html">TDComponents</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/demo.js~TDemo.html">TDemo</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-components">templates/demo/components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper.js~TDHelper.html">TDHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/page-breadcrumb.js~TDHAnchor.html">TDHAnchor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/page-title.js~TCPageTitle.html">TCPageTitle</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-components-helper">templates/demo/components/helper</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/a.js~TDHAnchor.html">TDHAnchor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/content.js~TCHCard.html">TCHCard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/form-input.js~TDHAnchor.html">TDHAnchor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/form-select.js~TDHAnchor.html">TDHAnchor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/table.js~TCHCard.html">TCHCard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-components-helper-card">templates/demo/components/helper/card</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/card/card.js~TCHCard.html">TCHCard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-components-helper-form">templates/demo/components/helper/form</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/form/content.js~TCHCard.html">TCHCard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-components-helper-listing">templates/demo/components/helper/listing</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/components/helper/listing/listing.js~TCHListing.html">TCHListing</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-demo-home">templates/demo/home</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/demo/home/home.js~THome.html">THome</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#templates-statuses">templates/statuses</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/templates/statuses/404.js~Error404.html">Error404</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/features/traits/form.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+/**
+ *
+ */
+export class Form {
+    bindingElement(input) {
+        return this[input.name];
+    }
+    /**
+     * Getter: Obtain the form config for the model
+     * @return {[type]}
+     */
+    formConfig() {
+        return (this.settings ? this.settings.inputs : null) || [{ name: &apos;id&apos;, type: &apos;hidden&apos; }];
+    }
+    /**
+     * @param  {{}} input
+     * @return {{}}
+     */
+    _input(input) {
+        // if input already formed, just return it
+        if (input.__formed__) {
+            return input;
+        }
+        // throw error if input has no name
+        if (!input.name) {
+            throw Error(`Form &apos;#${this.settings.name}&apos; has inputs without name property. Please fix before advancing.`);
+        }
+        // render input id
+        input.id = `${input.id || input.name}-${this.__uuid}`;
+        // property -&gt; determine whether input is filled or not
+        Object.defineProperty(input, &apos;isFilled&apos;, {
+            get: () =&gt; {
+                return this[input.name] &amp;&amp; (this[input.name]).length &gt; 0;
+            }
+        });
+        // property -&gt; determine or set the validation errors
+        Object.defineProperty(input, &apos;validationErrors&apos;, {
+            get: () =&gt; {
+                return this[`${input.name}Errors`] ||  [];
+            },
+            set: (value) =&gt; {
+                this[`${input.name}Errors`] = value;
+            }
+        });
+        // property -&gt; determine the validation style
+        Object.defineProperty(input, &apos;validationStyle&apos;, {
+            get: () =&gt; {
+                return this.validationStyle(input);
+            }
+        });
+        // property -&gt; determine or set the binded value -&gt; NOT USED
+        // Object.defineProperty(input, &apos;bindValue&apos;, {
+        //     get: () =&gt; {
+        //         return this[input.name];
+        //     },
+        //     set: (value) =&gt; {
+        //         this[input.name] = value;
+        //     }
+        // });
+
+        // mark as formed and return
+        input.__formed__ = true;
+        return input;
+    }
+    /**
+     * Getter: Calculate style for input div wrapper.
+     * @return {String}
+     */
+    inputStyle() {
+        return this.isHorizontalForm() ? this.settings.styles.inputAsCol : &apos;&apos;;
+    }
+    /**
+     * [isTextarea description]
+     * @param {Object}  input
+     * @return {Boolean}
+     */
+    isCheckable(input) {
+        return /checkbox|radio/.test(input.type);
+    }
+    /**
+     * [isComponent description]
+     * @param {Object}  input
+     * @return {Boolean}
+     */
+    isComponent(input) {
+        return input.type === &apos;component&apos;;
+    }
+    /**
+     * Determine whether the form has &apos;form-horizontal&apos; style or not.
+     * @return {Boolean}
+     */
+    isHorizontalForm() {
+        return this.settings.style &amp;&amp; this.settings.style.indexOf(&apos;form-horizontal&apos;) &gt; -1;
+    }
+    /**
+     * Determine whether the form has &apos;form--material&apos; style or not.
+     * @return {Boolean}
+     */
+    isMaterialForm() {
+        return ((this.settings || {}).style || &apos;&apos;).indexOf(&apos;form--material&apos;) &gt; -1;
+    }
+    /**
+     * [isTextarea description]
+     * @param {Object}  input
+     * @return {Boolean}
+     */
+    isSelect(input) {
+        return input.type === &apos;select&apos;;
+    }
+    /**
+     * [isTextarea description]
+     * @param {Object}  input
+     * @return {Boolean}
+     */
+    isTextarea(input) {
+        return input.type === &apos;textarea&apos;;
+    }
+    /**
+     * [isTextInput description]
+     * @param {Object}  input
+     * @return {Boolean}
+     */
+    isTextInput(input) {
+        return input.type === &apos;&apos;
+            || input.type === null
+            || input.type === undefined
+            || /^(color|date(time-local)?|email|image|month|number|password|range|search|te(l|xt)|time|url|week)$/.test(input.type);
+    }
+    /**
+     * Getter: Calculate style for label.
+     * @return {[type]}
+     */
+    labelStyle() {
+        return this.isHorizontalForm() ? this.settings.styles.labelAsCol : &apos;&apos;;
+    }
+    /**
+     * Will generate validaton style for a certain input.
+     * @param  {String} input
+     * @return {String}
+     */
+    validationStyle(input) {
+        // test whether there are rules to validate the field
+        let ruleFilter = (item) =&gt; item.property &amp;&amp; item.property.name === input.name;
+        let setFilter = (set) =&gt; set.length &gt; 0 &amp;&amp; set.filter(ruleFilter).length &gt; 0;
+        // and return only the input style
+        if (!this.__rules__ || !this.__rules__.filter(setFilter).length) {
+            return input.style || &apos;&apos;;
+        }
+        // validation class name
+        let validationClass = &apos;&apos;;
+        // if filled in and no errors
+        if (input.isFilled &amp;&amp; !input.validationErrors.length) {
+            validationClass = &apos;is-valid&apos;;
+        }
+        // if errors
+        if (input.validationErrors.length) {
+            validationClass = &apos;is-error&apos;;
+        }
+        return `${input.style || &apos;&apos;} ${validationClass}`;
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.3)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
