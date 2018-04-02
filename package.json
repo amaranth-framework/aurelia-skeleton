@@ -77,7 +77,7 @@
     "lint:esdoc": "esdoc -c .esdoc-lint.json",
     "lint:less": "echo test",
     "start": "nps",
-    "test": "nps test"
+    "test": "echo test"
   },
   "main": "dist/app.bundle.js"
 }
