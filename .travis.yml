@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  # - "iojs"
+  - "7"
+  # - "8"
+  - "lts/*"
+  - "node"
+
+before_script:
+  - npm i
+
+scripts:
+  - npm run lint
+  - npm run esdoc
+  - npm run build
+
+notifications:
+  slack:
+    rooms:
+      # obtained by running
+      # docker run -v $(pwd)/aurelia-skeleton:/home/skeleton ruby sh -c 'set -xe; cd /home/skeleton; gem install travis -v 1.8.8 --no-rdoc --no-ri; travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms'
+      # - secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+      # or
+      # - <account>:<token>#channel
+      - secure: OFUnzcvw5T+15+uCIRDg9STbplEH2J0BbibUmLBIAVkxDZhgMN1N1+qgNYr+orY16L0uugkP4EmGbeXlddSDaqELMnkt2U5JP3kX3WaH7RxzKuqw+WUXEB7J59nIjJezEyoLN4xja0u/2rLJY/ACSBUY1fawauKrghJnpAhIzUmJON/Y+KYI5h7JPyRYbkZVFW7/qufHYr5OtElRDwlFoxi5S/9wgCpwlxD1HC6W4QTnW7VAlnI92VF5+p7O8dcXp8dEaUAnh23bVL0WuwgQjO2UzkxZb75SVQUHAGbSwc40hjab5Kzg4u28Sh3iDF4qTpPXSdWYX8mCRFak8ULBnlSogQ/86b2n6IsZSqFcSfcX4LKe1maIjXuVst38bJ7vEjEOKtlugV7UNSSVGUQDlf4A0+rKNdPSqoJfQ4wWNc9Eavke4hfd+ALWdC9wZVz7U21Rnn0KI59YYhcs69kqv6ZSjEot7YNHLlS7/QAUR6/URwXA7vI3ghUem2VnK468tMLVlDpsyZ4U5oB3WPS2oy6Y2mXNpHoyhakvF6ybyuLN/Hm4m4tFGutLeQTrnugerDRsQpU6rtAciYlts35Q5Mv2591a72wWso9L3m58p0h01CNWxqMvNgoq+68Tey/D3eG4oTPTTfeNw3e1hiudXEF7GtwNrUA4n2TIkglH7GE=
+    on_success: always
+    on_failure: always
+  # email:
+  #   recipients:
+  #     - amaranth@itmediaconnect.ro
+  #   on_success: never # default: change
+  #   on_failure: always # default: always
