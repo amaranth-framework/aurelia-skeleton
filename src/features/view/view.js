@@ -89,15 +89,6 @@ export class View extends ModelView {
         // this.logger.debug('test-life constructor', ...args);
     }
     /**
-     * @see http://aurelia.io/docs/api/router/interface/RoutableComponentActivate/method/activate
-     */
-    activate(...args) {
-        // this.logger.debug('test-life activate', ...args);
-        if (!this.initialized) {
-            this.init();
-        }
-    }
-    /**
      * Invoked when the databinding engine binds the view. The binding context is the instance that the view is
      * databound to.
      * @see http://aurelia.io/docs/api/templating/interface/ComponentBind/method/bind
@@ -153,6 +144,8 @@ export class View extends ModelView {
     init() {
         this.mergeSettings();
         // this.logger.debug('View Initialized', this.settings);
+
+        this.__initialized = true;
     }
     /**
      * Merge settings given for a view from different layers of the application:

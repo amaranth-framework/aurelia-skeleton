@@ -6,6 +6,9 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import { bindable, customElement } from 'aurelia-framework';
+
+import { bindableHelper } from 'features/utils/constants';
 import environment from 'environment';
 import { Component } from 'features/view/component';
 import { extend } from 'features/utils/object';
@@ -25,16 +28,6 @@ export class CHTable extends Component {
      */
     overrideSettingsKey = 'components.helper/table';
     /**
-     * Defines the array of headdings for a specific table
-     * @type {Array<Object|String>}
-     */
-    thead = environment.thead || [];
-    /**
-     * Defines the array of models that are binded to the table
-     * @type {Array<Model|Object>}
-     */
-    tbody = environment.modelList || [];
-    /**
      * Defines the array of selected models
      * @type {Array}
      */
@@ -46,7 +39,11 @@ export class CHTable extends Component {
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
             actions: [],
+            columns: environment.defaults.table.columns,
+            headers: environment.defaults.table.headers,
             isSelectable: true,
+            isActionable: false,
+            models: environment.defaults.models,
             name: 'default',
             style: '',
             styles: {}
@@ -88,10 +85,50 @@ export class CHTable extends Component {
          */
         this.isSelectAllVisible = !(this.isSelectAllVisible || false);
         if (this.isSelectAllVisible) {
-            this.selection = this.tbody;
+            this.selection = this.tableModels;
         } else {
             this.selection = [];
         }
         this.publishSelection();
+    }
+    /**
+     * @return {Array}
+     */
+    get tableColumns() {
+        return this.columns || this.settings.columns;
+    }
+    /**
+     * @return {Object}
+     */
+    get tableHead() {
+        return this.headers || this.settings.headers;
+    }
+    /**
+     * @return {Array<Model|Object>}
+     */
+    get tableModels() {
+        return this.models || this.settings.models;
+    }
+}
+
+
+/**
+ * Table Custom Element
+ * @example
+ * <am-table settings.bind="{ settings }"></am-table>
+ * @extends {CHTable}
+ * @see https://amaranth-framework.github.com/aurelia-skeleton/helper-components/a
+ * @see http://aurelia.io/docs/templating/custom-elements#introduction
+ */
+@customElement('am-table')
+export class CHTableElement extends CHTable {
+    @bindable(bindableHelper.twoWay) settings = {};
+    @bindable(bindableHelper.twoWay) text = '';
+    @bindable(bindableHelper.twoWay) title = '';
+    created() {
+        this.logger.debug('test');
+        if (!this.inititalized) {
+            this.init();
+        }
     }
 }

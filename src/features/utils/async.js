@@ -6,6 +6,10 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
+import { LogManager } from 'aurelia-framework';
+
+const _logger = LogManager.getLogger('features/utils');
+
 /**
  * Obtain a list of HTML Elements based on their selector.
  * @param  {String} selector String defining the selector for the HTML Element.

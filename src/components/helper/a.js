@@ -15,7 +15,10 @@ import { bindableHelper } from 'features/utils/constants';
 import { extend } from 'features/utils/object';
 
 const template = `<template>
-    <a am-uuid.bind="__uuid" href.bind="href" target="settings.target" title.bind="title"><slot><i if.bind="settings.faIcon" class="fa fa-\${settings.faIcon}"></i>\${content}</slot></a>
+    <a am-uuid.bind="__uuid" href.bind="aHref" title.bind="aTitle" click.delegate="doClick()">
+        <i if.bind="aFaIcon" class="fa fa-\${aFaIcon}"></i>
+        <slot>\${aContent}</slot>
+    </a>
 </template>`;
 
 /**
@@ -32,16 +35,22 @@ const template = `<template>
 @viewResources(PLATFORM.moduleName('resources/html-attributes/am-uuid'))
 export class CHAnchor extends Component {
     @bindable(bindableHelper.twoWay) settings = {};
+    @bindable(bindableHelper.twoWay) faIcon = '';
+    @bindable(bindableHelper.twoWay) href = '';
+    @bindable(bindableHelper.twoWay) route = null;
+    @bindable(bindableHelper.twoWay) target = '_self';
+    @bindable(bindableHelper.twoWay) title = '';
     /**
      * @see ModelView::overrideSettingsKey
      */
-    overrideSettingsKey = 'components.uk/a';
+    overrideSettingsKey = 'components.helper/a';
     /**
      *
      */
     get defaultSettings() {
         return extend(true, super.defaultSettings, {
             href: '#!',
+            publish: null,
             route: null,
             target: '_self',
             title: '',
@@ -58,6 +67,57 @@ export class CHAnchor extends Component {
         this.renderUIKit();
     }
     /**
+     * Obtain anchor's content based on its bindings & settings.
+     * @return {String}
+     */
+    get aContent() {
+        return this.content || this.aTitle;
+    }
+    /**
+     * Obtain anchor's faIcon (FontAwesome Icon) based on its bindings & settings.
+     * @return {String}
+     */
+    get aFaIcon() {
+        return this.settings.faIcon || this.faIcon;
+    }
+    /**
+     * Obtain anchor's href based on its bindings & settings.
+     * @return {String} URL to which anchor will point to.
+     */
+    get aHref() {
+        // aurelia route parameter primes
+        const route = this.route || this.settings.route;
+        const routeHref = route ? this.router._recognizer.generate(route.name, route.params || {}) : null;
+        // return aurelia route obtained href, element binded href or settings href
+        return routeHref || this.href || this.settings.href;
+    }
+    // /**
+    //  * Obtain anchor's title based on its bindings & settings.
+    //  * @return {String}
+    //  */
+    // get aTarget() {
+    //     return this.target || this.settings.target; // || (this.htmlElement || {}).innerText;
+    // }
+    /**
+     * Obtain anchor's title based on its bindings & settings.
+     * @return {String}
+     */
+    get aTitle() {
+        return this.title || this.settings.title; // || (this.htmlElement || {}).innerText;
+    }
+    /**
+     * @return {void}
+     */
+    doClick() {
+        const publish = this.publish || this.settings.publish || [];
+        if (!publish.length) {
+            return this.router.navigate(this.aHref);
+        }
+        publish.forEach(args => {
+            this.publishEvent.apply(this, Array.isArray(args) ? args : [args]);
+        });
+    }
+    /**
      * Render UIKit options.
      * @see https://getuikit.com/docs/icon#javascript
      * @return {void}
@@ -69,24 +129,5 @@ export class CHAnchor extends Component {
         if (this.settings && this.settings.ukIcon) {
             UIkit.icon(this.htmlElement, this.settings.ukIcon);
         }
-    }
-    /**
-     * Obtain anchor's href based on its settings.
-     * @return {String} URL to which anchor will point to.
-     */
-    get href() {
-        const route = this.settings.route;
-        const routeHref = route ? this.router._recognizer.generate(route.name, route.params || {}) : null;
-        return this.settings.href || routeHref || '#!';
-    }
-    /**
-     * Obtain anchor's title based on its settings.
-     * @return {String}
-     */
-    get title() {
-        return this.settings.title
-            // content varialbe only works with <component>
-            || ((typeof this.content === 'string') ? this.content : (this.content || {}).innerText)
-            || (this.htmlElement || {}).innerText;
     }
 }

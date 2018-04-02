@@ -2,7 +2,8 @@
     <require from="../../demo.less"></require>
 
     <div class="uk-container">
-        <compose containerless view-model="components/page/title" model.bind="{ settings: settings.pageTitle }"></compose>
+        <require from="components/page/title"></require>
+        <am-title><h2>Table</h2></am-title>
     </div>
 
     <div class="uk-container">
@@ -17,7 +18,7 @@
 
         <p>Table component functions by either calling the default table component with a different template/view, either by completly extending this component into a new one, depending on your own needs.</p>
 
-        <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: {} }"&gt;&lt;/compose&gt;</code></pre>
+        <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings }"&gt;&lt;/compose&gt;</code></pre>
 
         <ul uk-tab="" class="uk-tab">
             <li aria-expanded="false" class="uk-active">
@@ -33,7 +34,7 @@
                 <compose containerless view-model="components/helper/table"></compose>
             </li>
             <li>
-                <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings: { }, thead: thead, tbody: tbody }"&gt;&lt;/compose&gt;</code></pre>
+                <pre><code class="html">&lt;compose containerless view-model="components/helper/table" model.bind="{ settings }"&gt;&lt;/compose&gt;</code></pre>
             </li>
         </ul>
 

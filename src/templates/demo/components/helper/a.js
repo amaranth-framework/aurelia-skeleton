@@ -41,31 +41,31 @@ export class TDHAnchor extends TDemo {
                 option: 'settings.faIcon',
                 type: 'Object|null',
                 default: '',
-                description: '<a href="https://fontawesome.io">Font Awesome</a> Icon to display, usable only with <code>&lt;component></code> call of the component.'
+                description: '<a href="https://fontawesome.io">Font Awesome</a> Icon to display. For <code>&lt;am-a></code> dissociate from <code>settings</code> and use as <code>faIcon</code> attribute.'
             },
             {
                 option: 'settings.href',
                 type: 'String',
                 default: '',
-                description: 'Url for the anchor by using a standard string.'
+                description: 'Url for the anchor by using a standard string. For <code>&lt;am-a></code> dissociate from <code>settings</code> and use as <code>href</code> attribute.'
             },
             {
                 option: 'settings.route',
                 type: 'Object',
                 default: '',
-                description: 'Url for the anchor, by using the Aurelia router.'
+                description: 'Url for the anchor, by using the Aurelia router. For <code>&lt;am-a></code> dissociate from <code>settings</code> and use as <code>route</code> attribute.'
             },
-            {
-                option: 'settings.target',
-                type: 'String',
-                default: '_self',
-                description: 'Anchor Target'
-            },
+            // {
+            //     option: 'settings.target',
+            //     type: 'String',
+            //     default: '_self',
+            //     description: 'Anchor Target. For <code>&lt;am-a></code> dissociate from <code>settings</code> and use as <code>target</code>.'
+            // },
             {
                 option: 'settings.title',
                 type: 'String',
                 default: '',
-                description: 'Anchor Title'
+                description: 'Anchor Title. For <code>&lt;am-a></code> dissociate from <code>settings</code> and use as <code>title</code>.'
             },
             {
                 option: 'settings.ukIcon',
