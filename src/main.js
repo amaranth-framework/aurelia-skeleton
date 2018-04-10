@@ -14,7 +14,7 @@ export function configure(aurelia) {
     aurelia.use
         .plugin(PLATFORM.moduleName('aurelia-api'), config => {
             config.registerEndpoint('default', 'https://jsonplaceholder.typicode.com');
-        })
+        });
 
     // Uncomment the line below to enable animation.
     // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));

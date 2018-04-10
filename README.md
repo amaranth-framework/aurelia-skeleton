@@ -1,12 +1,6 @@
 # Aurelia Skeleton
 
-[![TravisCI Status Widget]][TravisCI Status]
-<!-- [![Coverage Status Widget]][Coverage Status] -->
-
-[TravisCI Status]: https://travis-ci.org/amaranth-framework/aurelia-skeleton
-[TravisCI Status Widget]: https://travis-ci.org/amaranth-framework/aurelia-skeleton.svg?branch=static
-<!-- [Coverage Status]: https://coveralls.io/r/amaranth-framework/aurelia-skeleton -->
-<!-- [Coverage Status Widget]: https://coveralls.io/repos/github/amaranth-framework/aurelia-skeleton/badge.svg?branch=static -->
+[![TravisCI](https://travis-ci.org/amaranth-framework/aurelia-skeleton.svg?branch=master)](https://travis-ci.org/amaranth-framework/aurelia-skeleton)
 
 > Skeleton for Single Page Application using [Aurelia Framework](https://aurelia.io) and [webpack](https://webpack.js.org/)
 
