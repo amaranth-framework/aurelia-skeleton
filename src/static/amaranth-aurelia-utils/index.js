@@ -7,22 +7,24 @@
  */
 
 /**
- * Aurelia Utils Configuration Object
- * @type {Object}
+ * Dependencies:
+ * 
+ * amaranth-utils
+ * aurelia-api
+ * aurelia-configuration
+ * aurelia-event-aggregator
+ * aurelia-framework
+ * aurelia-i18n
+ * aurelia-router
+ * aurelia-validation
+ * lodash
+ *
+ * aurelia-framework
+ *  => aurelia-dependency-injection
+ *  => aurelia-logging
+ *  => aurelia-pal
+ *  => aurelia-templating
  */
-export let UTILS = {
-    /**
-     * If packing Aurelia with Webpack, PLATFORM needs to be the value of imported PLATFORM from `aurelia-pal` module.
-     * @type {Object|undefined}
-     * @example
-     * // in main.js
-     * import { PLATFORM } from 'aurelia-pal';
-     * import { UTILS } from 'static/amaranth-aurelia-utils';
-     *
-     * UTILS.PLATFORM = PLATFORM;
-     */
-    PLATFORM: undefined
-};
 
 export { UuidAttribute } from './attributes';
 

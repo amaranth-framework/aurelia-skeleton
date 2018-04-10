@@ -6,17 +6,13 @@
  * @license   https://github.com/amaranth-framework/aurelia-utils/LICENSE MIT License
  */
 
+import { className, parentClassName, traits } from '../amaranth-utils';
 import { Config } from 'aurelia-api';
 import { Container } from 'aurelia-dependency-injection';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { LogManager } from 'aurelia-framework';
 import { Logger } from 'aurelia-logging';
-import { className, parentClassName, traits } from '../amaranth-utils';
-import { UTILS } from './index';
-
-function __AMARANTH_MODULE_NAME__(path) {
-    return UTILS.PLATFORM ? UTILS.PLATFORM.moduleName(path) : path;
-}
+import { PLATFORM } from 'aurelia-pal';
 
 /**
  * Trait for handling events within a class.
@@ -169,7 +165,7 @@ export class RouteActive {
  * class App {
  *   appRoutes = []
  * }
- * traits(App, RoutableREST)
+ * traits(App, Loggable, Routable)
  */
 export class Routable {
     /**
@@ -179,10 +175,11 @@ export class Routable {
      * @param  {AppRouter}            router
      */
     configureRouter(config, router) {
+        this.logger.info('Configuring router (from static data)');
         // force router to use / not /#
         config.options.pushState = true;
         // map unknown routes to a certain template
-        config.mapUnknownRoutes(__AMARANTH_MODULE_NAME__('templates/statuses/404'));
+        config.mapUnknownRoutes(PLATFORM.moduleName('templates/statuses/404'));
         // map routes
         config.map(this.appRoutes);
         // assing router
@@ -214,7 +211,7 @@ export class RoutableREST {
         // force router to use / not /#
         config.options.pushState = true;
         // map unknown routes to a certain template
-        config.mapUnknownRoutes(__AMARANTH_MODULE_NAME__('templates/statuses/404'));
+        config.mapUnknownRoutes(PLATFORM.moduleName('templates/statuses/404'));
         // map routes
         this.mapRoutesFromREST(config);
         // assing router
@@ -238,7 +235,7 @@ export class RoutableREST {
         this.getEndpoint('router').find(this.routesPath).then(response => {
             response.forEach(route => {
                 route.settings = route.settings || {};
-                route.moduleId = __AMARANTH_MODULE_NAME__(route.moduleId);
+                route.moduleId = PLATFORM.moduleName(route.moduleId);
                 this.router.addRoute(route);
             });
 

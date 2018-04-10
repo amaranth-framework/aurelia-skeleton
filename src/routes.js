@@ -16,11 +16,23 @@ export default [
     },
     // demo app pages, comment and modify
     {
-        icon: 'home',
         moduleId: PLATFORM.moduleName('templates/home'),
         name: 'dashboard',
         nav: true,
         route: 'dashboard',
         title: 'Dashboard'
+    },
+    {
+        moduleId: PLATFORM.moduleName('templates/users'),
+        name: 'users',
+        nav: true,
+        route: 'users',
+        title: 'Users'
+    },
+    {
+        moduleId: PLATFORM.moduleName('templates/user'),
+        name: 'user',
+        route: 'user/:id',
+        title: 'User'
     }
 ];

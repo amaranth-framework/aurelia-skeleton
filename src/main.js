@@ -2,10 +2,6 @@ import environment from './environment';
 import { PLATFORM } from 'aurelia-pal';
 import 'babel-polyfill';
 import * as Bluebird from 'bluebird';
-import { UTILS } from 'static/amaranth-aurelia-utils';
-
-// if you're using webpack as packer, pass PLATFORM from aurelia-pal to amaranth-aurelia-utils
-UTILS.PLATFORM = PLATFORM;
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
@@ -14,6 +10,11 @@ export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .feature(PLATFORM.moduleName('resources/index'));
+
+    aurelia.use
+        .plugin(PLATFORM.moduleName('aurelia-api'), config => {
+            config.registerEndpoint('default', 'https://jsonplaceholder.typicode.com');
+        })
 
     // Uncomment the line below to enable animation.
     // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));

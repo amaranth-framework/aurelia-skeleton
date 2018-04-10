@@ -74,6 +74,7 @@ import { I18N } from 'aurelia-i18n';
 import { Router } from 'aurelia-router';
 import { validateTrigger, ValidationController } from 'aurelia-validation';
 import { className, extend, parentClassName, traits, traitsExclude, uuid } from '../amaranth-utils';
+import _ from 'lodash';
 
 import { Eventable, Loggable, RESTable } from './traits';
 
@@ -725,4 +726,3 @@ export function property(...args) {
     // @NOTE: For the moment this method will not work with html bindable variables
     return decorator.apply(null, args);
 }
-

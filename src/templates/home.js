@@ -2,4 +2,15 @@
  * Sample Home Template
  *
  */
-export class Home {}
+
+import { Template } from 'static/amaranth-aurelia-utils';
+
+/**
+ * 
+ */
+export class Home extends Template {
+    /**
+     * @type {String}
+     */
+    overrideSettingsKey = 'templates/home';
+}
