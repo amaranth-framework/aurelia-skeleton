@@ -6,7 +6,7 @@
  * @license   https://github.com/amaranth-framework/aurelia-utils/LICENSE MIT License
  */
 
-import { className, parentClassName, traits } from '../amaranth-utils';
+import { className, parentClassName, traits } from 'static/amaranth-utils';
 import { Config } from 'aurelia-api';
 import { Container } from 'aurelia-dependency-injection';
 import { EventAggregator } from 'aurelia-event-aggregator';

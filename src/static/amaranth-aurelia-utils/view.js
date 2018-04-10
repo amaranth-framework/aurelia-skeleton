@@ -67,13 +67,13 @@
  * @external {RouteConfig} http://aurelia.io/docs/api/router/interface/RouteConfig
  */
 
+import { className, extend, parentClassName, traits, traitsExclude, uuid } from 'static/amaranth-utils';
 import { Container, inject, NewInstance } from 'aurelia-dependency-injection';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { AureliaConfiguration } from 'aurelia-configuration';
 import { I18N } from 'aurelia-i18n';
 import { Router } from 'aurelia-router';
 import { validateTrigger, ValidationController } from 'aurelia-validation';
-import { className, extend, parentClassName, traits, traitsExclude, uuid } from '../amaranth-utils';
 import _ from 'lodash';
 
 import { Eventable, Loggable, RESTable } from './traits';
