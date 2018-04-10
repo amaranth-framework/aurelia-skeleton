@@ -6,7 +6,7 @@
 import { Template } from 'amaranth-aurelia-utils';
 
 /**
- * 
+ *
  */
 export class Home extends Template {
     /**
