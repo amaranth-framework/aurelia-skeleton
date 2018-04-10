@@ -6,8 +6,8 @@
  * @license   http://github.com/amaranth-framework/aurelia-skeleton/LICENSE MIT License
  */
 
-import { Base, Routable } from 'static/amaranth-aurelia-utils';
-import { traits } from 'static/amaranth-utils';
+import { Base, Routable } from 'amaranth-aurelia-utils';
+import { traits } from 'amaranth-utils';
 
 import appRoutes from 'routes';
 

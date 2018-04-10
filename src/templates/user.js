@@ -3,8 +3,8 @@
  *
  */
 
-import { Template, RESTable } from 'static/amaranth-aurelia-utils';
-import { traits, waitForVariable } from 'static/amaranth-utils';
+import { Template, RESTable } from 'amaranth-aurelia-utils';
+import { traits, waitForVariable } from 'amaranth-utils';
 
 /**
  *

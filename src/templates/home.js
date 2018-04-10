@@ -3,7 +3,7 @@
  *
  */
 
-import { Template } from 'static/amaranth-aurelia-utils';
+import { Template } from 'amaranth-aurelia-utils';
 
 /**
  * 
