@@ -1,5 +1,5 @@
 import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import 'babel-polyfill';
 import * as Bluebird from 'bluebird';
 
@@ -7,24 +7,29 @@ import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature(PLATFORM.moduleName('resources/index'));
+    aurelia.use
+        .standardConfiguration()
+        .feature(PLATFORM.moduleName('resources/index'));
 
-  // Uncomment the line below to enable animation.
-  // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
-  // if the css animator is enabled, add swap-order="after" to all router-view elements
+    aurelia.use
+        .plugin(PLATFORM.moduleName('aurelia-api'), config => {
+            config.registerEndpoint('default', 'https://jsonplaceholder.typicode.com');
+        })
 
-  // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
-  // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
+    // Uncomment the line below to enable animation.
+    // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
+    // if the css animator is enabled, add swap-order="after" to all router-view elements
 
-  if (environment.debug) {
-    aurelia.use.developmentLogging();
-  }
+    // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
+    // aurelia.use.plugin(PLATFORM.moduleName('aurelia-html-import-template-loader'));
 
-  if (environment.testing) {
-    aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
-  }
+    if (environment.debug) {
+        aurelia.use.developmentLogging();
+    }
 
-  aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+    if (environment.testing) {
+        aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
+    }
+
+    aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

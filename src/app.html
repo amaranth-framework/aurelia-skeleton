@@ -1,3 +1,13 @@
 <template>
-  <h1>${message}</h1>
+  <header>
+      <ul>
+          <li repeat.for="route of appRoutes" if.bind="route.nav">
+              <a innerhtml.bind="route.title" route-href="route.bind: route.name"></a>
+          </li>
+      </ul>
+  </header>
+  <main>
+    <router-view></router-view>
+  </main>
+  <footer></footer>
 </template>

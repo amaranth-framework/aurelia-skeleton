@@ -1,0 +1,32 @@
+<template>
+    <h1>Users</h1>
+
+    <table if.bind="users">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="user of users">
+                <td innerhtml.bind="user.id"></td>
+                <td>
+                    <a route-href="route: user; params.bind: { id: user.id }">${user.name}</a>
+                </td>
+                <td innerhtml.bind="user.username"></td>
+                <td>
+                    <a href="mail:${user.email}">${user.email}</a>
+                </td>
+                <td innerhtml.bind="user.phone"></td>
+                <td>
+                    <a href="http://${user.website}" target="_blank">${user.website}</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>
