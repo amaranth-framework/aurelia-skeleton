@@ -1,13 +1,29 @@
 <template>
-  <header>
-      <ul>
-          <li repeat.for="route of appRoutes" if.bind="route.nav">
-              <a innerhtml.bind="route.title" route-href="route.bind: route.name"></a>
-          </li>
-      </ul>
-  </header>
-  <main>
-    <router-view></router-view>
-  </main>
-  <footer></footer>
+    <require from="static/aurelia-material-components-web/drawer"></require>
+    <require from="static/aurelia-material-components-web/list"></require>
+    <require from="static/aurelia-material-components-web/nav"></require>
+    <mdc-drawer>
+        <mdc-drawer-header>
+            Header
+        </mdc-drawer-header>
+        <mdc-drawer-content>
+            <mdc-list-group>
+                <mdc-nav>
+                    <!-- <a repeat.for="route of appRoutes" if.bind="route.nav" innerhtml.bind="route.title" route-href="route.bind: route.name" class="mdc-list-item"></a> -->
+                    <mdc-nav-item repeat.for="route of appRoutes" if.bind="route.nav" route.bind="route">${route.title}</mdc-nav-item>
+                </mdc-nav>
+            </mdc-list-group>
+        </mdc-drawer-content>
+    </mdc-drawer>
+    <header>
+        <ul>
+            <li repeat.for="route of appRoutes" if.bind="route.nav">
+                <a innerhtml.bind="route.title" route-href="route.bind: route.name"></a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <router-view></router-view>
+    </main>
+    <footer></footer>
 </template>

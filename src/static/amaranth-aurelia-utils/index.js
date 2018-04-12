@@ -30,4 +30,4 @@ export { UuidAttribute } from './attributes';
 
 export { Eventable, Loggable, RESTable, RouteActive, RoutableREST, Routable } from './traits';
 
-export { Base, Component, Model, View, Template } from './view';
+export { Base, Component, CustomElement, Model, View, Template } from './view';

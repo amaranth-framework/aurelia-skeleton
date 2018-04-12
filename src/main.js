@@ -3,6 +3,9 @@ import { PLATFORM } from 'aurelia-pal';
 import 'babel-polyfill';
 import * as Bluebird from 'bluebird';
 
+// import 'material-components-web/dist/material-components-web.css';
+// import 'material-components-web';
+
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 

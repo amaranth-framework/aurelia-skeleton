@@ -303,27 +303,33 @@ export class View extends Base {
 }
 
 /**
- * Component mode: <compose>
- * @type {String}
+ * 
  */
-export const MODE_COMPOSE = 'compose';
-
-/**
- * Component mode: <custom-element></custom-element>
- * @type {String}
- */
-export const MODE_CUSTOM_ELEMENT = 'custom-element';
+@inject(Element)
+export class CustomElement extends View {
+    /**
+     * @see http://aurelia.io/docs/api/templating/interface/ComponentCreated/method/created
+     * @return {void}
+     */
+    created(...args) {
+        if (!this.__initialized) {
+            this.init();
+        }
+    }
+    /**
+     * Obtain the generated html element
+     * @return {HTMLElement}
+     */
+    get htmlElement() {
+        return this.element || document.querySelector(`[am-uuid="${this.__uuid}"]`);
+    }
+}
 
 /**
  * Abstract Component View (usable with <compose>)
  * @extends {View}
  */
-export class Component extends View {
-    /**
-     * @type {String}
-     * @private
-     */
-    __mode = MODE_COMPOSE;
+export class Component extends CustomElement {
     /**
      * Describe model given when component is called as <compose/>
      * @type {Object|null}
@@ -348,24 +354,9 @@ export class Component extends View {
             this.__mode = MODE_COMPOSE;
         }
     }
-    /**
-     * @see http://aurelia.io/docs/api/templating/interface/ComponentCreated/method/created
-     * @return {void}
-     */
-    created(...args) {
-        if (!this.__initialized) {
-            this.init();
-            this.__mode = MODE_CUSTOM_ELEMENT;
-        }
-    }
-    /**
-     * Obtain the generated html element
-     * @return {HTMLElement}
-     */
-    get htmlElement() {
-        return document.querySelector(`[am-uuid="${this.__uuid}"]`);
-    }
 }
+
+traits(Component, CustomElement);
 
 /**
  * Abstract Template View (usable in `src/templates`)
