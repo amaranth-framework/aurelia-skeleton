@@ -27,10 +27,7 @@ export class List extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list': true });
     }
 }
 
@@ -54,10 +51,7 @@ export class ListDivider extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-divider',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-divider': true });
     }
 }
 
@@ -83,10 +77,7 @@ export class ListGroup extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-group',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-group': true });
     }
 }
 
@@ -112,10 +103,7 @@ export class ListGroupSubheader extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-group__subheader',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-group__subheader': true });
     }
 }
 
@@ -141,10 +129,7 @@ export class ListItem extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-item',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-item': true });
     }
 }
 
@@ -168,10 +153,7 @@ export class ListItemSeparator extends ListItem {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-divider',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-divider': true });
     }
 }
 
@@ -210,18 +192,12 @@ export class ListItem2Lines extends ListItem {
      * @return {String}
      */
     get classSetLineOne() {
-        return [
-            'mdc-list-item__text',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list-item__text': true }, 'LineOne');
     }
     /**
      * @return {String}
      */
-    get classSetLineOne() {
-        return [
-            'mdc-list-item__secondary-text',
-            this.styles
-        ].join(' ').trim();
+    get classSetLineTwo() {
+        return this.prepareClasses({ 'mdc-list-item__secondary-text': true }, 'LineTwo');
     }
 }

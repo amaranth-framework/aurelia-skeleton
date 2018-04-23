@@ -11,12 +11,6 @@ const nav = `<template>
     </nav>
 </template>`;
 
-const navItem = `<template>
-    <a class.bind="classSet" href="#">
-        <slot></slot>
-    </a>
-</template>`;
-
 /**
  * Material Design List
  * @see {@link https://material.io/components/web/catalog/lists/}
@@ -33,12 +27,15 @@ export class Nav extends List {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-list': true });
     }
 }
+
+const navItem = `<template>
+    <a class.bind="classSet" href="#">
+        <slot></slot>
+    </a>
+</template>`;
 
 /**
  * Material Design List
@@ -78,10 +75,9 @@ export class NavItem extends ListItem {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-list-item',
-            (this.route || {}).active ? 'mdc-list-item--selected' : '',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({
+            'mdc-list-item': true,
+            'mdc-list-item--selected': (this.route || {}).active
+        });
     }
 }
