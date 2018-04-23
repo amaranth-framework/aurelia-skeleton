@@ -1,4 +1,6 @@
 
+import { inject } from 'aurelia-dependency-injection';
+import { EventAggregator } from 'aurelia-event-aggregator';
 import { bindable, customElement, inlineView } from 'aurelia-templating';
 import _ from 'lodash';
 import { MDCTemporaryDrawer } from '@material/drawer';
@@ -49,6 +51,7 @@ const templateHeader = `<template>
  * </mdc-drawer>
  */
 @customElement('mdc-drawer')
+@inject(EventAggregator)
 @inlineView(template)
 export class Drawer extends CustomElement {
     /**
@@ -56,22 +59,48 @@ export class Drawer extends CustomElement {
      */
     @bindable stylesContent = '';
     /**
+     * @type {String}
+     */
+    @bindable target = 'main-drawer';
+    /**
+     * @param {EventAggregator} events
+     */
+    constructor(events, ...args) {
+        super(...args);
+        /**
+         * @type {EventAggregator}
+         */
+        this.events = events;
+    }
+    /**
      * Aurelia Bind Event
      * @param  {Object}  bindingContext
      * @param  {Object}  overrideContext
-     * @param  {Boolean} _systemUpdate default true
+     * @param  {Boolean} [_systemUpdate=true]
      * @return {void}
      */
     bind(bindingContext, overrideContext, _systemUpdate = true) {
         this.parent = _.get(overrideContext, 'parentOverrideContext.bindingContext');
         this.drawerElement = this.element.querySelector('.mdc-drawer');
+
+        this.openEvent = this.events.subscribe('mdc:toolbar:menu-icon:click', (target) => {
+            if (this.target !== target) {
+                return;
+            }
+            console.log(this.drawerElement.className,this.drawerElement, this.isOpened())
+            if (this.isOpened()) {
+                this.close();
+            } else {
+                this.open();
+            }
+        });
     }
     /**
      * @return {String}
      */
     get classSet() {
         return [
-            'mdc-drawer mdc-drawer--permanent',
+            'mdc-drawer',
             this.styles
         ].join(' ').trim();
     }
@@ -83,6 +112,12 @@ export class Drawer extends CustomElement {
             'mdc-drawer__drawer',
             this.stylesContent
         ].join(' ').trim();
+    }
+    /**
+     * @return {Boolean}
+     */
+    isOpened() {
+        return this.drawerElement.className.indexOf(this.OPEN_CLASS_STRING) > -1;
     }
     /**
      * @type {String}
@@ -102,10 +137,16 @@ export class Drawer extends CustomElement {
      * Open the drawer
      */
     open() {
-        if (this.drawerElement.className.indexOf(this.OPEN_CLASS_STRING) > -1) {
+        if (this.isOpened()) {
             return;
         }
         this.drawerElement.className += this.OPEN_CLASS_STRING;
+    }
+    /**
+     *
+     */
+    unbind() {
+        this.openEvent.dispose();
     }
 }
 
