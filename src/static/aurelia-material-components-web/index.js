@@ -12,6 +12,6 @@ export { CustomElement } from './custom-element';
 
 export { Button } from './button';
 
-export { Drawer, DrawerContent, DrawerHeader, DrawerPersistent, DrawerTemporary } from './drawer';
+export { Drawer, DrawerContent, DrawerHeader } from './drawer';
 
 export { List } from './list';

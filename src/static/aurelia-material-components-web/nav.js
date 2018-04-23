@@ -66,12 +66,10 @@ export class NavItem extends ListItem {
     }
     /**
      * Aurelia Bind Event
-     * @param  {Object}  bindingContext
-     * @param  {Object}  overrideContext
-     * @param  {Boolean} _systemUpdate default true
-     * @return {void}
      */
-    bind(bindingContext, overrideContext, _systemUpdate = true) {
+    bind(...args) {
+        super.bind(...args);
+        
         waitForVariable(this.router, (r) => r.routes).then(rs => {
             this.element.querySelector('.mdc-list-item').href = this.router.generate(this.route.name, this.route.params || {});
         });

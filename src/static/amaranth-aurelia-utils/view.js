@@ -178,12 +178,11 @@ export class View extends Base {
      * @return {void}
      */
     bind(bindingContext, overrideContext, _systemUpdate = true) {
-        // this.logger.debug('test-life bind', bindingContext, overrideContext, _systemUpdate);
         /**
          * Parent view/model
          * @type {Object}
          */
-        this.parent = overrideContext.parentOverrideContext.bindingContext;
+        this.parent = _.get(overrideContext, 'parentOverrideContext.bindingContext');
     }
     /**
      * Default view settings, as follows

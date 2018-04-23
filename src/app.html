@@ -1,10 +1,15 @@
 <template>
+    <require from="static/aurelia-material-components-web/button"></require>
     <require from="static/aurelia-material-components-web/drawer"></require>
     <require from="static/aurelia-material-components-web/list"></require>
     <require from="static/aurelia-material-components-web/nav"></require>
     <require from="static/aurelia-material-components-web/toolbar"></require>
-    <mdc-toolbar></mdc-toolbar>
-    <mdc-drawer-temporary>
+    <mdc-toolbar>
+        <mdc-toolbar-row>
+            <mdc-toolbar-section-default>Amaranth Aurelia Skeleton</mdc-toolbar-section-default>
+        </mdc-toolbar-row>
+    </mdc-toolbar>
+    <mdc-drawer temporary="1">
         <mdc-drawer-header>
             Header
         </mdc-drawer-header>
@@ -16,14 +21,15 @@
                 </mdc-nav>
             </mdc-list-group>
         </mdc-drawer-content>
-    </mdc-drawer-temporary>
-    `<!-- <header>
+    </mdc-drawer>
+    <mdc-button>Test</mdc-button>
+    <!-- <header>
         <ul>
             <li repeat.for="route of appRoutes" if.bind="route.nav">
                 <a innerhtml.bind="route.title" route-href="route.bind: route.name"></a>
             </li>
         </ul>
-    </header> -->`
+    </header> -->
     <main>
         <router-view></router-view>
     </main>

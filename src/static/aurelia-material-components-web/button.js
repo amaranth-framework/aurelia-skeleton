@@ -26,6 +26,10 @@ export class Button extends CustomElement {
     /**
      * @type {Boolean}
      */
+    @bindable dense = false;
+    /**
+     * @type {Boolean}
+     */
     @bindable disabled = false;
     /**
      * @type {Boolean}
@@ -43,13 +47,13 @@ export class Button extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-button',
-            this.raised && 'mdc-button--raised' || '',
-            this.unelevated && 'mdc-button--unelevated' || '',
-            this.stroked && 'mdc-button--stroked' || '',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({
+            'mdc-button': true,
+            'mdc-button--dense': this.dense,
+            'mdc-button--raised': this.raised,
+            'mdc-button--unelevated': this.unelevated,
+            'mdc-button--stroked': this.stroked
+        });
     }
 }
 

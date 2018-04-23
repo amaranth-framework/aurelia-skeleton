@@ -10,19 +10,11 @@ import { CustomElement } from './custom-element';
 import '@material/drawer/dist/mdc.drawer.min.css';
 
 const template = `<template>
-    <nav class.bind="classSet">
+    <nav class.bind="classSet" click.trigger="events.publish('mdc:drawer:change', target)">
         <nav class.bind="classSetContent">
             <slot></slot>
         </nav>
     </nav>
-</template>`;
-
-const templatePersistent = `<template>
-    <aside class.bind="classSet">
-        <nav class.bind="classSetContent">
-            <slot></slot>
-        </nav>
-    </aside>
 </template>`;
 
 const templateContent = `<template>
@@ -55,13 +47,29 @@ const templateHeader = `<template>
 @inlineView(template)
 export class Drawer extends CustomElement {
     /**
+     * @type {Boolean}
+     */
+    @bindable open = false;
+    /**
+     * @type {Boolean}
+     */
+    @bindable permanent = false;
+    /**
+     * @type {Boolean}
+     */
+    @bindable persistent = false;
+    /**
      * @type {String}
      */
     @bindable stylesContent = '';
     /**
      * @type {String}
      */
-    @bindable target = 'main-drawer';
+    @bindable target = 'default';
+    /**
+     * @type {Boolean}
+     */
+    @bindable temporary = false;
     /**
      * @param {EventAggregator} events
      */
@@ -74,73 +82,40 @@ export class Drawer extends CustomElement {
     }
     /**
      * Aurelia Bind Event
-     * @param  {Object}  bindingContext
-     * @param  {Object}  overrideContext
-     * @param  {Boolean} [_systemUpdate=true]
-     * @return {void}
      */
-    bind(bindingContext, overrideContext, _systemUpdate = true) {
-        this.parent = _.get(overrideContext, 'parentOverrideContext.bindingContext');
+    bind(...args) {
+        super.bind(...args);
+
         this.drawerElement = this.element.querySelector('.mdc-drawer');
 
-        this.openEvent = this.events.subscribe('mdc:toolbar:menu-icon:click', (target) => {
+        if (this.temporary) {
+            this.drawerLegacy = new MDCTemporaryDrawer(this.drawerElement);
+        }
+
+        this.openEvent = this.events.subscribe('mdc:drawer:change', (target) => {
             if (this.target !== target) {
                 return;
             }
-            console.log(this.drawerElement.className,this.drawerElement, this.isOpened())
-            if (this.isOpened()) {
-                this.close();
-            } else {
-                this.open();
-            }
+            this.open = !this.open;
         });
     }
     /**
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-drawer',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({
+            'mdc-drawer': true,
+            'mdc-drawer--open': this.open,
+            'mdc-drawer--permanent': this.permanent,
+            'mdc-drawer--persistent': this.persistent,
+            'mdc-drawer--temporary': this.temporary
+        });
     }
     /**
      * @return {String}
      */
     get classSetContent() {
-        return [
-            'mdc-drawer__drawer',
-            this.stylesContent
-        ].join(' ').trim();
-    }
-    /**
-     * @return {Boolean}
-     */
-    isOpened() {
-        return this.drawerElement.className.indexOf(this.OPEN_CLASS_STRING) > -1;
-    }
-    /**
-     * @type {String}
-     */
-    OPEN_CLASS_STRING = ' mdc-drawer--open';
-    /**
-     * @type {RegExp}
-     */
-    OPEN_CLASS_REGEX = /\s?mdc-drawer--open/g;
-    /**
-     * Close the drawer
-     */
-    close() {
-        this.drawerElement.className = this.drawerElement.className.replace(this.OPEN_CLASS_REGEX, '');
-    }
-    /**
-     * Open the drawer
-     */
-    open() {
-        if (this.isOpened()) {
-            return;
-        }
-        this.drawerElement.className += this.OPEN_CLASS_STRING;
+        return this.prepareClasses({ 'mdc-drawer__drawer': true }, 'Content');
     }
     /**
      *
@@ -170,10 +145,7 @@ export class DrawerContent extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-drawer__content',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-drawer__content': true });
     }
 }
 
@@ -201,76 +173,12 @@ export class DrawerHeader extends CustomElement {
      * @return {String}
      */
     get classSet() {
-        return [
-            'mdc-drawer__header',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-drawer__header': true });
     }
     /**
      * @return {String}
      */
     get classSetContent() {
-        return [
-            'mdc-drawer__header-content',
-            this.stylesContent
-        ].join(' ').trim();
-    }
-}
-
-/**
- * Material Design Drawer
- * @see {@link https://material.io/components/web/catalog/drawers/}
- * @see {@link https://material-components-web.appspot.com/drawer/index.html}
- *
- * @example
- * <require from="aurelia-material-components-web/drawer"></require>
- * <mdc-drawer-persistent>
- *   <!-- Drawer's Content -->
- * </mdc-drawer-persistent>
- */
-@customElement('mdc-drawer-persistent')
-@inlineView(templatePersistent)
-export class DrawerPersistent extends Drawer {
-    /**
-     * @return {String}
-     */
-    get classSet() {
-        return [
-            'mdc-drawer mdc-drawer--persistent',
-            this.styles
-        ].join(' ').trim();
-    }
-}
-
-/**
- * Material Design Drawer
- * @see {@link https://material.io/components/web/catalog/drawers/}
- * @see {@link https://material-components-web.appspot.com/drawer/index.html}
- *
- * @example
- * <require from="aurelia-material-components-web/drawer"></require>
- * <mdc-drawer-temporary>
- *   <!-- Drawer's Content -->
- * </mdc-drawer-temporary>
- */
-@customElement('mdc-drawer-temporary')
-@inlineView(templatePersistent)
-export class DrawerTemporary extends DrawerPersistent {
-    /**
-     * Aurelia Bind Event
-     * @return {void}
-     */
-    bind(...args) {
-        super.bind(...args);
-        this.drawerLegacy = new MDCTemporaryDrawer(this.drawerElement);
-    }
-    /**
-     * @return {String}
-     */
-    get classSet() {
-        return [
-            'mdc-drawer mdc-drawer--temporary',
-            this.styles
-        ].join(' ').trim();
+        return this.prepareClasses({ 'mdc-drawer__header-content': true }, 'Content');
     }
 }

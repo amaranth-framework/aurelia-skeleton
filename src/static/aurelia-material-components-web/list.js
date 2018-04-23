@@ -11,43 +11,6 @@ const list = `<template>
     </ul>
 </template>`;
 
-const listDivider = `<template>
-    <hr class.bind="classSet" />
-</template>`;
-
-const listGroup = `<template>
-    <div class.bind="classSet">
-        <slot></slot>
-    </div>
-</template>`;
-
-const listGroupSubheader = `<template>
-    <h3 class.bind="classSet">
-        <slot></slot>
-    </h3>
-</template>`;
-
-const listItem = `<template>
-    <li class.bind="classSet">
-        <slot></slot>
-    </li>
-</template>`;
-
-const listItemSeparator = `<template>
-    <li class.bind="classSet" role="separator"></li>
-</template>`;
-
-const listItem2Lines = `<template>
-    <li class.bind="classSet">
-        <span class.bind="classSetLineOne">
-            <slot id="lineOne"></slot>
-            <span class.bind="classSetLineTwo">
-                <slot id="lineTwo"></slot>
-            </span>
-        </span>
-    </li>
-</template>`;
-
 /**
  * Material Design List
  * @see {@link https://material.io/components/web/catalog/lists/}
@@ -70,6 +33,10 @@ export class List extends CustomElement {
         ].join(' ').trim();
     }
 }
+
+const listDivider = `<template>
+    <hr class.bind="classSet" />
+</template>`;
 
 /**
  * Material Design List
@@ -94,6 +61,12 @@ export class ListDivider extends CustomElement {
     }
 }
 
+const listGroup = `<template>
+    <div class.bind="classSet">
+        <slot></slot>
+    </div>
+</template>`;
+
 /**
  * Material Design List
  * @see {@link https://material.io/components/web/catalog/lists/}
@@ -116,6 +89,12 @@ export class ListGroup extends CustomElement {
         ].join(' ').trim();
     }
 }
+
+const listGroupSubheader = `<template>
+    <h3 class.bind="classSet">
+        <slot></slot>
+    </h3>
+</template>`;
 
 /**
  * Material Design List
@@ -140,6 +119,12 @@ export class ListGroupSubheader extends CustomElement {
     }
 }
 
+const listItem = `<template>
+    <li class.bind="classSet">
+        <slot></slot>
+    </li>
+</template>`;
+
 /**
  * Material Design List
  * @see {@link https://material.io/components/web/catalog/lists/}
@@ -163,6 +148,10 @@ export class ListItem extends CustomElement {
     }
 }
 
+const listItemSeparator = `<template>
+    <li class.bind="classSet" role="separator"></li>
+</template>`;
+
 /**
  * Material Design List
  * @see {@link https://material.io/components/web/catalog/lists/}
@@ -185,6 +174,17 @@ export class ListItemSeparator extends ListItem {
         ].join(' ').trim();
     }
 }
+
+const listItem2Lines = `<template>
+    <li class.bind="classSet">
+        <span class.bind="classSetLineOne">
+            <slot id="lineOne"></slot>
+            <span class.bind="classSetLineTwo">
+                <slot id="lineTwo"></slot>
+            </span>
+        </span>
+    </li>
+</template>`;
 
 /**
  * Material Design List
