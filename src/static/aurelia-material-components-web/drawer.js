@@ -10,7 +10,7 @@ import { CustomElement } from './custom-element';
 import '@material/drawer/dist/mdc.drawer.min.css';
 
 const template = `<template>
-    <nav class.bind="classSet" click.trigger="events.publish('mdc:drawer:change', target)">
+    <nav class.bind="classSet" click.trigger="events.publish('mdc:drawer:close', target)">
         <nav class.bind="classSetContent">
             <slot></slot>
         </nav>
@@ -46,10 +46,6 @@ const templateHeader = `<template>
 @inject(EventAggregator)
 @inlineView(template)
 export class Drawer extends CustomElement {
-    /**
-     * @type {Boolean}
-     */
-    @bindable open = false;
     /**
      * @type {Boolean}
      */
@@ -93,10 +89,17 @@ export class Drawer extends CustomElement {
         }
 
         this.openEvent = this.events.subscribe('mdc:drawer:change', (target) => {
-            if (this.target !== target) {
+            if (!this.drawerLegacy || this.target !== target) {
                 return;
             }
-            this.open = !this.open;
+            this.drawerLegacy.open = !this.drawerLegacy.open;
+        });
+
+        this.openEvent = this.events.subscribe('mdc:drawer:close', (target) => {
+            if (!this.drawerLegacy || this.target !== target) {
+                return;
+            }
+            this.drawerLegacy.open = false;
         });
     }
     /**
@@ -105,7 +108,7 @@ export class Drawer extends CustomElement {
     get classSet() {
         return this.prepareClasses({
             'mdc-drawer': true,
-            'mdc-drawer--open': this.open,
+            'mdc-drawer--open': this.drawerLegacy && this.drawerLegacy.open,
             'mdc-drawer--permanent': this.permanent,
             'mdc-drawer--persistent': this.persistent,
             'mdc-drawer--temporary': this.temporary
